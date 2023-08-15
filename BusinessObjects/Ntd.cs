@@ -8,6 +8,5 @@ namespace BusinessObjects
 {
     internal class Ntd
     {
-        public string name { get; set; }
     }
 }
