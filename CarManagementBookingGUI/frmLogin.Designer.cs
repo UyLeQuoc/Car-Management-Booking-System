@@ -28,12 +28,106 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            txtEmail = new System.Windows.Forms.TextBox();
+            txtPassword = new System.Windows.Forms.TextBox();
+            lbLogin = new System.Windows.Forms.Label();
+            lbEmail = new System.Windows.Forms.Label();
+            lbPassword = new System.Windows.Forms.Label();
+            btSignin = new System.Windows.Forms.Button();
+            btSignup = new System.Windows.Forms.Button();
+            SuspendLayout();
+            // 
+            // txtEmail
+            // 
+            txtEmail.Location = new System.Drawing.Point(135, 100);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new System.Drawing.Size(282, 27);
+            txtEmail.TabIndex = 0;
+            // 
+            // txtPassword
+            // 
+            txtPassword.Location = new System.Drawing.Point(135, 174);
+            txtPassword.Name = "txtPassword";
+            txtPassword.PasswordChar = '*';
+            txtPassword.Size = new System.Drawing.Size(282, 27);
+            txtPassword.TabIndex = 1;
+            // 
+            // lbLogin
+            // 
+            lbLogin.AutoSize = true;
+            lbLogin.Font = new System.Drawing.Font("Segoe UI Emoji", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            lbLogin.Location = new System.Drawing.Point(224, 32);
+            lbLogin.Name = "lbLogin";
+            lbLogin.Size = new System.Drawing.Size(96, 40);
+            lbLogin.TabIndex = 2;
+            lbLogin.Text = "Login";
+            // 
+            // lbEmail
+            // 
+            lbEmail.AutoSize = true;
+            lbEmail.Location = new System.Drawing.Point(58, 103);
+            lbEmail.Name = "lbEmail";
+            lbEmail.Size = new System.Drawing.Size(46, 20);
+            lbEmail.TabIndex = 3;
+            lbEmail.Text = "Email";
+            // 
+            // lbPassword
+            // 
+            lbPassword.AutoSize = true;
+            lbPassword.Location = new System.Drawing.Point(58, 177);
+            lbPassword.Name = "lbPassword";
+            lbPassword.Size = new System.Drawing.Size(70, 20);
+            lbPassword.TabIndex = 4;
+            lbPassword.Text = "Password";
+            // 
+            // btSignin
+            // 
+            btSignin.Location = new System.Drawing.Point(135, 245);
+            btSignin.Name = "btSignin";
+            btSignin.Size = new System.Drawing.Size(94, 29);
+            btSignin.TabIndex = 5;
+            btSignin.Text = "Sign in";
+            btSignin.UseVisualStyleBackColor = true;
+            btSignin.Click += btSignin_Click;
+            // 
+            // btSignup
+            // 
+            btSignup.Location = new System.Drawing.Point(313, 245);
+            btSignup.Name = "btSignup";
+            btSignup.Size = new System.Drawing.Size(94, 29);
+            btSignup.TabIndex = 6;
+            btSignup.Text = "Sign up";
+            btSignup.UseVisualStyleBackColor = true;
+            btSignup.Click += btSignup_Click;
+            // 
+            // frmLogin
+            // 
+            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(522, 353);
+            Controls.Add(btSignup);
+            Controls.Add(btSignin);
+            Controls.Add(lbPassword);
+            Controls.Add(lbEmail);
+            Controls.Add(lbLogin);
+            Controls.Add(txtPassword);
+            Controls.Add(txtEmail);
+            MinimumSize = new System.Drawing.Size(540, 400);
+            Name = "frmLogin";
+            Text = "Login";
+            Load += frmLogin_Load;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Label lbLogin;
+        private System.Windows.Forms.Label lbEmail;
+        private System.Windows.Forms.Label lbPassword;
+        private System.Windows.Forms.Button btSignin;
+        private System.Windows.Forms.Button btSignup;
     }
 }
