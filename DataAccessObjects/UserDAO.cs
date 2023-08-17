@@ -45,6 +45,7 @@ namespace DataAccessObjects
                 {
                     UserId = 0,
                     Email = adEmail,
+                    FullName = adRole,
                     Password = adPassword,
                     RoleId = adRole
                 };
@@ -61,7 +62,7 @@ namespace DataAccessObjects
             try
             {
                 var context = new CarBookingManagementContext();
-                users = context.TblUsers.ToList();
+                users = context.TblUsers.Where(x => x.IsDeleted == 0).ToList();
                 users = users.Prepend(GetAdminAccount()).ToList();
             } catch (Exception ex)
             {
@@ -105,6 +106,97 @@ namespace DataAccessObjects
             {
                 throw new Exception(ex.Message);
             }
+        }
+
+        public void Update(TblUser user)
+        {
+            if (user == null)
+            {
+                throw new Exception("User is undefined!!");
+            }
+            try
+            {
+                TblUser _user = GetUser(user.UserId);
+                if (_user != null)
+                {
+                    var context = new CarBookingManagementContext();
+                    context.TblUsers.Update(_user);
+                    context.SaveChanges();
+                }
+                else
+                {
+                    throw new Exception("User does not exist!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+        }
+
+        public void Delete(string userId)
+        {
+            if (userId.Length == 0)
+            {
+                throw new Exception("User is undefined!!");
+            }
+            try
+            {
+                TblUser user = GetUser(userId);
+                if (user != null)
+                {
+                    user.IsDeleted = 1;
+                    var context = new CarBookingManagementContext();
+                    context.TblUsers.Update(user);
+                    context.SaveChanges();
+                }
+                else
+                {
+                    throw new Exception("User does not exist!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        private TblUser GetUser(int userId)
+        {
+            TblUser tblUser = null;
+
+            try
+            {
+                using(var context = new CarBookingManagementContext()){
+                    tblUser = context.TblUsers.SingleOrDefault(user => user.UserId == userId);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("User does not exist!!");
+            }
+
+            return tblUser;
+        }
+
+        private TblUser GetUser(string userId)
+        {
+            TblUser tblUser = null;
+
+            try
+            {
+                using (var context = new CarBookingManagementContext())
+                {
+                    tblUser = context.TblUsers.SingleOrDefault(user => user.UserId == int.Parse(userId));
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("User does not exist!!");
+            }
+
+            return tblUser;
         }
     }
 }

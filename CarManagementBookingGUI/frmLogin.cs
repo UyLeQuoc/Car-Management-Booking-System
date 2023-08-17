@@ -45,17 +45,25 @@ namespace CarManagementBookingGUI
                     // phan quyen cho tung role
                     if (ADMIN_ROLE.Equals(loginUser.RoleId))
                     {
-                        frmMain frmMain = new frmMain();
+                        frmMain frmMain = new frmMain
+                        {
+                            loginUser = loginUser
+                        };
                         frmMain.Show();
                         this.Hide();
                         frmMain.FormClosed += (s, args) => this.Close();
-                    } else if (STAFF_ROLE.Equals(loginUser.RoleId))
+                    }
+                    else if (STAFF_ROLE.Equals(loginUser.RoleId))
                     {
-                        frmMain frmMain = new frmMain();
+                        frmMain frmMain = new frmMain
+                        {
+                            loginUser = loginUser
+                        };
                         frmMain.Show();
                         this.Hide();
                         frmMain.FormClosed += (s, args) => this.Close();
-                    } else if (MEMBER_ROLE.Equals (loginUser.RoleId))
+                    }
+                    else if (MEMBER_ROLE.Equals(loginUser.RoleId))
                     {
                         frmViewCar frmViewCar = new frmViewCar();
                         frmViewCar.Show();
@@ -64,7 +72,7 @@ namespace CarManagementBookingGUI
                     }
                     else
                     {
-                        MessageBox.Show("Your role is not supported!", "Login failed", 
+                        MessageBox.Show("Your role is not supported!", "Login failed",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
@@ -73,7 +81,8 @@ namespace CarManagementBookingGUI
                     MessageBox.Show("Incorrect email or password!", "Login failed",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Sign in error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
