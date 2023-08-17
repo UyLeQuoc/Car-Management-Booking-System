@@ -1,6 +1,6 @@
 ﻿namespace CarManagementBookingGUI
 {
-    partial class frmAdmin
+    partial class frmMain
     {
         /// <summary>
         /// Required designer variable.

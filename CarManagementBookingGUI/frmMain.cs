@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CarManagementBookingGUI
 {
-    public partial class frmAdmin : Form
+    public partial class frmMain : Form
     {
-        public frmAdmin()
+        public frmMain()
         {
             InitializeComponent();
         }
