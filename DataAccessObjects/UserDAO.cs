@@ -93,6 +93,12 @@ namespace DataAccessObjects
             try
             {
                 var context = new CarBookingManagementContext();
+                // check duplicate of email
+                var checkDuplicate = context.TblUsers.SingleOrDefault(us => us.Email.Equals(user.Email));
+                if (checkDuplicate != null)
+                {
+                    throw new Exception("Email has already existed!");
+                }
                 context.TblUsers.Add(user);
                 context.SaveChanges();
             } catch (Exception ex)
