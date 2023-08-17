@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace Repositories
 {
-    public interface IUserRepo
+    internal class UserRepository
     {
-        public void AddAUser();
-        public void UpdateAUser();
     }
 }
