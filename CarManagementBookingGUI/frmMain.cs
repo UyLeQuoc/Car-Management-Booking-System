@@ -1,4 +1,6 @@
 ﻿using BusinessObjects;
+using Repositories;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +15,8 @@ namespace CarManagementBookingGUI
 {
     public partial class frmMain : Form
     {
+        IUserRepository userRepository = new UserRepository();
+
         public TblUser loginUser = null;
 
         public frmMain()
@@ -34,7 +38,31 @@ namespace CarManagementBookingGUI
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            txtWelcomeName.Text = loginUser?.FullName?.ToString();
+            LoadProfile(loginUser.UserId.ToString());
+        }
+
+        private void btnViewProfile_Click(object sender, EventArgs e)
+        {
+            TblUser tblUser = userRepository.GetAUser(loginUser.UserId);
+
+            frmUserDetail frmUserDetail = new frmUserDetail
+            {
+                UserRepository = userRepository,
+                InsertOrUpdate = false,
+                tblUser = tblUser,
+                Text = "View profile",
+                loginUser = loginUser
+            };
+            if(frmUserDetail.ShowDialog() == DialogResult.OK)
+            {
+                LoadProfile(tblUser.UserId.ToString());
+            }
+        }
+
+        private void LoadProfile(string id)
+        {
+            txtWelcomeName.Text = userRepository?.GetAUser(id)?.FullName?.ToString();
+
         }
     }
 }
