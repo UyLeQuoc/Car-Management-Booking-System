@@ -53,7 +53,7 @@ namespace CarManagementBookingGUI
                 Text = "View profile",
                 loginUser = loginUser
             };
-            if(frmUserDetail.ShowDialog() == DialogResult.OK)
+            if (frmUserDetail.ShowDialog() == DialogResult.OK)
             {
                 LoadProfile(tblUser.UserId.ToString());
             }
@@ -63,6 +63,12 @@ namespace CarManagementBookingGUI
         {
             txtWelcomeName.Text = userRepository?.GetAUser(id)?.FullName?.ToString();
 
+        }
+
+        private void btnBrandModel_Click(object sender, EventArgs e)
+        {
+            frmModelBrandManagement frmModelBrandManagement = new frmModelBrandManagement();
+            frmModelBrandManagement.Show();
         }
     }
 }
