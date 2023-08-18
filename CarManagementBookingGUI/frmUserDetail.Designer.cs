@@ -42,35 +42,41 @@
             lbFullname = new System.Windows.Forms.Label();
             txtConfirm = new System.Windows.Forms.TextBox();
             label4 = new System.Windows.Forms.Label();
+
             SuspendLayout();
             // 
             // btnCancel
             // 
             btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             btnCancel.Location = new System.Drawing.Point(184, 276);
+
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new System.Drawing.Size(94, 23);
             btnCancel.TabIndex = 45;
             btnCancel.Text = "&Cancel";
             btnCancel.UseVisualStyleBackColor = true;
             btnCancel.Click += btnCancel_Click;
+
             // 
             // btnAdd
             // 
             btnAdd.DialogResult = System.Windows.Forms.DialogResult.OK;
             btnAdd.Location = new System.Drawing.Point(28, 276);
+
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new System.Drawing.Size(94, 23);
             btnAdd.TabIndex = 43;
             btnAdd.Text = "&Add";
             btnAdd.UseVisualStyleBackColor = true;
             btnAdd.Click += btnAdd_Click;
+
             // 
             // cbRole
             // 
             cbRole.FormattingEnabled = true;
             cbRole.Items.AddRange(new object[] { "Admin", "Staff", "Member" });
             cbRole.Location = new System.Drawing.Point(94, 230);
+
             cbRole.Name = "cbRole";
             cbRole.Size = new System.Drawing.Size(184, 23);
             cbRole.TabIndex = 57;
@@ -79,6 +85,7 @@
             // 
             lbRole.AutoSize = true;
             lbRole.Location = new System.Drawing.Point(30, 230);
+
             lbRole.Name = "lbRole";
             lbRole.Size = new System.Drawing.Size(30, 15);
             lbRole.TabIndex = 56;
@@ -87,6 +94,7 @@
             // txtAddress
             // 
             txtAddress.Location = new System.Drawing.Point(94, 186);
+
             txtAddress.Name = "txtAddress";
             txtAddress.Size = new System.Drawing.Size(184, 23);
             txtAddress.TabIndex = 55;
@@ -95,6 +103,7 @@
             // 
             label1.AutoSize = true;
             label1.Location = new System.Drawing.Point(30, 189);
+
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(49, 15);
             label1.TabIndex = 54;
@@ -103,6 +112,7 @@
             // txtPassword
             // 
             txtPassword.Location = new System.Drawing.Point(94, 106);
+
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
             txtPassword.Size = new System.Drawing.Size(184, 23);
@@ -112,6 +122,7 @@
             // 
             label2.AutoSize = true;
             label2.Location = new System.Drawing.Point(30, 109);
+
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(57, 15);
             label2.TabIndex = 52;
@@ -120,6 +131,7 @@
             // txtEmail
             // 
             txtEmail.Location = new System.Drawing.Point(94, 65);
+
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new System.Drawing.Size(184, 23);
             txtEmail.TabIndex = 51;
@@ -128,6 +140,7 @@
             // 
             label3.AutoSize = true;
             label3.Location = new System.Drawing.Point(28, 68);
+
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(36, 15);
             label3.TabIndex = 50;
@@ -136,6 +149,7 @@
             // txtFullname
             // 
             txtFullname.Location = new System.Drawing.Point(94, 24);
+
             txtFullname.Name = "txtFullname";
             txtFullname.Size = new System.Drawing.Size(184, 23);
             txtFullname.TabIndex = 49;
@@ -144,6 +158,7 @@
             // 
             lbFullname.AutoSize = true;
             lbFullname.Location = new System.Drawing.Point(28, 27);
+
             lbFullname.Name = "lbFullname";
             lbFullname.Size = new System.Drawing.Size(56, 15);
             lbFullname.TabIndex = 48;
@@ -164,6 +179,7 @@
             label4.Size = new System.Drawing.Size(51, 15);
             label4.TabIndex = 58;
             label4.Text = "Confirm";
+
             // 
             // frmUserDetail
             // 
@@ -172,6 +188,7 @@
             ClientSize = new System.Drawing.Size(317, 320);
             Controls.Add(txtConfirm);
             Controls.Add(label4);
+
             Controls.Add(cbRole);
             Controls.Add(lbRole);
             Controls.Add(txtAddress);
@@ -182,6 +199,7 @@
             Controls.Add(label3);
             Controls.Add(txtFullname);
             Controls.Add(lbFullname);
+
             Controls.Add(btnCancel);
             Controls.Add(btnAdd);
             Name = "frmUserDetail";
@@ -207,5 +225,6 @@
         private System.Windows.Forms.Label lbFullname;
         private System.Windows.Forms.TextBox txtConfirm;
         private System.Windows.Forms.Label label4;
+
     }
 }

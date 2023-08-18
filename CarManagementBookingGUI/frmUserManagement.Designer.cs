@@ -30,6 +30,7 @@
         {
             grFilter = new System.Windows.Forms.GroupBox();
             cboSearchRole = new System.Windows.Forms.ComboBox();
+
             lbSearchCountry = new System.Windows.Forms.Label();
             grSearch = new System.Windows.Forms.GroupBox();
             radioByName = new System.Windows.Forms.RadioButton();
@@ -60,6 +61,7 @@
             // grFilter
             // 
             grFilter.Controls.Add(cboSearchRole);
+
             grFilter.Controls.Add(lbSearchCountry);
             grFilter.Location = new System.Drawing.Point(376, 203);
             grFilter.Name = "grFilter";
@@ -75,6 +77,7 @@
             cboSearchRole.Size = new System.Drawing.Size(165, 23);
             cboSearchRole.TabIndex = 0;
             cboSearchRole.SelectedIndexChanged += cboSearchRole_SelectedIndexChanged;
+
             // 
             // lbSearchCountry
             // 
@@ -138,6 +141,7 @@
             btnSearch.Text = "&Search";
             btnSearch.UseVisualStyleBackColor = true;
             btnSearch.Click += btnSearch_Click;
+
             // 
             // lbSearch
             // 
@@ -316,6 +320,7 @@
         #endregion
         private System.Windows.Forms.GroupBox grFilter;
         private System.Windows.Forms.ComboBox cboSearchRole;
+
         private System.Windows.Forms.Label lbSearchCountry;
         private System.Windows.Forms.GroupBox grSearch;
         private System.Windows.Forms.RadioButton radioByName;

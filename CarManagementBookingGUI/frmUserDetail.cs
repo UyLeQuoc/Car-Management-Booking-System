@@ -34,6 +34,7 @@ namespace CarManagementBookingGUI
             }
             if (InsertOrUpdate)
             {
+
                 btnAdd.Text = "Add";
                 cbRole.SelectedIndex = 0;
             }

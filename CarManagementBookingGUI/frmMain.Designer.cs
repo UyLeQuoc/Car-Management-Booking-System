@@ -33,6 +33,7 @@
             button2 = new System.Windows.Forms.Button();
             label1 = new System.Windows.Forms.Label();
             btnViewProfile = new System.Windows.Forms.Button();
+
             txtWelcomeName = new System.Windows.Forms.Label();
             button4 = new System.Windows.Forms.Button();
             SuspendLayout();
@@ -74,8 +75,7 @@
             label1.TabIndex = 3;
             label1.Text = "Welcome: ";
             // 
-            // btnViewProfile
-            // 
+
             btnViewProfile.DialogResult = System.Windows.Forms.DialogResult.OK;
             btnViewProfile.Location = new System.Drawing.Point(189, 78);
             btnViewProfile.Name = "btnViewProfile";
@@ -84,6 +84,7 @@
             btnViewProfile.Text = "View Profile";
             btnViewProfile.UseVisualStyleBackColor = true;
             btnViewProfile.Click += btnViewProfile_Click;
+
             // 
             // txtWelcomeName
             // 
@@ -112,6 +113,7 @@
             Controls.Add(button4);
             Controls.Add(txtWelcomeName);
             Controls.Add(btnViewProfile);
+
             Controls.Add(label1);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -130,6 +132,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnViewProfile;
+
         private System.Windows.Forms.Label txtWelcomeName;
         private System.Windows.Forms.Button button4;
     }

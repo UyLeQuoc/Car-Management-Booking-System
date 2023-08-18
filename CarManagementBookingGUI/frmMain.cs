@@ -1,5 +1,6 @@
 ﻿using BusinessObjects;
 using Repositories;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,7 @@ namespace CarManagementBookingGUI
     public partial class frmMain : Form
     {
         IUserRepository userRepository = new UserRepository();
+
         public TblUser loginUser = null;
 
         public frmMain()
@@ -60,6 +62,7 @@ namespace CarManagementBookingGUI
         private void LoadProfile(string id)
         {
             txtWelcomeName.Text = userRepository?.GetAUser(id)?.FullName?.ToString();
+
         }
     }
 }

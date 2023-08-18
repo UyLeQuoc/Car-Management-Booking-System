@@ -142,6 +142,7 @@ namespace DataAccessObjects
                 {
                     var context = new CarBookingManagementContext();
                     context.TblUsers.Update(user);
+
                     context.SaveChanges();
                 }
                 else
@@ -165,6 +166,7 @@ namespace DataAccessObjects
             try
             {
                 TblUser user = GetUser(int.Parse(userId));
+
                 if (user != null)
                 {
                     user.IsDeleted = 1;
@@ -184,6 +186,7 @@ namespace DataAccessObjects
         }
 
         public TblUser GetUser(int userId)
+
         {
             TblUser tblUser = null;
 
@@ -191,6 +194,7 @@ namespace DataAccessObjects
             {
                 var context = GetAllUsers();
                 tblUser = context.SingleOrDefault(user => user.UserId == userId);
+
             }
             catch (Exception ex)
             {
@@ -200,5 +204,24 @@ namespace DataAccessObjects
             return tblUser;
         }
 
+
+        private TblUser GetUser(string userId)
+        {
+            TblUser tblUser = null;
+
+            try
+            {
+                using (var context = new CarBookingManagementContext())
+                {
+                    tblUser = context.TblUsers.SingleOrDefault(user => user.UserId == int.Parse(userId));
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("User does not exist!!");
+            }
+
+            return tblUser;
+        }
     }
 }

@@ -27,6 +27,7 @@ namespace CarManagementBookingGUI
         List<TblUser> filterResult;
 
 
+
         public frmUserManagement()
         {
             InitializeComponent();
@@ -97,6 +98,7 @@ namespace CarManagementBookingGUI
                 tblUser = tblUser,
                 Text = "Update user info",
                 loginUser = this.loginUser,
+
             };
 
             if (frmUserDetail.ShowDialog() == DialogResult.OK)
@@ -276,5 +278,6 @@ namespace CarManagementBookingGUI
                 MessageBox.Show(ex.Message);
             }
         }
+
     }
 }

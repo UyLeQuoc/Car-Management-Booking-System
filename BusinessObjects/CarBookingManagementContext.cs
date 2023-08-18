@@ -38,7 +38,7 @@ namespace BusinessObjects
             optionsBuilder.UseSqlServer(GetConnectionString());
         }
 
-        string GetConnectionString()
+        public static string GetConnectionString()
         {
             IConfiguration builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())

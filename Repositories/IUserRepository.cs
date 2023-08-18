@@ -26,5 +26,6 @@ namespace Repositories
         public List<TblUser> SearchUserByName(string name);
 
         public List<TblUser> SearchUserById(int id);
+
     }
 }
