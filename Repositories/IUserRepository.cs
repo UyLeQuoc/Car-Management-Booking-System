@@ -18,5 +18,13 @@ namespace Repositories
         public void UpdateAUser(TblUser user);
 
         public void DeleteAUser(TblUser user);
+
+        public TblUser GetAUser(string id);
+
+        public TblUser GetAUser(int id);
+
+        public List<TblUser> SearchUserByName(string name);
+
+        public List<TblUser> SearchUserById(int id);
     }
 }

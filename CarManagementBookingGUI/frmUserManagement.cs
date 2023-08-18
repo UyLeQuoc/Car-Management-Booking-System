@@ -19,6 +19,13 @@ namespace CarManagementBookingGUI
         IUserRepository userRepository = new UserRepository();
         BindingSource source;
 
+        bool search = false;
+        bool filter = false;
+
+        List<TblUser> dataSource;
+        List<TblUser> searchResult;
+        List<TblUser> filterResult;
+
 
         public frmUserManagement()
         {
@@ -88,7 +95,8 @@ namespace CarManagementBookingGUI
                 UserRepository = this.userRepository,
                 InsertOrUpdate = false,
                 tblUser = tblUser,
-                Text = "Update user info"
+                Text = "Update user info",
+                loginUser = this.loginUser,
             };
 
             if (frmUserDetail.ShowDialog() == DialogResult.OK)
@@ -145,6 +153,127 @@ namespace CarManagementBookingGUI
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Delete User", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cboSearchRole_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cboSearchRole.DataSource != null)
+                {
+                    string role = cboSearchRole.SelectedItem.ToString();
+
+
+                    if (!string.IsNullOrEmpty(role))
+                    {
+                        List<TblUser> searchResult;
+
+                        if (search)
+                        {
+                            //searchResult = memberRepository.SearchMemberByCity(country, city, this.searchResult);
+                        }
+                        else
+                        {
+                            //searchResult = memberRepository.SearchMemberByCity(country, city, this.dataSource);
+                        }
+                        /*
+                        if (searchResult.Any())
+                        {
+                            filter = true;
+                            filterResult = searchResult;
+                            LoadList();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No result found!", "Search member", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }*/
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Search member", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string searchValue = txtSearchValue.Text;
+                if (radioByID.Checked)
+                {
+                    int searchID = int.Parse(searchValue);
+                    List<TblUser> searchResult = userRepository.SearchUserById(searchID);
+                    if (searchResult.Count != 0)
+                    {
+                        this.dataSource = searchResult;
+                        this.searchResult = searchResult;
+                        this.filterResult = searchResult;
+                        filter = false;
+                        search = true;
+                        LoadUserList();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No result found!", "Search member", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                }
+                else if (radioByName.Checked)
+                {
+                    string searchName = searchValue;
+                    List<TblUser> searchResult = userRepository.SearchUserByName(searchName);
+                    if (searchResult.Count != 0)
+                    {
+                        dataSource = searchResult;
+                        this.searchResult = searchResult;
+                        this.filterResult = searchResult;
+                        filter = false;
+                        search = true;
+                        LoadUserList();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No result found!", "Search member", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Search member", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void LoadUserList()
+        {
+            try
+            {
+                BindingSource sourceUser = new BindingSource();
+                sourceUser.DataSource = searchResult;
+
+                txtUserID.DataBindings.Clear();
+                txtFullname.DataBindings.Clear();
+                txtAddress.DataBindings.Clear();
+                txtEmail.DataBindings.Clear();
+                txtPassword.DataBindings.Clear();
+                cbRole.DataBindings.Clear();
+
+                txtUserID.DataBindings.Add("Text", source, "UserId");
+                txtFullname.DataBindings.Add("Text", source, "Fullname");
+                txtPassword.DataBindings.Add("Text", source, "Password");
+                txtEmail.DataBindings.Add("Text", source, "Email");
+                txtAddress.DataBindings.Add("Text", source, "Address");
+                cbRole.DataBindings.Add("Text", source, "RoleId");
+
+                dgvMemberList.DataSource = null;
+                dgvMemberList.DataSource = sourceUser;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

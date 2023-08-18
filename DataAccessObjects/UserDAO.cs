@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace DataAccessObjects
 {
@@ -47,7 +48,8 @@ namespace DataAccessObjects
                     Email = adEmail,
                     FullName = adRole,
                     Password = adPassword,
-                    RoleId = adRole
+                    RoleId = adRole,
+                    Address = ""
                 };
             } catch (Exception ex)
             {
@@ -71,13 +73,32 @@ namespace DataAccessObjects
             return users;
         }
 
-        public TblUser checkLogin(string email, string passwword)
+        public List<TblUser> SearchUserByName(string name)
+        {
+            List<TblUser> users = GetAllUsers();
+
+            users.Where(user => user.FullName.ToLower().Contains(name.ToLower())).ToList();
+
+            return users;
+        }
+
+        public List<TblUser> SearchUserById(int id)
+        {
+            List<TblUser> users = GetAllUsers();
+
+            users = users.Where(user => user.UserId == id).ToList();
+
+            return users;
+        }
+
+
+        public TblUser checkLogin(string email, string password)
         {
             TblUser user = null;
             try
             {
                 var context = GetAllUsers();
-                user = context.FirstOrDefault(us => us.Email.Equals(email) && us.Password.Equals(passwword));
+                user = context.SingleOrDefault(us => us.Email.Equals(email) && us.Password.Equals(password));
             } catch (Exception ex)
             {
                 throw new Exception(ex.Message);
@@ -120,7 +141,7 @@ namespace DataAccessObjects
                 if (_user != null)
                 {
                     var context = new CarBookingManagementContext();
-                    context.TblUsers.Update(_user);
+                    context.TblUsers.Update(user);
                     context.SaveChanges();
                 }
                 else
@@ -143,7 +164,7 @@ namespace DataAccessObjects
             }
             try
             {
-                TblUser user = GetUser(userId);
+                TblUser user = GetUser(int.Parse(userId));
                 if (user != null)
                 {
                     user.IsDeleted = 1;
@@ -162,15 +183,14 @@ namespace DataAccessObjects
             }
         }
 
-        private TblUser GetUser(int userId)
+        public TblUser GetUser(int userId)
         {
             TblUser tblUser = null;
 
             try
             {
-                using(var context = new CarBookingManagementContext()){
-                    tblUser = context.TblUsers.SingleOrDefault(user => user.UserId == userId);
-                }
+                var context = GetAllUsers();
+                tblUser = context.SingleOrDefault(user => user.UserId == userId);
             }
             catch (Exception ex)
             {
@@ -180,23 +200,5 @@ namespace DataAccessObjects
             return tblUser;
         }
 
-        private TblUser GetUser(string userId)
-        {
-            TblUser tblUser = null;
-
-            try
-            {
-                using (var context = new CarBookingManagementContext())
-                {
-                    tblUser = context.TblUsers.SingleOrDefault(user => user.UserId == int.Parse(userId));
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("User does not exist!!");
-            }
-
-            return tblUser;
-        }
     }
 }
