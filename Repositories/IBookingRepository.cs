@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Repositories
 {
-    internal class OrderRepository
+    public interface IBookingRepository
     {
+        public void InsertNewBooking(double total, int userid);
+        public int GetIdNewBooking();
     }
 }
