@@ -75,6 +75,7 @@ namespace CarManagementBookingGUI
                 try
                 {
                     Login.Visible = false;
+                    btnViewOrder.Visible = false;
                     listCar = carRepo.ViewListCar();
                     var cars = from car in listCar
                                select new { car.CarName, car.CarPlate, car.PricePerHour, car.Brand.BrandName, car.Model.ModelName };
@@ -276,7 +277,7 @@ namespace CarManagementBookingGUI
 
         private void btnAddCart_Click(object sender, EventArgs e)
         {
-            
+
 
             if (GetCountinView != 0)
             {
@@ -321,7 +322,7 @@ namespace CarManagementBookingGUI
                 frmDetail.ShowDialog();
                 Close();
             }
-                           
+
         }
 
         private void btnViewCart_Click(object sender, EventArgs e)
@@ -371,6 +372,20 @@ namespace CarManagementBookingGUI
                 }
             }
 
+        }
+
+        private void btnViewOrder_Click(object sender, EventArgs e)
+        {
+            Hide();
+            frmBooking frmOrder = new frmBooking()
+            {
+                GetInfoUserinOrder = GetInfoUser,
+                GetCountinOrder = GetCountinView,
+                GetListOrderinOrder = GetListOrderinCreate,
+                checkEmptyinOrder = checkEmptyinView,
+            };
+            frmOrder.ShowDialog();
+            Close();
         }
     }
 }

@@ -10,6 +10,11 @@ namespace Repositories
 {
     public class BookingDetailRepository : IBookingDetailRepository
     {
+        public IEnumerable<TblBookingDetail> GetListBookingDeatilById(int bookingId)
+        {
+            return BookingDetailDAO.Instance.GetListBookingDeatilById(bookingId);
+        }
+
         public IEnumerable<TblBookingDetail> GetListOrderDetail(int carID)
         {
             return BookingDetailDAO.Instance.GetListCarinBookingDetail(carID);

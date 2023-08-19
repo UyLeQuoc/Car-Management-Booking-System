@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,5 +11,6 @@ namespace Repositories
     {
         public void InsertNewBooking(double total, int userid);
         public int GetIdNewBooking();
+        public IEnumerable<TblBooking> GetListBooking(int userid);
     }
 }

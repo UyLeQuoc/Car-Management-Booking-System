@@ -44,5 +44,12 @@ namespace DataAccessObjects
             string query = $"insert into tblBookingDetails\r\n  values ({carid}, {bookingid}, {subprice}, '{formattedBookingDate}', '{formattedBookingExpired}', 0)";
             context.Database.ExecuteSqlRaw(query);
         }
+
+        public IEnumerable<TblBookingDetail> GetListBookingDeatilById(int bookingId)
+        {
+            var context = new CarBookingManagementContext();
+            var listDeatil = context.TblBookingDetails.Include(y => y.Car).Where(x => x.BookingId == bookingId);
+            return (listDeatil.ToList());
+        }
     }
 }

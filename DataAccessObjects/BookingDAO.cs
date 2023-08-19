@@ -44,5 +44,12 @@ namespace DataAccessObjects
                         select tmp.BookingId).FirstOrDefault();
             return newId;                        
         }
+
+        public IEnumerable<TblBooking> GetListBooking(int userid)
+        {
+            var context = new CarBookingManagementContext();
+            var listBooking = context.TblBookings;
+            return listBooking;
+        }
     }
 }

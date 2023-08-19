@@ -15,9 +15,15 @@ namespace Repositories
             return BookingDAO.Instance.GetIdNewBooking();
         }
 
+        public IEnumerable<TblBooking> GetListBooking(int userid)
+        {
+           return BookingDAO.Instance.GetListBooking(userid);
+        }
+
         public void InsertNewBooking(double total, int userid)
         {
             BookingDAO.Instance.InsertNewBooking(total, userid);
         }
+
     }
 }

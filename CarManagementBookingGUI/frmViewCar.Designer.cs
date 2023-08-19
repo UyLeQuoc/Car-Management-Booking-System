@@ -55,6 +55,7 @@
             btnLoad = new System.Windows.Forms.Button();
             btnAddCart = new System.Windows.Forms.Button();
             btnViewCart = new System.Windows.Forms.Button();
+            btnViewOrder = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)dgvViewCar).BeginInit();
             grSearch.SuspendLayout();
             grFilter.SuspendLayout();
@@ -335,11 +336,23 @@
             btnViewCart.UseVisualStyleBackColor = true;
             btnViewCart.Click += btnViewCart_Click;
             // 
+            // btnViewOrder
+            // 
+            btnViewOrder.Location = new System.Drawing.Point(552, 185);
+            btnViewOrder.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            btnViewOrder.Name = "btnViewOrder";
+            btnViewOrder.Size = new System.Drawing.Size(91, 31);
+            btnViewOrder.TabIndex = 78;
+            btnViewOrder.Text = "&ViewOrder";
+            btnViewOrder.UseVisualStyleBackColor = true;
+            btnViewOrder.Click += btnViewOrder_Click;
+            // 
             // frmViewCar
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(846, 611);
+            Controls.Add(btnViewOrder);
             Controls.Add(btnViewCart);
             Controls.Add(btnAddCart);
             Controls.Add(btnLoad);
@@ -402,5 +415,6 @@
         private System.Windows.Forms.NumericUpDown txtTo;
         private System.Windows.Forms.Button btnAddCart;
         private System.Windows.Forms.Button btnViewCart;
+        private System.Windows.Forms.Button btnViewOrder;
     }
 }
