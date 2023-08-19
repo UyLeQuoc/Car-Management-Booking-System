@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -64,9 +65,10 @@ namespace DataAccessObjects
             try
             {
                 var context = new CarBookingManagementContext();
-                IEnumerable<TblCar> carList = context.TblCars.Include(x => x.Brand).Include(x=>x.Model).Where(x => x.CarId == carID);
+                IEnumerable<TblCar> carList = context.TblCars.Include(x => x.Brand).Include(x => x.Model).Where(x => x.CarId == carID);
                 return carList;
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
@@ -91,8 +93,91 @@ namespace DataAccessObjects
             try
             {
                 var context = new CarBookingManagementContext();
-                IEnumerable<TblCar> carList = context.TblCars.Include(x => x.Brand).Include(x => x.Model).Where(x => x.PricePerHour >= from && x.PricePerHour <= to);
+                IEnumerable<TblCar> carList = null;
+                if (to == -100)
+                {
+                    carList = context.TblCars.Include(x => x.Brand).Include(x => x.Model).Where(x => x.PricePerHour >= from);
+                }
+                else if (from == -100)
+                {
+                    carList = context.TblCars.Include(x => x.Brand).Include(x => x.Model).Where(x => x.PricePerHour <= to);
+                }
+                else
+                {
+                    carList = context.TblCars.Include(x => x.Brand).Include(x => x.Model).Where(x => x.PricePerHour >= from && x.PricePerHour <= to);
+                }
                 return carList;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public TblCar GetCarByID(int carId)
+        {
+            try
+            {
+                var context = new CarBookingManagementContext();
+                TblCar car = context.TblCars.Include(x => x.Brand).Include(x => x.Model).SingleOrDefault(x => x.CarId == carId);
+                return car;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public void AddnewCar(TblCar car)
+        {
+            try
+            {
+                var context = new CarBookingManagementContext();
+                context.TblCars.Add(car);
+                context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public TblCar GetCarByCarPlate(string carPlate)
+        {
+            try
+            {
+                var context = new CarBookingManagementContext();
+                TblCar car = context.TblCars.SingleOrDefault(c => c.CarPlate == carPlate);
+                return car;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public void UpdateCar(TblCar car)
+        {
+            try
+            {
+                var context = new CarBookingManagementContext();
+
+                context.TblCars.Update(car);
+                context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public TblCar GetCarByCarPlateExcept(string carPlate, int carID)
+        {
+            try
+            {
+                var context = new CarBookingManagementContext();
+                TblCar car = context.TblCars.Where(x => x.CarId != carID).SingleOrDefault(c => c.CarPlate == carPlate);
+                return car;
             }
             catch (Exception ex)
             {

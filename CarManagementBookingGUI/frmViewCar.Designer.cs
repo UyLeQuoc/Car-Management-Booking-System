@@ -28,12 +28,52 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            SuspendLayout();
+            // 
+            // frmViewCar
+            // 
+            AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(1516, 1368);
+            Name = "frmViewCar";
+            Text = "Car Management";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private System.Windows.Forms.TextBox txtIsDeleted;
+        private System.Windows.Forms.Label lb10;
+        private System.Windows.Forms.TextBox txtModel;
+        private System.Windows.Forms.TextBox txtBrand;
+        private System.Windows.Forms.TextBox txtCarPlate;
+        private System.Windows.Forms.GroupBox grFilter;
+        private System.Windows.Forms.Button btnFilter;
+        private System.Windows.Forms.TextBox txtTo;
+        private System.Windows.Forms.Label lbTo;
+        private System.Windows.Forms.TextBox txtFrom;
+        private System.Windows.Forms.Label lbFrom;
+        private System.Windows.Forms.RadioButton radioStock;
+        private System.Windows.Forms.RadioButton radioPrice;
+        private System.Windows.Forms.GroupBox grSearch;
+        private System.Windows.Forms.RadioButton radioByName;
+        private System.Windows.Forms.RadioButton radioByID;
+        private System.Windows.Forms.TextBox txtSearchValue;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Label lbSearch;
+        private System.Windows.Forms.DataGridView dgvCarsList;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnNew;
+        private System.Windows.Forms.Button btnLoad;
+        private System.Windows.Forms.Label lbUnitsInStock;
+        private System.Windows.Forms.Label lbUnitPrice;
+        private System.Windows.Forms.Label lbWeight;
+        private System.Windows.Forms.TextBox txtPricePerHour;
+        private System.Windows.Forms.Label lbCategory;
+        private System.Windows.Forms.TextBox txtCarName;
+        private System.Windows.Forms.Label lbMemberName;
+        private System.Windows.Forms.TextBox txtCarID;
+        private System.Windows.Forms.Label lbProductID;
+        private System.Windows.Forms.Button btnBack;
     }
 }

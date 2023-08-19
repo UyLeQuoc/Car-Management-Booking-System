@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BusinessObjects;
+using Microsoft.Data.SqlClient;
+using Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +15,24 @@ namespace CarManagementBookingGUI
 {
     public partial class frmViewCar : Form
     {
+      
         public frmViewCar()
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+       
+
+
     }
 }

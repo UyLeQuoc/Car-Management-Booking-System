@@ -9,12 +9,17 @@ namespace Repositories
 {
     public interface ICarRepository
     {
-        public IEnumerable<TblCar> GetAllCars();
-
-        public void DeleteCar(int carId);
-
-        public IEnumerable<TblCar> SearchCarByID(int carID);
+        void DeleteCar(int carId);
+        void AddNewCar(TblCar car);
+        void UpdateCar(TblCar car);
+        TblCar GetCarByCarPlateExcept(string carPlate, int carID);
+        TblCar GetCarByCarPlate(string carPlate);
+        TblCar GetCarByID(int carId);
+        IEnumerable<TblCar> GetAllCars();
+        IEnumerable<TblCar> SearchCarByID(int carID);
         IEnumerable<TblCar> SearchCarByName(string carName);
         IEnumerable<TblCar> FilterCars(decimal from, decimal to);
+
+
     }
 }

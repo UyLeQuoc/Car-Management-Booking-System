@@ -113,6 +113,10 @@ namespace CarManagementBookingGUI
                     IEnumerable<TblCar> carList = null;
                     if (radioByID.Checked)
                     {
+                        if (txtSearchValue.Text.Length == 0)
+                        {
+                            throw new Exception("Please fill out the field!");
+                        }
                         isSearchById = true;
                         isSearchByName = false;
                         int carID = int.Parse(txtSearchValue.Text);
@@ -147,24 +151,101 @@ namespace CarManagementBookingGUI
         {
             try
             {
-                isFilter = true;
-                decimal from = decimal.Parse(txtFrom.Text);
-                decimal to = decimal.Parse(txtTo.Text);
-                IEnumerable<TblCar> carList = carRepository.FilterCars(from, to);
-
-                if (carList.Any())
+                if (txtFrom.Text.Length == 0 && txtTo.Text.Length == 0)
                 {
-                    LoadCarsToUI(carList);
+                    throw new Exception("Please fill out at least one field!");
                 }
                 else
                 {
-                    throw new Exception("No search found!");
+                    isFilter = true;
+                    IEnumerable<TblCar> carList = null;
+                    if (txtFrom.Text.Length != 0 && txtTo.Text.Length != 0)
+                    {
+                        decimal from = decimal.Parse(txtFrom.Text);
+                        decimal to = decimal.Parse(txtTo.Text);
+                        if (from < 0 || to < 0 || from > to)
+                        {
+                            throw new Exception("Invalid filter values!");
+                        }
+                        carList = carRepository.FilterCars(from, to);
+                    }
+                    else if (txtFrom.Text.Length != 0 && txtTo.Text.Length == 0)
+                    {
+                        decimal from = decimal.Parse(txtFrom.Text);
+                        if (from < 0)
+                        {
+                            throw new Exception("Invalid filter values!");
+                        }
+                        carList = carRepository.FilterCars(from, -100);
+                    }
+                    else if (txtFrom.Text.Length == 0 && txtTo.Text.Length != 0)
+                    {
+                        decimal to = decimal.Parse(txtTo.Text);
+                        if (to < 0)
+                        {
+                            throw new Exception("Invalid filter values!");
+                        }
+                        carList = carRepository.FilterCars(-100, to);
+                    }
+
+                    if (carList.Any())
+                    {
+                        LoadCarsToUI(carList);
+                    }
+                    else
+                    {
+                        throw new Exception("No search found!");
+                    }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Search car", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private TblCar GetCurrentCar()
+        {
+            int carID = int.Parse(txtCarID.Text);
+            TblCar car = carRepository.GetCarByID(carID);
+            return car;
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmCarDetail frmCarDetail = new frmCarDetail()
+            {
+                isUpdate = false,
+                curCar = GetCurrentCar(),
+            };
+            frmCarDetail.ShowDialog();
+            this.Close();
+        }
+
+        private void dgvCarsList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvCarsList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.Hide();
+            frmCarDetail frm = new frmCarDetail()
+            {
+                isUpdate = true,
+                curCar = GetCurrentCar(),
+            };
+            frm.ShowDialog();
+            this.Close();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmStaff frmStaff = new frmStaff();
+            frmStaff.ShowDialog();
+            this.Close();
         }
     }
 }

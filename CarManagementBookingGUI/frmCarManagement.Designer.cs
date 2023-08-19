@@ -1,4 +1,7 @@
-﻿namespace CarManagementBookingGUI
+﻿using System;
+using System.Windows.Forms;
+
+namespace CarManagementBookingGUI
 {
     partial class frmCarManagement
     {
@@ -28,37 +31,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnBack = new System.Windows.Forms.Button();
-            txtIsDeleted = new System.Windows.Forms.TextBox();
-            lb10 = new System.Windows.Forms.Label();
-            txtModel = new System.Windows.Forms.TextBox();
-            txtBrand = new System.Windows.Forms.TextBox();
-            txtCarPlate = new System.Windows.Forms.TextBox();
-            grFilter = new System.Windows.Forms.GroupBox();
-            btnFilter = new System.Windows.Forms.Button();
-            txtTo = new System.Windows.Forms.TextBox();
-            lbTo = new System.Windows.Forms.Label();
-            txtFrom = new System.Windows.Forms.TextBox();
-            lbFrom = new System.Windows.Forms.Label();
-            grSearch = new System.Windows.Forms.GroupBox();
-            radioByName = new System.Windows.Forms.RadioButton();
-            radioByID = new System.Windows.Forms.RadioButton();
-            txtSearchValue = new System.Windows.Forms.TextBox();
-            btnSearch = new System.Windows.Forms.Button();
-            lbSearch = new System.Windows.Forms.Label();
-            dgvCarsList = new System.Windows.Forms.DataGridView();
-            btnDelete = new System.Windows.Forms.Button();
-            btnNew = new System.Windows.Forms.Button();
-            btnLoad = new System.Windows.Forms.Button();
-            lbUnitsInStock = new System.Windows.Forms.Label();
-            lbUnitPrice = new System.Windows.Forms.Label();
-            lbWeight = new System.Windows.Forms.Label();
-            txtPricePerHour = new System.Windows.Forms.TextBox();
-            lbCategory = new System.Windows.Forms.Label();
-            txtCarName = new System.Windows.Forms.TextBox();
-            lbMemberName = new System.Windows.Forms.Label();
-            txtCarID = new System.Windows.Forms.TextBox();
-            lbProductID = new System.Windows.Forms.Label();
+            btnBack = new Button();
+            txtIsDeleted = new TextBox();
+            lb10 = new Label();
+            txtModel = new TextBox();
+            txtBrand = new TextBox();
+            txtCarPlate = new TextBox();
+            grFilter = new GroupBox();
+            btnFilter = new Button();
+            txtTo = new TextBox();
+            lbTo = new Label();
+            txtFrom = new TextBox();
+            lbFrom = new Label();
+            grSearch = new GroupBox();
+            radioByName = new RadioButton();
+            radioByID = new RadioButton();
+            txtSearchValue = new TextBox();
+            btnSearch = new Button();
+            lbSearch = new Label();
+            dgvCarsList = new DataGridView();
+            btnDelete = new Button();
+            btnNew = new Button();
+            btnLoad = new Button();
+            lbUnitsInStock = new Label();
+            lbUnitPrice = new Label();
+            lbWeight = new Label();
+            txtPricePerHour = new TextBox();
+            lbCategory = new Label();
+            txtCarName = new TextBox();
+            lbMemberName = new Label();
+            txtCarID = new TextBox();
+            lbProductID = new Label();
             grFilter.SuspendLayout();
             grSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCarsList).BeginInit();
@@ -66,58 +69,58 @@
             // 
             // btnBack
             // 
-            btnBack.Location = new System.Drawing.Point(340, 788);
-            btnBack.Margin = new System.Windows.Forms.Padding(2);
+            btnBack.Location = new System.Drawing.Point(552, 1261);
             btnBack.Name = "btnBack";
-            btnBack.Size = new System.Drawing.Size(124, 35);
+            btnBack.Size = new System.Drawing.Size(202, 56);
             btnBack.TabIndex = 106;
             btnBack.Text = "Back";
             btnBack.UseVisualStyleBackColor = true;
+            btnBack.Click += btnBack_Click;
             // 
             // txtIsDeleted
             // 
             txtIsDeleted.Enabled = false;
-            txtIsDeleted.Location = new System.Drawing.Point(569, 178);
-            txtIsDeleted.Margin = new System.Windows.Forms.Padding(4);
+            txtIsDeleted.Location = new System.Drawing.Point(925, 285);
+            txtIsDeleted.Margin = new Padding(6);
             txtIsDeleted.Name = "txtIsDeleted";
-            txtIsDeleted.Size = new System.Drawing.Size(210, 27);
+            txtIsDeleted.Size = new System.Drawing.Size(339, 39);
             txtIsDeleted.TabIndex = 104;
             // 
             // lb10
             // 
             lb10.AutoSize = true;
-            lb10.Location = new System.Drawing.Point(462, 182);
-            lb10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lb10.Location = new System.Drawing.Point(751, 291);
+            lb10.Margin = new Padding(6, 0, 6, 0);
             lb10.Name = "lb10";
-            lb10.Size = new System.Drawing.Size(62, 20);
+            lb10.Size = new System.Drawing.Size(98, 32);
             lb10.TabIndex = 105;
             lb10.Text = "Deleted";
             // 
             // txtModel
             // 
             txtModel.Enabled = false;
-            txtModel.Location = new System.Drawing.Point(569, 124);
-            txtModel.Margin = new System.Windows.Forms.Padding(4);
+            txtModel.Location = new System.Drawing.Point(925, 198);
+            txtModel.Margin = new Padding(6);
             txtModel.Name = "txtModel";
-            txtModel.Size = new System.Drawing.Size(210, 27);
+            txtModel.Size = new System.Drawing.Size(339, 39);
             txtModel.TabIndex = 91;
             // 
             // txtBrand
             // 
             txtBrand.Enabled = false;
-            txtBrand.Location = new System.Drawing.Point(569, 70);
-            txtBrand.Margin = new System.Windows.Forms.Padding(4);
+            txtBrand.Location = new System.Drawing.Point(925, 112);
+            txtBrand.Margin = new Padding(6);
             txtBrand.Name = "txtBrand";
-            txtBrand.Size = new System.Drawing.Size(210, 27);
+            txtBrand.Size = new System.Drawing.Size(339, 39);
             txtBrand.TabIndex = 90;
             // 
             // txtCarPlate
             // 
             txtCarPlate.Enabled = false;
-            txtCarPlate.Location = new System.Drawing.Point(177, 124);
-            txtCarPlate.Margin = new System.Windows.Forms.Padding(4);
+            txtCarPlate.Location = new System.Drawing.Point(288, 198);
+            txtCarPlate.Margin = new Padding(6);
             txtCarPlate.Name = "txtCarPlate";
-            txtCarPlate.Size = new System.Drawing.Size(210, 27);
+            txtCarPlate.Size = new System.Drawing.Size(339, 39);
             txtCarPlate.TabIndex = 88;
             // 
             // grFilter
@@ -128,21 +131,21 @@
             grFilter.Controls.Add(txtFrom);
             grFilter.Controls.Add(lbFrom);
             grFilter.Enabled = false;
-            grFilter.Location = new System.Drawing.Point(395, 294);
-            grFilter.Margin = new System.Windows.Forms.Padding(4);
+            grFilter.Location = new System.Drawing.Point(642, 470);
+            grFilter.Margin = new Padding(6);
             grFilter.Name = "grFilter";
-            grFilter.Padding = new System.Windows.Forms.Padding(4);
-            grFilter.Size = new System.Drawing.Size(384, 119);
+            grFilter.Padding = new Padding(6);
+            grFilter.Size = new System.Drawing.Size(624, 190);
             grFilter.TabIndex = 103;
             grFilter.TabStop = false;
             grFilter.Text = "Filter";
             // 
             // btnFilter
             // 
-            btnFilter.Location = new System.Drawing.Point(272, 74);
-            btnFilter.Margin = new System.Windows.Forms.Padding(4);
+            btnFilter.Location = new System.Drawing.Point(442, 118);
+            btnFilter.Margin = new Padding(6);
             btnFilter.Name = "btnFilter";
-            btnFilter.Size = new System.Drawing.Size(92, 31);
+            btnFilter.Size = new System.Drawing.Size(150, 50);
             btnFilter.TabIndex = 18;
             btnFilter.Text = "&Filter";
             btnFilter.UseVisualStyleBackColor = true;
@@ -150,37 +153,37 @@
             // 
             // txtTo
             // 
-            txtTo.Location = new System.Drawing.Point(73, 76);
-            txtTo.Margin = new System.Windows.Forms.Padding(4);
+            txtTo.Location = new System.Drawing.Point(119, 122);
+            txtTo.Margin = new Padding(6);
             txtTo.Name = "txtTo";
-            txtTo.Size = new System.Drawing.Size(174, 27);
+            txtTo.Size = new System.Drawing.Size(280, 39);
             txtTo.TabIndex = 15;
             // 
             // lbTo
             // 
             lbTo.AutoSize = true;
-            lbTo.Location = new System.Drawing.Point(22, 79);
-            lbTo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lbTo.Location = new System.Drawing.Point(36, 126);
+            lbTo.Margin = new Padding(6, 0, 6, 0);
             lbTo.Name = "lbTo";
-            lbTo.Size = new System.Drawing.Size(25, 20);
+            lbTo.Size = new System.Drawing.Size(39, 32);
             lbTo.TabIndex = 4;
             lbTo.Text = "To";
             // 
             // txtFrom
             // 
-            txtFrom.Location = new System.Drawing.Point(73, 26);
-            txtFrom.Margin = new System.Windows.Forms.Padding(4);
+            txtFrom.Location = new System.Drawing.Point(119, 42);
+            txtFrom.Margin = new Padding(6);
             txtFrom.Name = "txtFrom";
-            txtFrom.Size = new System.Drawing.Size(174, 27);
+            txtFrom.Size = new System.Drawing.Size(280, 39);
             txtFrom.TabIndex = 14;
             // 
             // lbFrom
             // 
             lbFrom.AutoSize = true;
-            lbFrom.Location = new System.Drawing.Point(22, 35);
-            lbFrom.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lbFrom.Location = new System.Drawing.Point(36, 56);
+            lbFrom.Margin = new Padding(6, 0, 6, 0);
             lbFrom.Name = "lbFrom";
-            lbFrom.Size = new System.Drawing.Size(43, 20);
+            lbFrom.Size = new System.Drawing.Size(69, 32);
             lbFrom.TabIndex = 2;
             lbFrom.Text = "From";
             // 
@@ -192,11 +195,11 @@
             grSearch.Controls.Add(btnSearch);
             grSearch.Controls.Add(lbSearch);
             grSearch.Enabled = false;
-            grSearch.Location = new System.Drawing.Point(58, 294);
-            grSearch.Margin = new System.Windows.Forms.Padding(4);
+            grSearch.Location = new System.Drawing.Point(94, 470);
+            grSearch.Margin = new Padding(6);
             grSearch.Name = "grSearch";
-            grSearch.Padding = new System.Windows.Forms.Padding(4);
-            grSearch.Size = new System.Drawing.Size(330, 119);
+            grSearch.Padding = new Padding(6);
+            grSearch.Size = new System.Drawing.Size(536, 190);
             grSearch.TabIndex = 102;
             grSearch.TabStop = false;
             grSearch.Text = "Search";
@@ -205,10 +208,10 @@
             // 
             radioByName.AutoSize = true;
             radioByName.Checked = true;
-            radioByName.Location = new System.Drawing.Point(241, 76);
-            radioByName.Margin = new System.Windows.Forms.Padding(4);
+            radioByName.Location = new System.Drawing.Point(392, 122);
+            radioByName.Margin = new Padding(6);
             radioByName.Name = "radioByName";
-            radioByName.Size = new System.Drawing.Size(90, 24);
+            radioByName.Size = new System.Drawing.Size(142, 36);
             radioByName.TabIndex = 12;
             radioByName.TabStop = true;
             radioByName.Text = "By Name";
@@ -217,10 +220,10 @@
             // radioByID
             // 
             radioByID.AutoSize = true;
-            radioByID.Location = new System.Drawing.Point(241, 36);
-            radioByID.Margin = new System.Windows.Forms.Padding(4);
+            radioByID.Location = new System.Drawing.Point(392, 58);
+            radioByID.Margin = new Padding(6);
             radioByID.Name = "radioByID";
-            radioByID.Size = new System.Drawing.Size(65, 24);
+            radioByID.Size = new System.Drawing.Size(101, 36);
             radioByID.TabIndex = 11;
             radioByID.TabStop = true;
             radioByID.Text = "By ID";
@@ -228,18 +231,18 @@
             // 
             // txtSearchValue
             // 
-            txtSearchValue.Location = new System.Drawing.Point(78, 26);
-            txtSearchValue.Margin = new System.Windows.Forms.Padding(4);
+            txtSearchValue.Location = new System.Drawing.Point(127, 42);
+            txtSearchValue.Margin = new Padding(6);
             txtSearchValue.Name = "txtSearchValue";
-            txtSearchValue.Size = new System.Drawing.Size(134, 27);
+            txtSearchValue.Size = new System.Drawing.Size(215, 39);
             txtSearchValue.TabIndex = 10;
             // 
             // btnSearch
             // 
-            btnSearch.Location = new System.Drawing.Point(78, 71);
-            btnSearch.Margin = new System.Windows.Forms.Padding(4);
+            btnSearch.Location = new System.Drawing.Point(127, 114);
+            btnSearch.Margin = new Padding(6);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new System.Drawing.Size(86, 31);
+            btnSearch.Size = new System.Drawing.Size(140, 50);
             btnSearch.TabIndex = 13;
             btnSearch.Text = "&Search";
             btnSearch.UseVisualStyleBackColor = true;
@@ -248,33 +251,35 @@
             // lbSearch
             // 
             lbSearch.AutoSize = true;
-            lbSearch.Location = new System.Drawing.Point(29, 35);
-            lbSearch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lbSearch.Location = new System.Drawing.Point(47, 56);
+            lbSearch.Margin = new Padding(6, 0, 6, 0);
             lbSearch.Name = "lbSearch";
-            lbSearch.Size = new System.Drawing.Size(53, 20);
+            lbSearch.Size = new System.Drawing.Size(85, 32);
             lbSearch.TabIndex = 16;
             lbSearch.Text = "Search";
             // 
             // dgvCarsList
             // 
-            dgvCarsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCarsList.Location = new System.Drawing.Point(57, 433);
-            dgvCarsList.Margin = new System.Windows.Forms.Padding(4);
+            dgvCarsList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCarsList.Location = new System.Drawing.Point(93, 693);
+            dgvCarsList.Margin = new Padding(6);
             dgvCarsList.Name = "dgvCarsList";
             dgvCarsList.ReadOnly = true;
             dgvCarsList.RowHeadersWidth = 82;
             dgvCarsList.RowTemplate.Height = 25;
-            dgvCarsList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            dgvCarsList.Size = new System.Drawing.Size(722, 342);
+            dgvCarsList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvCarsList.Size = new System.Drawing.Size(1173, 547);
             dgvCarsList.TabIndex = 101;
+            dgvCarsList.CellContentClick += dgvCarsList_CellContentClick;
+            dgvCarsList.CellDoubleClick += dgvCarsList_CellDoubleClick;
             // 
             // btnDelete
             // 
             btnDelete.Enabled = false;
-            btnDelete.Location = new System.Drawing.Point(554, 240);
-            btnDelete.Margin = new System.Windows.Forms.Padding(4);
+            btnDelete.Location = new System.Drawing.Point(900, 384);
+            btnDelete.Margin = new Padding(6);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new System.Drawing.Size(124, 31);
+            btnDelete.Size = new System.Drawing.Size(202, 50);
             btnDelete.TabIndex = 94;
             btnDelete.Text = "&Delete";
             btnDelete.UseVisualStyleBackColor = true;
@@ -283,20 +288,21 @@
             // btnNew
             // 
             btnNew.Enabled = false;
-            btnNew.Location = new System.Drawing.Point(340, 240);
-            btnNew.Margin = new System.Windows.Forms.Padding(4);
+            btnNew.Location = new System.Drawing.Point(552, 384);
+            btnNew.Margin = new Padding(6);
             btnNew.Name = "btnNew";
-            btnNew.Size = new System.Drawing.Size(124, 31);
+            btnNew.Size = new System.Drawing.Size(202, 50);
             btnNew.TabIndex = 93;
             btnNew.Text = "&New";
             btnNew.UseVisualStyleBackColor = true;
+            btnNew.Click += btnNew_Click;
             // 
             // btnLoad
             // 
-            btnLoad.Location = new System.Drawing.Point(115, 240);
-            btnLoad.Margin = new System.Windows.Forms.Padding(4);
+            btnLoad.Location = new System.Drawing.Point(187, 384);
+            btnLoad.Margin = new Padding(6);
             btnLoad.Name = "btnLoad";
-            btnLoad.Size = new System.Drawing.Size(124, 31);
+            btnLoad.Size = new System.Drawing.Size(202, 50);
             btnLoad.TabIndex = 92;
             btnLoad.Text = "&Load";
             btnLoad.UseVisualStyleBackColor = true;
@@ -305,95 +311,95 @@
             // lbUnitsInStock
             // 
             lbUnitsInStock.AutoSize = true;
-            lbUnitsInStock.Location = new System.Drawing.Point(462, 129);
-            lbUnitsInStock.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lbUnitsInStock.Location = new System.Drawing.Point(751, 206);
+            lbUnitsInStock.Margin = new Padding(6, 0, 6, 0);
             lbUnitsInStock.Name = "lbUnitsInStock";
-            lbUnitsInStock.Size = new System.Drawing.Size(52, 20);
+            lbUnitsInStock.Size = new System.Drawing.Size(83, 32);
             lbUnitsInStock.TabIndex = 100;
             lbUnitsInStock.Text = "Model";
             // 
             // lbUnitPrice
             // 
             lbUnitPrice.AutoSize = true;
-            lbUnitPrice.Location = new System.Drawing.Point(462, 74);
-            lbUnitPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lbUnitPrice.Location = new System.Drawing.Point(751, 118);
+            lbUnitPrice.Margin = new Padding(6, 0, 6, 0);
             lbUnitPrice.Name = "lbUnitPrice";
-            lbUnitPrice.Size = new System.Drawing.Size(48, 20);
+            lbUnitPrice.Size = new System.Drawing.Size(76, 32);
             lbUnitPrice.TabIndex = 99;
             lbUnitPrice.Text = "Brand";
             // 
             // lbWeight
             // 
             lbWeight.AutoSize = true;
-            lbWeight.Location = new System.Drawing.Point(462, 20);
-            lbWeight.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lbWeight.Location = new System.Drawing.Point(751, 32);
+            lbWeight.Margin = new Padding(6, 0, 6, 0);
             lbWeight.Name = "lbWeight";
-            lbWeight.Size = new System.Drawing.Size(101, 20);
+            lbWeight.Size = new System.Drawing.Size(164, 32);
             lbWeight.TabIndex = 98;
             lbWeight.Text = "Price per hour";
             // 
             // txtPricePerHour
             // 
             txtPricePerHour.Enabled = false;
-            txtPricePerHour.Location = new System.Drawing.Point(569, 15);
-            txtPricePerHour.Margin = new System.Windows.Forms.Padding(4);
+            txtPricePerHour.Location = new System.Drawing.Point(925, 24);
+            txtPricePerHour.Margin = new Padding(6);
             txtPricePerHour.Name = "txtPricePerHour";
-            txtPricePerHour.Size = new System.Drawing.Size(210, 27);
+            txtPricePerHour.Size = new System.Drawing.Size(339, 39);
             txtPricePerHour.TabIndex = 89;
             // 
             // lbCategory
             // 
             lbCategory.AutoSize = true;
-            lbCategory.Location = new System.Drawing.Point(57, 129);
-            lbCategory.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lbCategory.Location = new System.Drawing.Point(93, 206);
+            lbCategory.Margin = new Padding(6, 0, 6, 0);
             lbCategory.Name = "lbCategory";
-            lbCategory.Size = new System.Drawing.Size(68, 20);
+            lbCategory.Size = new System.Drawing.Size(108, 32);
             lbCategory.TabIndex = 97;
             lbCategory.Text = "Car Plate";
             // 
             // txtCarName
             // 
             txtCarName.Enabled = false;
-            txtCarName.Location = new System.Drawing.Point(177, 70);
-            txtCarName.Margin = new System.Windows.Forms.Padding(4);
+            txtCarName.Location = new System.Drawing.Point(288, 112);
+            txtCarName.Margin = new Padding(6);
             txtCarName.Name = "txtCarName";
-            txtCarName.Size = new System.Drawing.Size(210, 27);
+            txtCarName.Size = new System.Drawing.Size(339, 39);
             txtCarName.TabIndex = 87;
             // 
             // lbMemberName
             // 
             lbMemberName.AutoSize = true;
-            lbMemberName.Location = new System.Drawing.Point(57, 74);
-            lbMemberName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lbMemberName.Location = new System.Drawing.Point(93, 118);
+            lbMemberName.Margin = new Padding(6, 0, 6, 0);
             lbMemberName.Name = "lbMemberName";
-            lbMemberName.Size = new System.Drawing.Size(75, 20);
+            lbMemberName.Size = new System.Drawing.Size(120, 32);
             lbMemberName.TabIndex = 96;
             lbMemberName.Text = "Car Name";
             // 
             // txtCarID
             // 
             txtCarID.Enabled = false;
-            txtCarID.Location = new System.Drawing.Point(177, 15);
-            txtCarID.Margin = new System.Windows.Forms.Padding(4);
+            txtCarID.Location = new System.Drawing.Point(288, 24);
+            txtCarID.Margin = new Padding(6);
             txtCarID.Name = "txtCarID";
-            txtCarID.Size = new System.Drawing.Size(210, 27);
+            txtCarID.Size = new System.Drawing.Size(339, 39);
             txtCarID.TabIndex = 86;
             // 
             // lbProductID
             // 
             lbProductID.AutoSize = true;
-            lbProductID.Location = new System.Drawing.Point(57, 20);
-            lbProductID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lbProductID.Location = new System.Drawing.Point(93, 32);
+            lbProductID.Margin = new Padding(6, 0, 6, 0);
             lbProductID.Name = "lbProductID";
-            lbProductID.Size = new System.Drawing.Size(50, 20);
+            lbProductID.Size = new System.Drawing.Size(79, 32);
             lbProductID.TabIndex = 95;
             lbProductID.Text = "Car ID";
             // 
             // frmCarManagement
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(842, 659);
+            AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(1370, 1344);
             Controls.Add(btnBack);
             Controls.Add(txtIsDeleted);
             Controls.Add(lb10);
@@ -415,7 +421,6 @@
             Controls.Add(lbMemberName);
             Controls.Add(txtCarID);
             Controls.Add(lbProductID);
-            Margin = new System.Windows.Forms.Padding(2);
             Name = "frmCarManagement";
             Text = "frmCarManagement";
             Load += frmCarManagement_Load;
@@ -428,38 +433,40 @@
             PerformLayout();
         }
 
+
+
         #endregion
 
-        private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.TextBox txtIsDeleted;
-        private System.Windows.Forms.Label lb10;
-        private System.Windows.Forms.TextBox txtModel;
-        private System.Windows.Forms.TextBox txtBrand;
-        private System.Windows.Forms.TextBox txtCarPlate;
-        private System.Windows.Forms.GroupBox grFilter;
-        private System.Windows.Forms.Button btnFilter;
-        private System.Windows.Forms.TextBox txtTo;
-        private System.Windows.Forms.Label lbTo;
-        private System.Windows.Forms.TextBox txtFrom;
-        private System.Windows.Forms.Label lbFrom;
-        private System.Windows.Forms.GroupBox grSearch;
-        private System.Windows.Forms.RadioButton radioByName;
-        private System.Windows.Forms.RadioButton radioByID;
-        private System.Windows.Forms.TextBox txtSearchValue;
-        private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Label lbSearch;
-        private System.Windows.Forms.DataGridView dgvCarsList;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnNew;
-        private System.Windows.Forms.Button btnLoad;
-        private System.Windows.Forms.Label lbUnitsInStock;
-        private System.Windows.Forms.Label lbUnitPrice;
-        private System.Windows.Forms.Label lbWeight;
-        private System.Windows.Forms.TextBox txtPricePerHour;
-        private System.Windows.Forms.Label lbCategory;
-        private System.Windows.Forms.TextBox txtCarName;
-        private System.Windows.Forms.Label lbMemberName;
-        private System.Windows.Forms.TextBox txtCarID;
-        private System.Windows.Forms.Label lbProductID;
+        private Button btnBack;
+        private TextBox txtIsDeleted;
+        private Label lb10;
+        private TextBox txtModel;
+        private TextBox txtBrand;
+        private TextBox txtCarPlate;
+        private GroupBox grFilter;
+        private Button btnFilter;
+        private TextBox txtTo;
+        private Label lbTo;
+        private TextBox txtFrom;
+        private Label lbFrom;
+        private GroupBox grSearch;
+        private RadioButton radioByName;
+        private RadioButton radioByID;
+        private TextBox txtSearchValue;
+        private Button btnSearch;
+        private Label lbSearch;
+        private DataGridView dgvCarsList;
+        private Button btnDelete;
+        private Button btnNew;
+        private Button btnLoad;
+        private Label lbUnitsInStock;
+        private Label lbUnitPrice;
+        private Label lbWeight;
+        private TextBox txtPricePerHour;
+        private Label lbCategory;
+        private TextBox txtCarName;
+        private Label lbMemberName;
+        private TextBox txtCarID;
+        private Label lbProductID;
     }
 }
