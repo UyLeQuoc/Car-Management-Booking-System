@@ -30,7 +30,7 @@ namespace DataAccessObjects
         public IEnumerable<TblBookingDetail> GetListCarinBookingDetail(int carId)
         {
             var context = new CarBookingManagementContext();
-            var listDetail = context.TblBookingDetails.Where(x => x.CarId == carId && x.ReturnStatus == 0);
+            var listDetail = context.TblBookingDetails.Where(x => x.CarId == carId);
             return listDetail.ToList();
         }
 

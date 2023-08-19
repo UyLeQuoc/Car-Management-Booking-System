@@ -9,9 +9,9 @@ namespace Repositories
 {
     public interface ICarRepository
     {
-        public IEnumerable<TblCar> ViewCar();
-        public IEnumerable<TblCar> SearchCar(string value);
-        public IEnumerable<TblCar> FilterCar(decimal from, decimal to);
+        public IEnumerable<TblCar> ViewListCar();
+        public IEnumerable<TblCar> SearchCarByName(string carName);
+        public IEnumerable<TblCar> FilterCars(decimal from, decimal to);
         public TblCar GetCarByCarPlate(string plate);
     }
 }

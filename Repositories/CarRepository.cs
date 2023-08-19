@@ -10,9 +10,9 @@ namespace Repositories
 {
     public class CarRepository: ICarRepository
     {
-        public IEnumerable<TblCar> FilterCar(decimal from, decimal to)
+        public IEnumerable<TblCar> FilterCars(decimal from, decimal to)
         {
-            return CarDAO.Instance.FilterCar(from, to);
+            return CarDAO.Instance.FilterCars(from, to);
         }
 
         public TblCar GetCarByCarPlate(string plate)
@@ -20,14 +20,14 @@ namespace Repositories
             return CarDAO.Instance.GetCarbyCarPlate(plate);
         }
 
-        public IEnumerable<TblCar> SearchCar(string value)
+        public IEnumerable<TblCar> SearchCarByName(string carName)
         {
-            return CarDAO.Instance.SearchCar(value);
+            return CarDAO.Instance.SearchCarByName(carName);
         }
 
-        public IEnumerable<TblCar> ViewCar()
+        public IEnumerable<TblCar> ViewListCar()
         {
-            return CarDAO.Instance.ViewCar();
+            return CarDAO.Instance.ViewListCar();
         }
     }
 }

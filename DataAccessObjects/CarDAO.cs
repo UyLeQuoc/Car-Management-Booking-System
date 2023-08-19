@@ -10,13 +10,14 @@ namespace DataAccessObjects
 {
     public class CarDAO
     {
-        private static CarDAO instance;
-        private static object instanceLook = new object();
+        private CarDAO() { }
+        public static CarDAO instance = null;
+        private static readonly object instanceLock = new object();
         public static CarDAO Instance
         {
             get
             {
-                lock (instanceLook)
+                lock (instanceLock)
                 {
                     if (instance == null)
                     {
@@ -27,7 +28,7 @@ namespace DataAccessObjects
             }
         }
 
-        public IEnumerable<TblCar> ViewCar()
+        public IEnumerable<TblCar> ViewListCar()
         {
             try
             {
@@ -42,14 +43,13 @@ namespace DataAccessObjects
             }
         }
 
-        public IEnumerable<TblCar> SearchCar(string value)
+        public IEnumerable<TblCar> SearchCarByName(string carName)
         {
             try
             {
-                IEnumerable<TblCar> cars = null;
                 var context = new CarBookingManagementContext();
-                cars = context.TblCars.Include(y => y.Model).Include(z => z.Brand).Where(x => x.CarName.ToLower().Contains(value.Trim().ToLower()));
-                return cars;
+                IEnumerable<TblCar> carList = context.TblCars.Include(x => x.Brand).Include(x => x.Model).Where(x => x.CarName.ToLower().Contains(carName.Trim().ToLower()));
+                return carList;
             }
             catch (Exception ex)
             {
@@ -57,14 +57,13 @@ namespace DataAccessObjects
             }
         }
 
-        public IEnumerable<TblCar> FilterCar(decimal from, decimal to)
+        public IEnumerable<TblCar> FilterCars(decimal from, decimal to)
         {
             try
             {
-                IEnumerable<TblCar> cars = null;
                 var context = new CarBookingManagementContext();
-                cars = context.TblCars.Include(y => y.Model).Include(z => z.Brand).Where(x => x.PricePerHour >= from && x.PricePerHour <= to);
-                return cars;
+                IEnumerable<TblCar> carList = context.TblCars.Include(x => x.Brand).Include(x => x.Model).Where(x => x.PricePerHour >= from && x.PricePerHour <= to);
+                return carList;
             }
             catch (Exception ex)
             {
