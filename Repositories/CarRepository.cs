@@ -8,8 +8,17 @@ using System.Threading.Tasks;
 
 namespace Repositories
 {
-    public class CarRepository : ICarRepository
+    public class CarRepository: ICarRepository
     {
+        public TblCar GetCarByCarPlate(string plate)
+        {
+            return CarDAO.Instance.GetCarbyCarPlate(plate);
+        }
+        public IEnumerable<TblCar> ViewListCar()
+        {
+            return CarDAO.Instance.ViewListCar();
+        }
+
         public void DeleteCar(int carId) => CarDAO.Instance.DeleteCar(carId);
 
         public IEnumerable<TblCar> FilterCars(decimal from, decimal to) => CarDAO.Instance.FilterCars(from, to);

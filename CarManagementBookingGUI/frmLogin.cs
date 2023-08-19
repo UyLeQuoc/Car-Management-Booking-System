@@ -20,12 +20,15 @@ namespace CarManagementBookingGUI
         IUserRepository _userRepo = new UserRepository();
         private static readonly string ADMIN_ROLE = "Admin";
         private static readonly string STAFF_ROLE = "Staff";
-        private static readonly string MEMBER_ROLE = "Member";
+        private static readonly string MEMBER_ROLE = "user";
 
         public frmLogin()
         {
             InitializeComponent();
         }
+        public Dictionary<TblBookingDetail, TblCar> GetListOrderinLogin { get; set; }
+        public int checkEmptyinLogin { get; set; }
+        public int GetCountinLogin { get; set; }
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
@@ -65,10 +68,16 @@ namespace CarManagementBookingGUI
                     }
                     else if (MEMBER_ROLE.Equals(loginUser.RoleId))
                     {
-                        frmViewCar frmViewCar = new frmViewCar();
-                        frmViewCar.Show();
-                        this.Hide();
-                        frmViewCar.FormClosed += (s, args) => this.Close();
+                        Hide();
+                        frmViewCar frmViewCar = new frmViewCar()
+                        {
+                            GetInfoUser = loginUser,
+                            GetCountinView = GetCountinLogin,
+                            GetListOrderinCreate = GetListOrderinLogin,
+                            checkEmptyinView = checkEmptyinLogin,
+                        };
+                        frmViewCar.ShowDialog();
+                        Close();
                     }
                     else
                     {

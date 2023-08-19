@@ -28,6 +28,20 @@ namespace DataAccessObjects
             }
         }
 
+        public IEnumerable<TblCar> ViewListCar()
+         {
+            try
+            {
+                IEnumerable<TblCar> cars = null;
+                var context = new CarBookingManagementContext();
+                cars = context.TblCars.Include(x => x.Brand).Include(y => y.Model).Where(z => z.IsDeleted == 0);
+                return cars;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
         public IEnumerable<TblCar> GetAllCars()
         {
             try
@@ -43,6 +57,7 @@ namespace DataAccessObjects
             }
         }
 
+        
         public void DeleteCar(int carId)
         {
             try
@@ -59,6 +74,31 @@ namespace DataAccessObjects
             }
         }
 
+        public IEnumerable<TblCar> FilterCars(decimal from, decimal to)
+         {
+            try
+            {
+                var context = new CarBookingManagementContext();
+                IEnumerable<TblCar> carList = context.TblCars.Include(x => x.Brand).Include(x => x.Model).Where(x => x.PricePerHour >= from && x.PricePerHour <= to);
+                return carList;
+            }catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+      public IEnumerable<TblCar> SearchCarByName(string carName)
+        {
+            try
+            {
+                var context = new CarBookingManagementContext();
+                IEnumerable<TblCar> carList = context.TblCars.Include(x => x.Brand).Include(x => x.Model).Where(x => x.CarName.ToLower().Contains(carName.Trim().ToLower()));
+                return carList;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
         public IEnumerable<TblCar> SearchCarByID(int carID)
         {
             try
@@ -72,27 +112,15 @@ namespace DataAccessObjects
             }
         }
 
-        public IEnumerable<TblCar> SearchCarByName(string carName)
-        {
-            try
-            {
-                var context = new CarBookingManagementContext();
-                IEnumerable<TblCar> carList = context.TblCars.Include(x => x.Brand).Include(x => x.Model).Where(x => x.CarName.ToLower().Contains(carName.Trim().ToLower()));
-                return carList;
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
+        
+        public TblCar GetCarbyCarPlate(string plate)
 
-        public IEnumerable<TblCar> FilterCars(decimal from, decimal to)
         {
             try
             {
                 var context = new CarBookingManagementContext();
-                IEnumerable<TblCar> carList = context.TblCars.Include(x => x.Brand).Include(x => x.Model).Where(x => x.PricePerHour >= from && x.PricePerHour <= to);
-                return carList;
+                var car = context.TblCars.Include(y => y.Model).Include(z => z.Brand).Include(t => t.TblBookingDetails).SingleOrDefault(x => x.CarPlate.Equals(plate));
+                return car;
             }
             catch (Exception ex)
             {
