@@ -30,9 +30,9 @@
         {
             btnUserMangement = new System.Windows.Forms.Button();
             button1 = new System.Windows.Forms.Button();
-            button2 = new System.Windows.Forms.Button();
+            btnBrandModel = new System.Windows.Forms.Button();
             label1 = new System.Windows.Forms.Label();
-            button3 = new System.Windows.Forms.Button();
+            btnViewProfile = new System.Windows.Forms.Button();
             txtWelcomeName = new System.Windows.Forms.Label();
             button4 = new System.Windows.Forms.Button();
             SuspendLayout();
@@ -56,14 +56,15 @@
             button1.Text = "Car Management";
             button1.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnBrandModel
             // 
-            button2.Location = new System.Drawing.Point(426, 143);
-            button2.Name = "button2";
-            button2.Size = new System.Drawing.Size(182, 73);
-            button2.TabIndex = 2;
-            button2.Text = "Booking Management";
-            button2.UseVisualStyleBackColor = true;
+            btnBrandModel.Location = new System.Drawing.Point(426, 143);
+            btnBrandModel.Name = "btnBrandModel";
+            btnBrandModel.Size = new System.Drawing.Size(182, 73);
+            btnBrandModel.TabIndex = 2;
+            btnBrandModel.Text = "Brand and Model Management";
+            btnBrandModel.UseVisualStyleBackColor = true;
+            btnBrandModel.Click += btnBrandModel_Click;
             // 
             // label1
             // 
@@ -74,14 +75,16 @@
             label1.TabIndex = 3;
             label1.Text = "Welcome: ";
             // 
-            // button3
+            // btnViewProfile
             // 
-            button3.Location = new System.Drawing.Point(189, 78);
-            button3.Name = "button3";
-            button3.Size = new System.Drawing.Size(98, 23);
-            button3.TabIndex = 5;
-            button3.Text = "View Profile";
-            button3.UseVisualStyleBackColor = true;
+            btnViewProfile.DialogResult = System.Windows.Forms.DialogResult.OK;
+            btnViewProfile.Location = new System.Drawing.Point(189, 78);
+            btnViewProfile.Name = "btnViewProfile";
+            btnViewProfile.Size = new System.Drawing.Size(98, 23);
+            btnViewProfile.TabIndex = 5;
+            btnViewProfile.Text = "View Profile";
+            btnViewProfile.UseVisualStyleBackColor = true;
+            btnViewProfile.Click += btnViewProfile_Click;
             // 
             // txtWelcomeName
             // 
@@ -109,9 +112,9 @@
             ClientSize = new System.Drawing.Size(629, 270);
             Controls.Add(button4);
             Controls.Add(txtWelcomeName);
-            Controls.Add(button3);
+            Controls.Add(btnViewProfile);
             Controls.Add(label1);
-            Controls.Add(button2);
+            Controls.Add(btnBrandModel);
             Controls.Add(button1);
             Controls.Add(btnUserMangement);
             Name = "frmMain";
@@ -125,9 +128,10 @@
 
         private System.Windows.Forms.Button btnUserMangement;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnBrandModel;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnViewProfile;
+
         private System.Windows.Forms.Label txtWelcomeName;
         private System.Windows.Forms.Button button4;
     }
