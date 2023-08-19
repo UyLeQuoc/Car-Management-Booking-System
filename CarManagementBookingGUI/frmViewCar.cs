@@ -45,7 +45,7 @@ namespace CarManagementBookingGUI
                     btnLogin.Visible = false;
                     btnSignUp.Visible = false;
                     Login.Text = "Welcome " + GetInfoUser.FullName;
-                    listCar = carRepo.ViewCar();
+                    listCar = carRepo.ViewListCar();
                     var cars = from car in listCar
                                select new { car.CarName, car.CarPlate, car.PricePerHour, car.Brand.BrandName, car.Model.ModelName };
                     source = new BindingSource();
@@ -75,7 +75,7 @@ namespace CarManagementBookingGUI
                 try
                 {
                     Login.Visible = false;
-                    listCar = carRepo.ViewCar();
+                    listCar = carRepo.ViewListCar();
                     var cars = from car in listCar
                                select new { car.CarName, car.CarPlate, car.PricePerHour, car.Brand.BrandName, car.Model.ModelName };
                     source = new BindingSource();
@@ -131,7 +131,7 @@ namespace CarManagementBookingGUI
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string value = txtSearchValue.Text;
-            IEnumerable<TblCar> searchCar = carRepo.SearchCar(value);
+            IEnumerable<TblCar> searchCar = carRepo.SearchCarByName(value);
             listCar = searchCar;
             LoadData();
         }
@@ -208,7 +208,7 @@ namespace CarManagementBookingGUI
                     btnLogin.Visible = false;
                     btnSignUp.Visible = false;
                     Login.Text = "Welcome " + GetInfoUser.FullName;
-                    listCar = carRepo.ViewCar();
+                    listCar = carRepo.ViewListCar();
                     var cars = from car in listCar
                                select new { car.CarName, car.CarPlate, car.PricePerHour, car.Brand.BrandName, car.Model.ModelName };
                     source = new BindingSource();
@@ -238,7 +238,7 @@ namespace CarManagementBookingGUI
                 {
                     txtSearchValue.Clear();
                     Login.Visible = false;
-                    listCar = carRepo.ViewCar();
+                    listCar = carRepo.ViewListCar();
                     var cars = from car in listCar
                                select new { car.CarName, car.CarPlate, car.PricePerHour, car.Brand.BrandName, car.Model.ModelName };
                     source = new BindingSource();
@@ -269,7 +269,7 @@ namespace CarManagementBookingGUI
         {
             decimal from = txtFrom.Value;
             decimal to = txtTo.Value;
-            IEnumerable<TblCar> filterCar = carRepo.FilterCar(from, to);
+            IEnumerable<TblCar> filterCar = carRepo.FilterCars(from, to);
             listCar = filterCar;
             LoadData();
         }
@@ -331,6 +331,7 @@ namespace CarManagementBookingGUI
                 if (GetCountinView != 0)
                 {
                     Hide();
+                    checkEmptyinView++;
                     frmCart frmCart = new frmCart()
                     {
                         GetListOrderinCart = GetListOrderinCreate,

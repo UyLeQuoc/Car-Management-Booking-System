@@ -147,6 +147,19 @@ namespace CarManagementBookingGUI
 
                 }
             }
+            if (!GetListOrderinCart.Any())
+            {
+                Hide();
+                frmViewCar frmViewCar = new frmViewCar()
+                {
+                    GetListOrderinCreate = GetListOrderinCart,
+                    checkEmptyinView = checkEmptyinCart,
+                    GetCountinView = GetCountinCart,
+                    GetInfoUser = GetInfoUserinCart,
+                };
+                frmViewCar.ShowDialog();
+                Close();
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
