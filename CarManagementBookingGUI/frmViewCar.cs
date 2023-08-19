@@ -1,5 +1,4 @@
 ﻿using BusinessObjects;
-using Microsoft.Data.SqlClient;
 using Repositories;
 using System;
 using System.Collections.Generic;
@@ -46,7 +45,7 @@ namespace CarManagementBookingGUI
                     btnLogin.Visible = false;
                     btnSignUp.Visible = false;
                     Login.Text = "Welcome " + GetInfoUser.FullName;
-                    listCar = carRepo.ViewListCar();
+                    listCar = carRepo.ViewListCar();    
                     var cars = from car in listCar
                                select new { car.CarName, car.CarPlate, car.PricePerHour, car.Brand.BrandName, car.Model.ModelName };
                     source = new BindingSource();
@@ -294,7 +293,7 @@ namespace CarManagementBookingGUI
                     {
                         GetCarPlate = txtCarPlate.Text;
                         Hide();
-                        frmCarDetail frmDetail = new frmCarDetail()
+                        frmChooseTime frmDetail = new frmChooseTime()
                         {
                             GetCarPlateinDetail = GetCarPlate,
                             GetCountinBookingTime = GetCountinView,
@@ -312,7 +311,7 @@ namespace CarManagementBookingGUI
                 GetCarPlate = txtCarPlate.Text;
 
                 Hide();
-                frmCarDetail frmDetail = new frmCarDetail()
+                frmChooseTime frmDetail = new frmChooseTime()
                 {
                     GetCarPlateinDetail = GetCarPlate,
                     GetCountinBookingTime = GetCountinView,

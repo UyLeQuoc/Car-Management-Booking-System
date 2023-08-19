@@ -97,5 +97,19 @@ namespace DataAccessObjects
                 throw new Exception(ex.Message);
             }
         }
+
+        public static TblBookingDetail checkCarIsBooked(int carId)
+        {
+            try
+            {
+                var context = new CarBookingManagementContext();
+                var listResult = context.TblBookingDetails.FirstOrDefault(x => x.CarId == carId && (x.ReturnStatus == 0 || x.ReturnStatus == 1));
+                return listResult;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

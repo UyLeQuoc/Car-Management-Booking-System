@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessObjects;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,8 @@ namespace CarManagementBookingGUI
 {
     public partial class frmStaff : Form
     {
+        public TblUser curUser;
+
         public frmStaff()
         {
             InitializeComponent();
@@ -29,6 +32,24 @@ namespace CarManagementBookingGUI
         {
             this.Hide();
             frmBookingManagement frm = new frmBookingManagement();
+            frm.ShowDialog();
+            this.Close();
+        }
+
+        private void frmStaff_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            txtUserName.Text = curUser.FullName;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmLogin frm = new frmLogin();
             frm.ShowDialog();
             this.Close();
         }

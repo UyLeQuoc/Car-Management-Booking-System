@@ -28,7 +28,11 @@ namespace DataAccessObjects
             }
         }
 
-        public IEnumerable<TblBooking> GetAllBookings()
+        public IEnumerable<TblBooking> GetAllBookings() {
+            var context = new CarBookingManagementContext();
+            var bookings = context.TblBookings.Include(x => x.User);
+            return bookings;
+        }
         public void InsertNewBooking(double total, int userid)
         {
             try
@@ -36,8 +40,7 @@ namespace DataAccessObjects
             DateTime createdDate = DateTime.Now;
             string formattedcreatedDate = createdDate.ToString("MM-dd-yyyy");
             var context = new CarBookingManagementContext();
-                var bookings = context.TblBookings.Include(x => x.User);
-                return bookings;
+               
             string query = $"insert into tblBookings\r\n  values ('{formattedcreatedDate}', {total}, {userid})";
             context.Database.ExecuteSqlRaw(query);
         }

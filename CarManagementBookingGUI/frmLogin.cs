@@ -58,13 +58,13 @@ namespace CarManagementBookingGUI
                     }
                     else if (STAFF_ROLE.Equals(loginUser.RoleId))
                     {
-                        frmMain frmMain = new frmMain
+                        frmStaff frm = new frmStaff
                         {
-                            loginUser = loginUser
+                            curUser = loginUser
                         };
-                        frmMain.Show();
+                        frm.Show();
                         this.Hide();
-                        frmMain.FormClosed += (s, args) => this.Close();
+                        frm.FormClosed += (s, args) => this.Close();
                     }
                     else if (MEMBER_ROLE.Equals(loginUser.RoleId))
                     {

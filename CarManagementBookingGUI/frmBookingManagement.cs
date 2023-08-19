@@ -53,7 +53,7 @@ namespace CarManagementBookingGUI
         {
             try
             {
-                frmBookingDetail frm = new frmBookingDetail()
+                frmStaffBookingDetail frm = new frmStaffBookingDetail()
                 {
                     bookingID = int.Parse(txtBookingID.Text)
                 };

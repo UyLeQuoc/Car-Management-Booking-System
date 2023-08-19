@@ -15,6 +15,7 @@ namespace Repositories
         TblCar GetCarByCarPlateExcept(string carPlate, int carID);
         TblCar GetCarByCarPlate(string carPlate);
         TblCar GetCarByID(int carId);
+        IEnumerable<TblCar> ViewListCar();
         IEnumerable<TblCar> GetAllCars();
         IEnumerable<TblCar> SearchCarByID(int carID);
         IEnumerable<TblCar> SearchCarByName(string carName);

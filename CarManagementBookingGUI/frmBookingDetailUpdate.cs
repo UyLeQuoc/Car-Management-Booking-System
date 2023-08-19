@@ -30,7 +30,7 @@ namespace CarManagementBookingGUI
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmBookingDetail frm = new frmBookingDetail()
+            frmStaffBookingDetail frm = new frmStaffBookingDetail()
             {
                 bookingID = curBookingID,
             };

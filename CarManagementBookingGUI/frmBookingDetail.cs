@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,69 +15,59 @@ namespace CarManagementBookingGUI
 {
     public partial class frmBookingDetail : Form
     {
-        public int bookingID { get; set; }
-        public BindingSource source;
-        public IBookingDetailRepository bookingDetailRepository = new BookingDetailRepository();
+        BindingSource source;
+        IBookingDetailRepository bookingDetailRepository = new BookingDetailRepository();
         public frmBookingDetail()
         {
             InitializeComponent();
         }
+        public Dictionary<TblBookingDetail, TblCar> GetListOrderinOrderDetail { get; set; }
+
+        public int checkEmptyinOrderDetail { get; set; }
+        public int GetCountinOrderDetail { get; set; }
+
+        public TblUser GetInfoUserinOrderDetail { get; set; }
+        public int GetBookingId { get; set; }
 
         private void frmBookingDetail_Load(object sender, EventArgs e)
         {
-            LoadBookingDetailsToUI();
-        }
+            IEnumerable<TblBookingDetail> bookingDeatil = bookingDetailRepository.GetListBookingDeatilById(GetBookingId);
+            var listBookingDetail = bookingDeatil.Select(x => new
+            {
+                x.Car.CarName,
+                x.BookingPrice,
+                Expired = x.BookingExpired.Value.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture),
+                Date = x.BookingDate.Value.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture)
+            });
 
-        private void LoadBookingDetailsToUI()
-        {
             source = new BindingSource();
-            var bookingDetailList = bookingDetailRepository.GetBookingDetailsByBookingID(bookingID);
-            var list = from d in bookingDetailList
-                       select new { d.BookingId, d.Car.CarName, d.BookingPrice, d.BookingDate, d.BookingExpired, d.ReturnStatus };
-            source.DataSource = list;
+            source.DataSource = listBookingDetail.ToList();
 
-            txtBookingID.DataBindings.Clear();
             txtCarName.DataBindings.Clear();
-            txtBookingPrice.DataBindings.Clear();
-            txtBookingDate.DataBindings.Clear();
-            txtBookingExpired.DataBindings.Clear();
-            txtReturnStatus.DataBindings.Clear();
+            txtPrice.DataBindings.Clear();
+            txtDate.DataBindings.Clear();
+            txtExpired.DataBindings.Clear();
 
-            txtBookingID.DataBindings.Add("Text", source, "BookingId");
             txtCarName.DataBindings.Add("Text", source, "CarName");
-            txtBookingPrice.DataBindings.Add("Text", source, "BookingPrice");
-            txtBookingDate.DataBindings.Add("Text", source, "BookingDate");
-            txtBookingExpired.DataBindings.Add("Text", source, "BookingExpired");
-            txtReturnStatus.DataBindings.Add("Text", source, "ReturnStatus");
+            txtPrice.DataBindings.Add("Text", source, "BookingPrice");
+            txtDate.DataBindings.Add("Text", source, "Expired");
+            txtExpired.DataBindings.Add("Text", source, "Date");
 
-            dgvBookingDetailsList.Columns.Clear();
-            dgvBookingDetailsList.DataSource = source;
+            dgvOrderList.DataSource = source;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.Close();
-        }
-
-        private void dgvBookingDetailsList_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void dgvBookingDetailsList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            this.Hide();
-            TblBookingDetail tblBookingDetail = bookingDetailRepository.GetBookingDetailsByBookingID(int.Parse(txtBookingID.Text)).ToArray()[0];
-            frmBookingDetailUpdate frm = new frmBookingDetailUpdate()
+            Hide();
+            frmBooking frmBooking = new frmBooking()
             {
-                curBookingID = int.Parse(txtBookingID.Text),
-                carID = tblBookingDetail.CarId,
-                bookingDate = txtBookingDate.Value,
-                bookingExpired = txtBookingExpired.Value,
-                returnStatus = int.Parse(txtReturnStatus.Text),
+                GetCountinOrder = GetCountinOrderDetail,
+                GetInfoUserinOrder = GetInfoUserinOrderDetail,
+                GetListOrderinOrder = GetListOrderinOrderDetail,
+                checkEmptyinOrder = checkEmptyinOrderDetail,
             };
-            frm.ShowDialog();   
-            this.Close();
+            frmBooking.ShowDialog();
+            Close();
         }
     }
 }

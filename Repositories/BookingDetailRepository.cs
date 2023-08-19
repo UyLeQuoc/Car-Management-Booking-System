@@ -27,5 +27,7 @@ namespace Repositories
         {
             BookingDetailDAO.Instance.InsertNewBookingDetail(carid, bookingid, subprice, bookingDate, bookingExpired);
         }
+
+        public TblBookingDetail checkCarIsBooked(int carId) => BookingDetailDAO.checkCarIsBooked(carId);
     }
 }

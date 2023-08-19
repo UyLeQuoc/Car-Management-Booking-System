@@ -9,6 +9,7 @@ namespace Repositories
 {
     public interface IBookingDetailRepository
     {
+        public TblBookingDetail checkCarIsBooked(int carId);
         public IEnumerable<TblBookingDetail> GetListOrderDetail(int carID);
         public IEnumerable<TblBookingDetail> GetListBookingDeatilById(int bookingId);
         public void InsertNewBookingDetail(int carid, int bookingid, double subprice, DateTime bookingDate, DateTime bookingExpired);

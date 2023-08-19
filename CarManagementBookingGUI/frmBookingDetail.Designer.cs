@@ -28,204 +28,148 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lbUnitPrice = new System.Windows.Forms.Label();
-            lbWeight = new System.Windows.Forms.Label();
-            txtCarName = new System.Windows.Forms.TextBox();
-            lbMemberName = new System.Windows.Forms.Label();
-            txtBookingID = new System.Windows.Forms.TextBox();
-            lbProductID = new System.Windows.Forms.Label();
-            label1 = new System.Windows.Forms.Label();
-            txtReturnStatus = new System.Windows.Forms.TextBox();
-            txtBookingPrice = new System.Windows.Forms.TextBox();
-            label2 = new System.Windows.Forms.Label();
             btnBack = new System.Windows.Forms.Button();
-            dgvBookingDetailsList = new System.Windows.Forms.DataGridView();
-            txtBookingDate = new System.Windows.Forms.DateTimePicker();
-            txtBookingExpired = new System.Windows.Forms.DateTimePicker();
-            ((System.ComponentModel.ISupportInitialize)dgvBookingDetailsList).BeginInit();
+            dgvOrderList = new System.Windows.Forms.DataGridView();
+            txtPrice = new System.Windows.Forms.TextBox();
+            lbMember = new System.Windows.Forms.Label();
+            txtCarName = new System.Windows.Forms.TextBox();
+            lbCarName = new System.Windows.Forms.Label();
+            label3 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            txtDate = new System.Windows.Forms.DateTimePicker();
+            txtExpired = new System.Windows.Forms.DateTimePicker();
+            ((System.ComponentModel.ISupportInitialize)dgvOrderList).BeginInit();
             SuspendLayout();
-            // 
-            // lbUnitPrice
-            // 
-            lbUnitPrice.AutoSize = true;
-            lbUnitPrice.Location = new System.Drawing.Point(684, 65);
-            lbUnitPrice.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            lbUnitPrice.Name = "lbUnitPrice";
-            lbUnitPrice.Size = new System.Drawing.Size(159, 32);
-            lbUnitPrice.TabIndex = 151;
-            lbUnitPrice.Text = "Booking Date";
-            // 
-            // lbWeight
-            // 
-            lbWeight.AutoSize = true;
-            lbWeight.Location = new System.Drawing.Point(684, 155);
-            lbWeight.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            lbWeight.Name = "lbWeight";
-            lbWeight.Size = new System.Drawing.Size(187, 32);
-            lbWeight.TabIndex = 150;
-            lbWeight.Text = "Booking Expired";
-            // 
-            // txtCarName
-            // 
-            txtCarName.Enabled = false;
-            txtCarName.Location = new System.Drawing.Point(265, 150);
-            txtCarName.Margin = new System.Windows.Forms.Padding(6);
-            txtCarName.Name = "txtCarName";
-            txtCarName.Size = new System.Drawing.Size(339, 39);
-            txtCarName.TabIndex = 145;
-            // 
-            // lbMemberName
-            // 
-            lbMemberName.AutoSize = true;
-            lbMemberName.Location = new System.Drawing.Point(79, 156);
-            lbMemberName.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            lbMemberName.Name = "lbMemberName";
-            lbMemberName.Size = new System.Drawing.Size(120, 32);
-            lbMemberName.TabIndex = 149;
-            lbMemberName.Text = "Car Name";
-            // 
-            // txtBookingID
-            // 
-            txtBookingID.Enabled = false;
-            txtBookingID.Location = new System.Drawing.Point(265, 67);
-            txtBookingID.Margin = new System.Windows.Forms.Padding(6);
-            txtBookingID.Name = "txtBookingID";
-            txtBookingID.Size = new System.Drawing.Size(339, 39);
-            txtBookingID.TabIndex = 144;
-            // 
-            // lbProductID
-            // 
-            lbProductID.AutoSize = true;
-            lbProductID.Location = new System.Drawing.Point(79, 70);
-            lbProductID.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            lbProductID.Name = "lbProductID";
-            lbProductID.Size = new System.Drawing.Size(132, 32);
-            lbProductID.TabIndex = 148;
-            lbProductID.Text = "Booking ID";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(684, 244);
-            label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(155, 32);
-            label1.TabIndex = 155;
-            label1.Text = "Return Status";
-            // 
-            // txtReturnStatus
-            // 
-            txtReturnStatus.Enabled = false;
-            txtReturnStatus.Location = new System.Drawing.Point(900, 239);
-            txtReturnStatus.Margin = new System.Windows.Forms.Padding(6);
-            txtReturnStatus.Name = "txtReturnStatus";
-            txtReturnStatus.Size = new System.Drawing.Size(339, 39);
-            txtReturnStatus.TabIndex = 153;
-            // 
-            // txtBookingPrice
-            // 
-            txtBookingPrice.Enabled = false;
-            txtBookingPrice.Location = new System.Drawing.Point(265, 239);
-            txtBookingPrice.Margin = new System.Windows.Forms.Padding(6);
-            txtBookingPrice.Name = "txtBookingPrice";
-            txtBookingPrice.Size = new System.Drawing.Size(339, 39);
-            txtBookingPrice.TabIndex = 152;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(79, 245);
-            label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(160, 32);
-            label2.TabIndex = 154;
-            label2.Text = "Booking Price";
             // 
             // btnBack
             // 
-            btnBack.Location = new System.Drawing.Point(538, 919);
+            btnBack.Location = new System.Drawing.Point(276, 529);
+            btnBack.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             btnBack.Name = "btnBack";
-            btnBack.Size = new System.Drawing.Size(202, 56);
-            btnBack.TabIndex = 157;
+            btnBack.Size = new System.Drawing.Size(139, 48);
+            btnBack.TabIndex = 47;
             btnBack.Text = "Back";
             btnBack.UseVisualStyleBackColor = true;
             btnBack.Click += btnBack_Click;
             // 
-            // dgvBookingDetailsList
+            // dgvOrderList
             // 
-            dgvBookingDetailsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvBookingDetailsList.Location = new System.Drawing.Point(79, 343);
-            dgvBookingDetailsList.Margin = new System.Windows.Forms.Padding(6);
-            dgvBookingDetailsList.Name = "dgvBookingDetailsList";
-            dgvBookingDetailsList.ReadOnly = true;
-            dgvBookingDetailsList.RowHeadersWidth = 82;
-            dgvBookingDetailsList.RowTemplate.Height = 25;
-            dgvBookingDetailsList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            dgvBookingDetailsList.Size = new System.Drawing.Size(1160, 547);
-            dgvBookingDetailsList.TabIndex = 156;
-            dgvBookingDetailsList.CellContentClick += dgvBookingDetailsList_CellContentClick;
-            dgvBookingDetailsList.CellDoubleClick += dgvBookingDetailsList_CellDoubleClick;
-
+            dgvOrderList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvOrderList.Location = new System.Drawing.Point(76, 152);
+            dgvOrderList.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            dgvOrderList.Name = "dgvOrderList";
+            dgvOrderList.ReadOnly = true;
+            dgvOrderList.RowHeadersWidth = 51;
+            dgvOrderList.RowTemplate.Height = 25;
+            dgvOrderList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            dgvOrderList.Size = new System.Drawing.Size(488, 359);
+            dgvOrderList.TabIndex = 46;
             // 
-            // txtBookingDate
+            // txtPrice
             // 
-            txtBookingDate.Enabled = false;
-            txtBookingDate.Location = new System.Drawing.Point(900, 65);
-            txtBookingDate.Name = "txtBookingDate";
-            txtBookingDate.Size = new System.Drawing.Size(339, 39);
-            txtBookingDate.TabIndex = 159;
+            txtPrice.Enabled = false;
+            txtPrice.Location = new System.Drawing.Point(117, 74);
+            txtPrice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            txtPrice.Name = "txtPrice";
+            txtPrice.Size = new System.Drawing.Size(154, 27);
+            txtPrice.TabIndex = 44;
             // 
-            // txtBookingExpired
+            // lbMember
             // 
-            txtBookingExpired.Enabled = false;
-            txtBookingExpired.Location = new System.Drawing.Point(900, 148);
-            txtBookingExpired.Name = "txtBookingExpired";
-            txtBookingExpired.Size = new System.Drawing.Size(339, 39);
-            txtBookingExpired.TabIndex = 160;
+            lbMember.AutoSize = true;
+            lbMember.Location = new System.Drawing.Point(32, 77);
+            lbMember.Name = "lbMember";
+            lbMember.Size = new System.Drawing.Size(41, 20);
+            lbMember.TabIndex = 42;
+            lbMember.Text = "Price";
+            // 
+            // txtCarName
+            // 
+            txtCarName.Enabled = false;
+            txtCarName.Location = new System.Drawing.Point(117, 39);
+            txtCarName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            txtCarName.Name = "txtCarName";
+            txtCarName.Size = new System.Drawing.Size(154, 27);
+            txtCarName.TabIndex = 41;
+            // 
+            // lbCarName
+            // 
+            lbCarName.AutoSize = true;
+            lbCarName.Location = new System.Drawing.Point(32, 42);
+            lbCarName.Name = "lbCarName";
+            lbCarName.Size = new System.Drawing.Size(71, 20);
+            lbCarName.TabIndex = 40;
+            lbCarName.Text = "CarName";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(310, 74);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(114, 20);
+            label3.TabIndex = 51;
+            label3.Text = "BookingExpired";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(310, 39);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(96, 20);
+            label2.TabIndex = 50;
+            label2.Text = "BookingDate";
+            // 
+            // txtDate
+            // 
+            txtDate.Enabled = false;
+            txtDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            txtDate.Location = new System.Drawing.Point(439, 36);
+            txtDate.Name = "txtDate";
+            txtDate.Size = new System.Drawing.Size(166, 27);
+            txtDate.TabIndex = 49;
+            // 
+            // txtExpired
+            // 
+            txtExpired.Enabled = false;
+            txtExpired.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            txtExpired.Location = new System.Drawing.Point(439, 74);
+            txtExpired.Name = "txtExpired";
+            txtExpired.Size = new System.Drawing.Size(166, 27);
+            txtExpired.TabIndex = 48;
             // 
             // frmBookingDetail
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
+            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1324, 1007);
-            Controls.Add(txtBookingExpired);
-            Controls.Add(txtBookingDate);
-            Controls.Add(btnBack);
-            Controls.Add(dgvBookingDetailsList);
-            Controls.Add(label1);
-            Controls.Add(txtReturnStatus);
-            Controls.Add(txtBookingPrice);
+            ClientSize = new System.Drawing.Size(636, 590);
+            Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(lbUnitPrice);
-            Controls.Add(lbWeight);
+            Controls.Add(txtDate);
+            Controls.Add(txtExpired);
+            Controls.Add(btnBack);
+            Controls.Add(dgvOrderList);
+            Controls.Add(txtPrice);
+            Controls.Add(lbMember);
             Controls.Add(txtCarName);
-            Controls.Add(lbMemberName);
-            Controls.Add(txtBookingID);
-            Controls.Add(lbProductID);
+            Controls.Add(lbCarName);
             Name = "frmBookingDetail";
             Text = "frmOrderDetail";
             Load += frmBookingDetail_Load;
-            ((System.ComponentModel.ISupportInitialize)dgvBookingDetailsList).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvOrderList).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
-      
-
         #endregion
-        private System.Windows.Forms.Label lbUnitPrice;
-        private System.Windows.Forms.Label lbWeight;
-        private System.Windows.Forms.TextBox txtCarName;
-        private System.Windows.Forms.Label lbMemberName;
-        private System.Windows.Forms.TextBox txtBookingID;
-        private System.Windows.Forms.Label lbProductID;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtReturnStatus;
-        private System.Windows.Forms.TextBox txtBookingPrice;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.DataGridView dgvBookingDetailsList;
-        private System.Windows.Forms.DateTimePicker txtBookingDate;
-        private System.Windows.Forms.DateTimePicker txtBookingExpired;
+        private System.Windows.Forms.DataGridView dgvOrderList;
+        private System.Windows.Forms.TextBox txtPrice;
+        private System.Windows.Forms.Label lbMember;
+        private System.Windows.Forms.TextBox txtCarName;
+        private System.Windows.Forms.Label lbCarName;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker txtDate;
+        private System.Windows.Forms.DateTimePicker txtExpired;
     }
 }

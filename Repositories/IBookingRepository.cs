@@ -17,5 +17,6 @@ namespace Repositories
         public void InsertNewBooking(double total, int userid);
         public int GetIdNewBooking();
         public IEnumerable<TblBooking> GetListBooking(int userid);
+
     }
 }
