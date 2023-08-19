@@ -32,14 +32,39 @@ namespace DataAccessObjects
         {
             try
             {
-                var context = new CarBookingManagementContext();
+            var context = new CarBookingManagementContext();
                 var bookingDetailsList = context.TblBookingDetails.Include(x => x.Car).Where(d => d.BookingId == bookingID);
                 return bookingDetailsList;
-            }
+        }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
+        }
+
+        public void InsertNewBookingDetail(int carid, int bookingid, double subprice, DateTime bookingDate, DateTime bookingExpired)
+        {
+            DateTime BookingDate = bookingDate;
+            string formattedBookingDate = BookingDate.ToString("MM-dd-yyyy");
+            DateTime BookingExpired = bookingExpired;
+            string formattedBookingExpired = BookingExpired.ToString("MM-dd-yyyy");
+            var context = new CarBookingManagementContext();
+            string query = $"insert into tblBookingDetails\r\n  values ({carid}, {bookingid}, {subprice}, '{formattedBookingDate}', '{formattedBookingExpired}', 0)";
+            context.Database.ExecuteSqlRaw(query);
+        }
+
+        public IEnumerable<TblBookingDetail> GetListBookingDeatilById(int bookingId)
+        {
+            var context = new CarBookingManagementContext();
+            var listDeatil = context.TblBookingDetails.Include(y => y.Car).Where(x => x.BookingId == bookingId);
+            return (listDeatil.ToList());
+        }
+
+        public IEnumerable<TblBookingDetail> GetListCarinBookingDetail(int carId)
+        {
+            var context = new CarBookingManagementContext();
+            var listDetail = context.TblBookingDetails.Where(x => x.CarId == carId);
+            return listDetail.ToList();
         }
 
         public static void UpdateBookingDetail(int bookingID, int carID, DateTime bookingExpired, int returnStatus)
@@ -58,7 +83,7 @@ namespace DataAccessObjects
                 throw new Exception(ex.Message);
             }
         }
-         
+
         public static IEnumerable<TblBookingDetail> GetAllBookingDetailExcept(int bookingID, int carID, DateTime expiredDate)
         {
             try
@@ -66,7 +91,8 @@ namespace DataAccessObjects
                 var context = new CarBookingManagementContext();
                 var listResult = context.TblBookingDetails.Where(x => x.CarId == carID && x.BookingId != bookingID && (((DateTime)x.BookingDate).CompareTo(expiredDate)) > 0);
                 return listResult;
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }

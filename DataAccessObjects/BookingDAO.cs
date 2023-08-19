@@ -29,13 +29,18 @@ namespace DataAccessObjects
         }
 
         public IEnumerable<TblBooking> GetAllBookings()
+        public void InsertNewBooking(double total, int userid)
         {
             try
             {
-                var context = new CarBookingManagementContext();
+            DateTime createdDate = DateTime.Now;
+            string formattedcreatedDate = createdDate.ToString("MM-dd-yyyy");
+            var context = new CarBookingManagementContext();
                 var bookings = context.TblBookings.Include(x => x.User);
                 return bookings;
-            }  
+            string query = $"insert into tblBookings\r\n  values ('{formattedcreatedDate}', {total}, {userid})";
+            context.Database.ExecuteSqlRaw(query);
+        }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
@@ -59,8 +64,8 @@ namespace DataAccessObjects
         public IEnumerable<TblBooking> FindBookingsByBookingID(int bookingID)
         {
             try
-            {
-                var context = new CarBookingManagementContext();
+        {
+            var context = new CarBookingManagementContext();
                 var bookings = context.TblBookings.Include(x => x.User).Where(u => u.BookingId == bookingID);
                 return bookings;
             }
@@ -73,8 +78,8 @@ namespace DataAccessObjects
         public IEnumerable<TblBooking> FilterBookings(decimal from, decimal to)
         {
             try
-            {
-                var context = new CarBookingManagementContext();
+        {
+            var context = new CarBookingManagementContext();
                 IEnumerable<TblBooking> bookingsList = null;
                 if (to == -100)
                 {
@@ -94,6 +99,22 @@ namespace DataAccessObjects
             {
                 throw new Exception(ex.Message);
             }
+        }
+
+        public int GetIdNewBooking()
+        {
+            var context = new CarBookingManagementContext();
+            var newId = (from tmp in context.TblBookings
+                         orderby tmp.BookingId descending
+                         select tmp.BookingId).FirstOrDefault();
+            return newId;
+        }
+
+        public IEnumerable<TblBooking> GetListBooking(int userid)
+        {
+            var context = new CarBookingManagementContext();
+            var listBooking = context.TblBookings;
+            return listBooking;
         }
     }
 }

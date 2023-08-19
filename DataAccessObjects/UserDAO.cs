@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace DataAccessObjects
 {
@@ -45,8 +46,10 @@ namespace DataAccessObjects
                 {
                     UserId = 0,
                     Email = adEmail,
+                    FullName = adRole,
                     Password = adPassword,
-                    RoleId = adRole
+                    RoleId = adRole,
+                    Address = ""
                 };
             } catch (Exception ex)
             {
@@ -61,7 +64,7 @@ namespace DataAccessObjects
             try
             {
                 var context = new CarBookingManagementContext();
-                users = context.TblUsers.ToList();
+                users = context.TblUsers.Where(x => x.IsDeleted == 0).ToList();
                 users = users.Prepend(GetAdminAccount()).ToList();
             } catch (Exception ex)
             {
@@ -70,13 +73,32 @@ namespace DataAccessObjects
             return users;
         }
 
-        public TblUser checkLogin(string email, string passwword)
+        public List<TblUser> SearchUserByName(string name)
+        {
+            List<TblUser> users = GetAllUsers();
+
+            users.Where(user => user.FullName.ToLower().Contains(name.ToLower())).ToList();
+
+            return users;
+        }
+
+        public List<TblUser> SearchUserById(int id)
+        {
+            List<TblUser> users = GetAllUsers();
+
+            users = users.Where(user => user.UserId == id).ToList();
+
+            return users;
+        }
+
+
+        public TblUser checkLogin(string email, string password)
         {
             TblUser user = null;
             try
             {
                 var context = GetAllUsers();
-                user = context.FirstOrDefault(us => us.Email.Equals(email) && us.Password.Equals(passwword));
+                user = context.SingleOrDefault(us => us.Email.Equals(email) && us.Password.Equals(password));
             } catch (Exception ex)
             {
                 throw new Exception(ex.Message);
@@ -105,6 +127,101 @@ namespace DataAccessObjects
             {
                 throw new Exception(ex.Message);
             }
+        }
+
+        public void Update(TblUser user)
+        {
+            if (user == null)
+            {
+                throw new Exception("User is undefined!!");
+            }
+            try
+            {
+                TblUser _user = GetUser(user.UserId);
+                if (_user != null)
+                {
+                    var context = new CarBookingManagementContext();
+                    context.TblUsers.Update(user);
+
+                    context.SaveChanges();
+                }
+                else
+                {
+                    throw new Exception("User does not exist!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+        }
+
+        public void Delete(string userId)
+        {
+            if (userId.Length == 0)
+            {
+                throw new Exception("User is undefined!!");
+            }
+            try
+            {
+                TblUser user = GetUser(int.Parse(userId));
+
+                if (user != null)
+                {
+                    user.IsDeleted = 1;
+                    var context = new CarBookingManagementContext();
+                    context.TblUsers.Update(user);
+                    context.SaveChanges();
+                }
+                else
+                {
+                    throw new Exception("User does not exist!!");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public TblUser GetUser(int userId)
+
+        {
+            TblUser tblUser = null;
+
+            try
+            {
+                var context = GetAllUsers();
+                tblUser = context.SingleOrDefault(user => user.UserId == userId);
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("User does not exist!!");
+            }
+
+            return tblUser;
+        }
+
+
+        private TblUser GetUser(string userId)
+        {
+            TblUser tblUser = null;
+
+            try
+            {
+                using (var context = new CarBookingManagementContext())
+                {
+                    tblUser = context.TblUsers.SingleOrDefault(user => user.UserId == int.Parse(userId));
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("User does not exist!!");
+            }
+
+            return tblUser;
         }
     }
 }

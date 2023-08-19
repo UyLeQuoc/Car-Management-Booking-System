@@ -20,12 +20,15 @@ namespace CarManagementBookingGUI
         IUserRepository _userRepo = new UserRepository();
         private static readonly string ADMIN_ROLE = "Admin";
         private static readonly string STAFF_ROLE = "Staff";
-        private static readonly string MEMBER_ROLE = "Member";
+        private static readonly string MEMBER_ROLE = "user";
 
         public frmLogin()
         {
             InitializeComponent();
         }
+        public Dictionary<TblBookingDetail, TblCar> GetListOrderinLogin { get; set; }
+        public int checkEmptyinLogin { get; set; }
+        public int GetCountinLogin { get; set; }
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
@@ -45,26 +48,40 @@ namespace CarManagementBookingGUI
                     // phan quyen cho tung role
                     if (ADMIN_ROLE.Equals(loginUser.RoleId))
                     {
-                        frmMain frmMain = new frmMain();
+                        frmMain frmMain = new frmMain
+                        {
+                            loginUser = loginUser
+                        };
                         frmMain.Show();
                         this.Hide();
                         frmMain.FormClosed += (s, args) => this.Close();
-                    } else if (STAFF_ROLE.Equals(loginUser.RoleId))
+                    }
+                    else if (STAFF_ROLE.Equals(loginUser.RoleId))
                     {
-                        frmMain frmMain = new frmMain();
+                        frmMain frmMain = new frmMain
+                        {
+                            loginUser = loginUser
+                        };
                         frmMain.Show();
                         this.Hide();
                         frmMain.FormClosed += (s, args) => this.Close();
-                    } else if (MEMBER_ROLE.Equals (loginUser.RoleId))
+                    }
+                    else if (MEMBER_ROLE.Equals(loginUser.RoleId))
                     {
-                        frmViewCar frmViewCar = new frmViewCar();
-                        frmViewCar.Show();
-                        this.Hide();
-                        frmViewCar.FormClosed += (s, args) => this.Close();
+                        Hide();
+                        frmViewCar frmViewCar = new frmViewCar()
+                        {
+                            GetInfoUser = loginUser,
+                            GetCountinView = GetCountinLogin,
+                            GetListOrderinCreate = GetListOrderinLogin,
+                            checkEmptyinView = checkEmptyinLogin,
+                        };
+                        frmViewCar.ShowDialog();
+                        Close();
                     }
                     else
                     {
-                        MessageBox.Show("Your role is not supported!", "Login failed", 
+                        MessageBox.Show("Your role is not supported!", "Login failed",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
@@ -73,7 +90,8 @@ namespace CarManagementBookingGUI
                     MessageBox.Show("Incorrect email or password!", "Login failed",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Sign in error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

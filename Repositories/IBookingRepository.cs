@@ -14,5 +14,8 @@ namespace Repositories
         public IEnumerable<TblBooking> FindBookingsByUserName(string userName);
         public IEnumerable<TblBooking> FindBookingsByBookingID(int bookingID);
 
+        public void InsertNewBooking(double total, int userid);
+        public int GetIdNewBooking();
+        public IEnumerable<TblBooking> GetListBooking(int userid);
     }
 }
