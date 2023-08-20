@@ -20,7 +20,7 @@ namespace CarManagementBookingGUI
         IUserRepository _userRepo = new UserRepository();
         private static readonly string ADMIN_ROLE = "Admin";
         private static readonly string STAFF_ROLE = "Staff";
-        private static readonly string MEMBER_ROLE = "user";
+        private static readonly string MEMBER_ROLE = "Member";
 
         public frmLogin()
         {
