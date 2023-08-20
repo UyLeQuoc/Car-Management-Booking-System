@@ -323,7 +323,7 @@
             btnAddCart.TabIndex = 76;
             btnAddCart.Text = "&ChooseTime";
             btnAddCart.UseVisualStyleBackColor = true;
-            btnAddCart.Click += btnAddCart_Click;
+            btnAddCart.Click += btnChooseTime_Click;
             // 
             // btnViewCart
             // 
