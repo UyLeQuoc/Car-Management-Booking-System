@@ -95,6 +95,8 @@ namespace CarManagementBookingGUI
                         MessageBox.Show("Sign up success!", "Sign up", MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
                         this.Close();
+                        frmLogin frmLogin = new frmLogin();
+                        frmLogin.Show();
                     }
                 }
             } catch(Exception ex)
