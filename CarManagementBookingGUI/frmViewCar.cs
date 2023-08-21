@@ -123,10 +123,8 @@ namespace CarManagementBookingGUI
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
-            Hide();
             frmSignUp frmSignUp = new frmSignUp();
-            frmSignUp.ShowDialog();
-            Close();
+            frmSignUp.Show();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

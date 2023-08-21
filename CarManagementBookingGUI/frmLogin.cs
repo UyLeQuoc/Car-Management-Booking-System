@@ -99,8 +99,16 @@ namespace CarManagementBookingGUI
 
         private void btSignup_Click(object sender, EventArgs e)
         {
+            this.Close();
             frmSignUp frmSignUp = new frmSignUp();
             frmSignUp.Show();
+        }
+
+        private void btBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmViewCar frmViewCar = new frmViewCar();
+            frmViewCar.Show();
         }
     }
 }
