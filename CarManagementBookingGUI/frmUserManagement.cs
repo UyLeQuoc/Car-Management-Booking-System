@@ -85,7 +85,6 @@ namespace CarManagementBookingGUI
                 Text = "Add new member",
                 loginUser = this.loginUser,
             };
-
             frmUserDetail.ShowDialog();
             LoadList();
         }
@@ -104,11 +103,8 @@ namespace CarManagementBookingGUI
 
             };
 
-            if (frmUserDetail.ShowDialog() == DialogResult.OK)
-            {
-                LoadList();
-                source.Position = source.Count - 1;
-            }
+            frmUserDetail.ShowDialog();
+            LoadList();
         }
 
         private TblUser GetInfo()
@@ -165,34 +161,22 @@ namespace CarManagementBookingGUI
         {
             try
             {
-                if (cboSearchRole.DataSource != null)
+
+                string role = cboSearchRole.SelectedItem.ToString();
+
+
+                if (!string.IsNullOrEmpty(role))
                 {
-                    string role = cboSearchRole.SelectedItem.ToString();
+                    List<TblUser> searchResult = userRepository.SearchRole(role);
 
-
-                    if (!string.IsNullOrEmpty(role))
+                    if (searchResult != null)
                     {
-                        List<TblUser> searchResult;
-
-                        if (search)
-                        {
-                            //searchResult = memberRepository.SearchMemberByCity(country, city, this.searchResult);
-                        }
-                        else
-                        {
-                            //searchResult = memberRepository.SearchMemberByCity(country, city, this.dataSource);
-                        }
-                        /*
-                        if (searchResult.Any())
-                        {
-                            filter = true;
-                            filterResult = searchResult;
-                            LoadList();
-                        }
-                        else
-                        {
-                            MessageBox.Show("No result found!", "Search member", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }*/
+                        dgvMemberList.DataSource = null;
+                        dgvMemberList.DataSource = searchResult;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No result found!", "Search member", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
@@ -229,12 +213,8 @@ namespace CarManagementBookingGUI
                     List<TblUser> searchResult = userRepository.SearchUserByName(searchName);
                     if (searchResult.Count != 0)
                     {
-                        dataSource = searchResult;
-                        this.searchResult = searchResult;
-                        this.filterResult = searchResult;
-                        filter = false;
-                        search = true;
-                        LoadUserList();
+                        dgvMemberList.DataSource = null;
+                        dgvMemberList.DataSource = searchResult;
                     }
                     else
                     {
@@ -279,5 +259,9 @@ namespace CarManagementBookingGUI
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LoadList();
+        }
     }
 }

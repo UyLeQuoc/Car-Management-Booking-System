@@ -30,5 +30,8 @@ namespace Repositories
         public List<TblUser> SearchUserByName(string name) => UserDAO.Instance.SearchUserByName(name);
 
         public void UpdateAUser(TblUser user) => UserDAO.Instance.Update(user);
+
+        public List<TblUser> SearchRole(string role) => UserDAO.Instance.SearchUserByRole(role);
+
     }
 }

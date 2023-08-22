@@ -28,7 +28,7 @@ namespace CarManagementBookingGUI
 
         private void frmUserDetail_Load(object sender, EventArgs e)
         {
-            if(loginUser.RoleId.Equals("Member"))
+            if (loginUser.RoleId.Equals("Member"))
             {
                 cbRole.Visible = false;
             }
@@ -49,6 +49,8 @@ namespace CarManagementBookingGUI
                 cbRole.Text = tblUser.RoleId.ToString();
             }
         }
+
+        private void btnCancel_Click(object sender, EventArgs e) => Close();
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -147,6 +149,7 @@ namespace CarManagementBookingGUI
                             MessageBox.Show("Update user success!", "Update user", MessageBoxButtons.OK,
                                 MessageBoxIcon.Information);
                             this.Close();
+
                         }
                     }
                 }
@@ -157,8 +160,5 @@ namespace CarManagementBookingGUI
                 MessageBox.Show(ex.Message, msg, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void btnCancel_Click(object sender, EventArgs e) => Close();
-
     }
 }

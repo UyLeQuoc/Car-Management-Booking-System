@@ -32,14 +32,12 @@
             button1 = new System.Windows.Forms.Button();
             btnBrandModel = new System.Windows.Forms.Button();
             label1 = new System.Windows.Forms.Label();
-            btnViewProfile = new System.Windows.Forms.Button();
-            txtWelcomeName = new System.Windows.Forms.Label();
             btnLogout = new System.Windows.Forms.Button();
             SuspendLayout();
             // 
             // btnUserMangement
             // 
-            btnUserMangement.Location = new System.Drawing.Point(21, 143);
+            btnUserMangement.Location = new System.Drawing.Point(20, 86);
             btnUserMangement.Name = "btnUserMangement";
             btnUserMangement.Size = new System.Drawing.Size(182, 73);
             btnUserMangement.TabIndex = 0;
@@ -49,7 +47,7 @@
             // 
             // button1
             // 
-            button1.Location = new System.Drawing.Point(224, 143);
+            button1.Location = new System.Drawing.Point(223, 86);
             button1.Name = "button1";
             button1.Size = new System.Drawing.Size(182, 73);
             button1.TabIndex = 1;
@@ -59,7 +57,7 @@
             // 
             // btnBrandModel
             // 
-            btnBrandModel.Location = new System.Drawing.Point(426, 143);
+            btnBrandModel.Location = new System.Drawing.Point(425, 86);
             btnBrandModel.Name = "btnBrandModel";
             btnBrandModel.Size = new System.Drawing.Size(182, 73);
             btnBrandModel.TabIndex = 2;
@@ -70,38 +68,18 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(224, 45);
+            label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label1.Location = new System.Drawing.Point(224, 29);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(63, 15);
+            label1.Size = new System.Drawing.Size(157, 25);
             label1.TabIndex = 3;
-            label1.Text = "Welcome: ";
-            // 
-            // btnViewProfile
-            // 
-            btnViewProfile.DialogResult = System.Windows.Forms.DialogResult.OK;
-            btnViewProfile.Location = new System.Drawing.Point(189, 78);
-            btnViewProfile.Name = "btnViewProfile";
-            btnViewProfile.Size = new System.Drawing.Size(98, 23);
-            btnViewProfile.TabIndex = 5;
-            btnViewProfile.Text = "View Profile";
-            btnViewProfile.UseVisualStyleBackColor = true;
-            btnViewProfile.Click += btnViewProfile_Click;
-            // 
-            // txtWelcomeName
-            // 
-            txtWelcomeName.AutoSize = true;
-            txtWelcomeName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            txtWelcomeName.Location = new System.Drawing.Point(314, 45);
-            txtWelcomeName.Name = "txtWelcomeName";
-            txtWelcomeName.Size = new System.Drawing.Size(59, 15);
-            txtWelcomeName.TabIndex = 6;
-            txtWelcomeName.Text = "&full name";
+            label1.Text = "Welcome Admin";
             // 
             // btnLogout
             // 
-            btnLogout.Location = new System.Drawing.Point(314, 78);
+            btnLogout.Location = new System.Drawing.Point(400, 32);
             btnLogout.Name = "btnLogout";
-            btnLogout.Size = new System.Drawing.Size(75, 23);
+            btnLogout.Size = new System.Drawing.Size(82, 25);
             btnLogout.TabIndex = 7;
             btnLogout.Text = "Logout";
             btnLogout.UseVisualStyleBackColor = true;
@@ -111,16 +89,14 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(629, 270);
+            ClientSize = new System.Drawing.Size(629, 177);
             Controls.Add(btnLogout);
-            Controls.Add(txtWelcomeName);
-            Controls.Add(btnViewProfile);
             Controls.Add(label1);
             Controls.Add(btnBrandModel);
             Controls.Add(button1);
             Controls.Add(btnUserMangement);
             Name = "frmMain";
-            Text = "frmAdmin";
+            Text = "Admin Dashboard";
             Load += frmMain_Load;
             ResumeLayout(false);
             PerformLayout();
@@ -132,9 +108,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnBrandModel;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnViewProfile;
-
-        private System.Windows.Forms.Label txtWelcomeName;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btnLogout;
     }

@@ -30,7 +30,6 @@
         {
             grFilter = new System.Windows.Forms.GroupBox();
             cboSearchRole = new System.Windows.Forms.ComboBox();
-
             lbSearchCountry = new System.Windows.Forms.Label();
             grSearch = new System.Windows.Forms.GroupBox();
             radioByName = new System.Windows.Forms.RadioButton();
@@ -53,6 +52,7 @@
             txtUserID = new System.Windows.Forms.TextBox();
             lbID = new System.Windows.Forms.Label();
             cbRole = new System.Windows.Forms.ComboBox();
+            button1 = new System.Windows.Forms.Button();
             grFilter.SuspendLayout();
             grSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvMemberList).BeginInit();
@@ -61,7 +61,6 @@
             // grFilter
             // 
             grFilter.Controls.Add(cboSearchRole);
-
             grFilter.Controls.Add(lbSearchCountry);
             grFilter.Location = new System.Drawing.Point(376, 203);
             grFilter.Name = "grFilter";
@@ -72,12 +71,12 @@
             // 
             // cboSearchRole
             // 
+            cboSearchRole.Items.AddRange(new object[] { "Admin", "Staff", "Member" });
             cboSearchRole.Location = new System.Drawing.Point(77, 18);
             cboSearchRole.Name = "cboSearchRole";
             cboSearchRole.Size = new System.Drawing.Size(165, 23);
             cboSearchRole.TabIndex = 0;
             cboSearchRole.SelectedIndexChanged += cboSearchRole_SelectedIndexChanged;
-
             // 
             // lbSearchCountry
             // 
@@ -141,7 +140,6 @@
             btnSearch.Text = "&Search";
             btnSearch.UseVisualStyleBackColor = true;
             btnSearch.Click += btnSearch_Click;
-
             // 
             // lbSearch
             // 
@@ -166,9 +164,9 @@
             // 
             // btnDelete
             // 
-            btnDelete.Location = new System.Drawing.Point(526, 169);
+            btnDelete.Location = new System.Drawing.Point(563, 169);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new System.Drawing.Size(109, 23);
+            btnDelete.Size = new System.Drawing.Size(73, 23);
             btnDelete.TabIndex = 40;
             btnDelete.Text = "&Delete";
             btnDelete.UseVisualStyleBackColor = true;
@@ -176,9 +174,9 @@
             // 
             // btnNew
             // 
-            btnNew.Location = new System.Drawing.Point(376, 169);
+            btnNew.Location = new System.Drawing.Point(466, 169);
             btnNew.Name = "btnNew";
-            btnNew.Size = new System.Drawing.Size(109, 23);
+            btnNew.Size = new System.Drawing.Size(81, 23);
             btnNew.TabIndex = 39;
             btnNew.Text = "&New";
             btnNew.UseVisualStyleBackColor = true;
@@ -283,11 +281,22 @@
             cbRole.Size = new System.Drawing.Size(184, 23);
             cbRole.TabIndex = 44;
             // 
+            // button1
+            // 
+            button1.Location = new System.Drawing.Point(376, 169);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(75, 23);
+            button1.TabIndex = 45;
+            button1.Text = "Load";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // frmUserManagement
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(677, 560);
+            Controls.Add(button1);
             Controls.Add(cbRole);
             Controls.Add(grFilter);
             Controls.Add(grSearch);
@@ -306,7 +315,7 @@
             Controls.Add(txtUserID);
             Controls.Add(lbID);
             Name = "frmUserManagement";
-            Text = "frmUserManagement";
+            Text = "User Management";
             Load += frmUserManagement_Load;
             grFilter.ResumeLayout(false);
             grFilter.PerformLayout();
@@ -343,5 +352,6 @@
         private System.Windows.Forms.TextBox txtUserID;
         private System.Windows.Forms.Label lbID;
         private System.Windows.Forms.ComboBox cbRole;
+        private System.Windows.Forms.Button button1;
     }
 }

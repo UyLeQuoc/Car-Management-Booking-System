@@ -92,9 +92,7 @@ namespace DataAccessObjects
         {
             List<TblUser> users = GetAllUsers();
 
-            users.Where(user => user.FullName.ToLower().Contains(name.ToLower())).ToList();
-
-            return users;
+            return users.Where(user => user.FullName.ToLower().Contains(name.ToLower())).ToList();
         }
 
         public List<TblUser> SearchUserById(int id)
@@ -113,6 +111,12 @@ namespace DataAccessObjects
             return result;
         }
 
+        public List<TblUser> SearchUserByRole(string role)
+        {
+            List<TblUser> users = GetAllUsers();
+
+            return users.Where(user => user.RoleId.Contains(role)).ToList();
+        }
 
         public TblUser checkLogin(string email, string password)
         {

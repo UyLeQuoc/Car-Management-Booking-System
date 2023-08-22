@@ -29,5 +29,7 @@ namespace Repositories
 
         public List<TblUser> SearchUserById(int id);
 
+        public List<TblUser> SearchRole(string role);
+
     }
 }

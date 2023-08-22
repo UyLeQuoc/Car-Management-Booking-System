@@ -67,60 +67,66 @@
             // txtCarName
             // 
             txtCarName.Enabled = false;
-            txtCarName.Location = new System.Drawing.Point(153, 67);
+            txtCarName.Location = new System.Drawing.Point(134, 50);
+            txtCarName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             txtCarName.Name = "txtCarName";
-            txtCarName.Size = new System.Drawing.Size(257, 27);
+            txtCarName.Size = new System.Drawing.Size(225, 23);
             txtCarName.TabIndex = 0;
             txtCarName.TextChanged += txtCarName_TextChanged;
             // 
             // txtCarPrice
             // 
             txtCarPrice.Enabled = false;
-            txtCarPrice.Location = new System.Drawing.Point(153, 169);
+            txtCarPrice.Location = new System.Drawing.Point(134, 127);
+            txtCarPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             txtCarPrice.Name = "txtCarPrice";
-            txtCarPrice.Size = new System.Drawing.Size(257, 27);
+            txtCarPrice.Size = new System.Drawing.Size(225, 23);
             txtCarPrice.TabIndex = 1;
             // 
             // txtCarBrand
             // 
             txtCarBrand.Enabled = false;
-            txtCarBrand.Location = new System.Drawing.Point(552, 114);
+            txtCarBrand.Location = new System.Drawing.Point(483, 86);
+            txtCarBrand.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             txtCarBrand.Name = "txtCarBrand";
-            txtCarBrand.Size = new System.Drawing.Size(257, 27);
+            txtCarBrand.Size = new System.Drawing.Size(225, 23);
             txtCarBrand.TabIndex = 2;
             // 
             // txtCarPlate
             // 
             txtCarPlate.Enabled = false;
-            txtCarPlate.Location = new System.Drawing.Point(153, 118);
+            txtCarPlate.Location = new System.Drawing.Point(134, 88);
+            txtCarPlate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             txtCarPlate.Name = "txtCarPlate";
-            txtCarPlate.Size = new System.Drawing.Size(257, 27);
+            txtCarPlate.Size = new System.Drawing.Size(225, 23);
             txtCarPlate.TabIndex = 3;
             // 
             // txtCarModel
             // 
             txtCarModel.Enabled = false;
-            txtCarModel.Location = new System.Drawing.Point(552, 67);
+            txtCarModel.Location = new System.Drawing.Point(483, 50);
+            txtCarModel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             txtCarModel.Name = "txtCarModel";
-            txtCarModel.Size = new System.Drawing.Size(257, 27);
+            txtCarModel.Size = new System.Drawing.Size(225, 23);
             txtCarModel.TabIndex = 4;
             // 
             // dgvViewCar
             // 
             dgvViewCar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvViewCar.Location = new System.Drawing.Point(34, 389);
+            dgvViewCar.Location = new System.Drawing.Point(30, 292);
+            dgvViewCar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             dgvViewCar.Name = "dgvViewCar";
             dgvViewCar.RowHeadersWidth = 51;
             dgvViewCar.RowTemplate.Height = 29;
-            dgvViewCar.Size = new System.Drawing.Size(775, 199);
+            dgvViewCar.Size = new System.Drawing.Size(678, 149);
             dgvViewCar.TabIndex = 5;
             // 
             // lbCategory
             // 
             lbCategory.AutoSize = true;
-            lbCategory.Location = new System.Drawing.Point(34, 172);
+            lbCategory.Location = new System.Drawing.Point(30, 129);
             lbCategory.Name = "lbCategory";
-            lbCategory.Size = new System.Drawing.Size(96, 20);
+            lbCategory.Size = new System.Drawing.Size(77, 15);
             lbCategory.TabIndex = 67;
             lbCategory.Text = "PriceperHour";
             lbCategory.Click += lbCategory_Click;
@@ -128,36 +134,36 @@
             // lbMemberName
             // 
             lbMemberName.AutoSize = true;
-            lbMemberName.Location = new System.Drawing.Point(34, 121);
+            lbMemberName.Location = new System.Drawing.Point(30, 91);
             lbMemberName.Name = "lbMemberName";
-            lbMemberName.Size = new System.Drawing.Size(68, 20);
+            lbMemberName.Size = new System.Drawing.Size(54, 15);
             lbMemberName.TabIndex = 66;
             lbMemberName.Text = "Car Plate";
             // 
             // lbProductID
             // 
             lbProductID.AutoSize = true;
-            lbProductID.Location = new System.Drawing.Point(34, 70);
+            lbProductID.Location = new System.Drawing.Point(30, 52);
             lbProductID.Name = "lbProductID";
-            lbProductID.Size = new System.Drawing.Size(75, 20);
+            lbProductID.Size = new System.Drawing.Size(60, 15);
             lbProductID.TabIndex = 65;
             lbProductID.Text = "Car Name";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(447, 70);
+            label1.Location = new System.Drawing.Point(391, 52);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(78, 20);
+            label1.Size = new System.Drawing.Size(62, 15);
             label1.TabIndex = 68;
             label1.Text = "Car Model";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(447, 117);
+            label2.Location = new System.Drawing.Point(391, 88);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(74, 20);
+            label2.Size = new System.Drawing.Size(59, 15);
             label2.TabIndex = 69;
             label2.Text = "Car Brand";
             // 
@@ -166,29 +172,25 @@
             grSearch.Controls.Add(txtSearchValue);
             grSearch.Controls.Add(btnSearch);
             grSearch.Controls.Add(lbSearch);
-            grSearch.Location = new System.Drawing.Point(34, 224);
-            grSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            grSearch.Location = new System.Drawing.Point(30, 168);
             grSearch.Name = "grSearch";
-            grSearch.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            grSearch.Size = new System.Drawing.Size(376, 119);
+            grSearch.Size = new System.Drawing.Size(329, 89);
             grSearch.TabIndex = 70;
             grSearch.TabStop = false;
             grSearch.Text = "Search";
             // 
             // txtSearchValue
             // 
-            txtSearchValue.Location = new System.Drawing.Point(88, 25);
-            txtSearchValue.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            txtSearchValue.Location = new System.Drawing.Point(77, 19);
             txtSearchValue.Name = "txtSearchValue";
-            txtSearchValue.Size = new System.Drawing.Size(249, 27);
+            txtSearchValue.Size = new System.Drawing.Size(218, 23);
             txtSearchValue.TabIndex = 10;
             // 
             // btnSearch
             // 
-            btnSearch.Location = new System.Drawing.Point(88, 71);
-            btnSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            btnSearch.Location = new System.Drawing.Point(77, 53);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new System.Drawing.Size(120, 31);
+            btnSearch.Size = new System.Drawing.Size(105, 23);
             btnSearch.TabIndex = 13;
             btnSearch.Text = "&Search";
             btnSearch.UseVisualStyleBackColor = true;
@@ -197,9 +199,9 @@
             // lbSearch
             // 
             lbSearch.AutoSize = true;
-            lbSearch.Location = new System.Drawing.Point(33, 31);
+            lbSearch.Location = new System.Drawing.Point(29, 23);
             lbSearch.Name = "lbSearch";
-            lbSearch.Size = new System.Drawing.Size(53, 20);
+            lbSearch.Size = new System.Drawing.Size(42, 15);
             lbSearch.TabIndex = 16;
             lbSearch.Text = "Search";
             // 
@@ -210,11 +212,9 @@
             grFilter.Controls.Add(btnFilter);
             grFilter.Controls.Add(lbTo);
             grFilter.Controls.Add(lbFrom);
-            grFilter.Location = new System.Drawing.Point(425, 224);
-            grFilter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            grFilter.Location = new System.Drawing.Point(372, 168);
             grFilter.Name = "grFilter";
-            grFilter.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            grFilter.Size = new System.Drawing.Size(384, 119);
+            grFilter.Size = new System.Drawing.Size(336, 89);
             grFilter.TabIndex = 71;
             grFilter.TabStop = false;
             grFilter.Text = "Filter";
@@ -222,31 +222,32 @@
             // txtTo
             // 
             txtTo.Increment = new decimal(new int[] { 5, 0, 0, 0 });
-            txtTo.Location = new System.Drawing.Point(239, 26);
+            txtTo.Location = new System.Drawing.Point(209, 20);
+            txtTo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             txtTo.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             txtTo.Minimum = new decimal(new int[] { 10, 0, 0, 0 });
             txtTo.Name = "txtTo";
-            txtTo.Size = new System.Drawing.Size(137, 27);
+            txtTo.Size = new System.Drawing.Size(120, 23);
             txtTo.TabIndex = 20;
             txtTo.Value = new decimal(new int[] { 100, 0, 0, 0 });
             // 
             // txtFrom
             // 
             txtFrom.Increment = new decimal(new int[] { 5, 0, 0, 0 });
-            txtFrom.Location = new System.Drawing.Point(65, 26);
+            txtFrom.Location = new System.Drawing.Point(57, 20);
+            txtFrom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             txtFrom.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             txtFrom.Minimum = new decimal(new int[] { 10, 0, 0, 0 });
             txtFrom.Name = "txtFrom";
-            txtFrom.Size = new System.Drawing.Size(137, 27);
+            txtFrom.Size = new System.Drawing.Size(120, 23);
             txtFrom.TabIndex = 19;
             txtFrom.Value = new decimal(new int[] { 10, 0, 0, 0 });
             // 
             // btnFilter
             // 
-            btnFilter.Location = new System.Drawing.Point(155, 71);
-            btnFilter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            btnFilter.Location = new System.Drawing.Point(136, 53);
             btnFilter.Name = "btnFilter";
-            btnFilter.Size = new System.Drawing.Size(91, 31);
+            btnFilter.Size = new System.Drawing.Size(80, 23);
             btnFilter.TabIndex = 18;
             btnFilter.Text = "&Filter";
             btnFilter.UseVisualStyleBackColor = true;
@@ -255,9 +256,9 @@
             // lbTo
             // 
             lbTo.AutoSize = true;
-            lbTo.Location = new System.Drawing.Point(208, 28);
+            lbTo.Location = new System.Drawing.Point(182, 21);
             lbTo.Name = "lbTo";
-            lbTo.Size = new System.Drawing.Size(25, 20);
+            lbTo.Size = new System.Drawing.Size(19, 15);
             lbTo.TabIndex = 4;
             lbTo.Text = "To";
             lbTo.Click += lbTo_Click;
@@ -265,18 +266,17 @@
             // lbFrom
             // 
             lbFrom.AutoSize = true;
-            lbFrom.Location = new System.Drawing.Point(16, 31);
+            lbFrom.Location = new System.Drawing.Point(14, 23);
             lbFrom.Name = "lbFrom";
-            lbFrom.Size = new System.Drawing.Size(43, 20);
+            lbFrom.Size = new System.Drawing.Size(35, 15);
             lbFrom.TabIndex = 2;
             lbFrom.Text = "From";
             // 
             // btnLogin
             // 
-            btnLogin.Location = new System.Drawing.Point(552, 185);
-            btnLogin.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            btnLogin.Location = new System.Drawing.Point(483, 139);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new System.Drawing.Size(91, 31);
+            btnLogin.Size = new System.Drawing.Size(80, 23);
             btnLogin.TabIndex = 72;
             btnLogin.Text = "&Login";
             btnLogin.UseVisualStyleBackColor = true;
@@ -284,10 +284,9 @@
             // 
             // btnSignUp
             // 
-            btnSignUp.Location = new System.Drawing.Point(664, 185);
-            btnSignUp.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            btnSignUp.Location = new System.Drawing.Point(581, 139);
             btnSignUp.Name = "btnSignUp";
-            btnSignUp.Size = new System.Drawing.Size(91, 31);
+            btnSignUp.Size = new System.Drawing.Size(80, 23);
             btnSignUp.TabIndex = 73;
             btnSignUp.Text = "&SignUp";
             btnSignUp.UseVisualStyleBackColor = true;
@@ -299,17 +298,16 @@
             Login.Font = new System.Drawing.Font("Segoe UI Emoji", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             Login.Location = new System.Drawing.Point(0, 0);
             Login.Name = "Login";
-            Login.Size = new System.Drawing.Size(846, 40);
+            Login.Size = new System.Drawing.Size(740, 30);
             Login.TabIndex = 74;
             Login.Text = "Login";
             Login.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnLoad
             // 
-            btnLoad.Location = new System.Drawing.Point(441, 185);
-            btnLoad.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            btnLoad.Location = new System.Drawing.Point(386, 139);
             btnLoad.Name = "btnLoad";
-            btnLoad.Size = new System.Drawing.Size(91, 31);
+            btnLoad.Size = new System.Drawing.Size(80, 23);
             btnLoad.TabIndex = 75;
             btnLoad.Text = "&Load";
             btnLoad.UseVisualStyleBackColor = true;
@@ -317,10 +315,9 @@
             // 
             // btnAddCart
             // 
-            btnAddCart.Location = new System.Drawing.Point(294, 351);
-            btnAddCart.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            btnAddCart.Location = new System.Drawing.Point(257, 263);
             btnAddCart.Name = "btnAddCart";
-            btnAddCart.Size = new System.Drawing.Size(116, 31);
+            btnAddCart.Size = new System.Drawing.Size(102, 23);
             btnAddCart.TabIndex = 76;
             btnAddCart.Text = "&ChooseTime";
             btnAddCart.UseVisualStyleBackColor = true;
@@ -328,10 +325,9 @@
             // 
             // btnViewCart
             // 
-            btnViewCart.Location = new System.Drawing.Point(425, 351);
-            btnViewCart.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            btnViewCart.Location = new System.Drawing.Point(372, 263);
             btnViewCart.Name = "btnViewCart";
-            btnViewCart.Size = new System.Drawing.Size(116, 31);
+            btnViewCart.Size = new System.Drawing.Size(102, 23);
             btnViewCart.TabIndex = 77;
             btnViewCart.Text = "&ViewCart";
             btnViewCart.UseVisualStyleBackColor = true;
@@ -339,10 +335,9 @@
             // 
             // btnViewOrder
             // 
-            btnViewOrder.Location = new System.Drawing.Point(552, 185);
-            btnViewOrder.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            btnViewOrder.Location = new System.Drawing.Point(483, 139);
             btnViewOrder.Name = "btnViewOrder";
-            btnViewOrder.Size = new System.Drawing.Size(91, 31);
+            btnViewOrder.Size = new System.Drawing.Size(80, 23);
             btnViewOrder.TabIndex = 78;
             btnViewOrder.Text = "&ViewOrder";
             btnViewOrder.UseVisualStyleBackColor = true;
@@ -350,10 +345,9 @@
             // 
             // btnLogOut
             // 
-            btnLogOut.Location = new System.Drawing.Point(664, 185);
-            btnLogOut.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            btnLogOut.Location = new System.Drawing.Point(581, 139);
             btnLogOut.Name = "btnLogOut";
-            btnLogOut.Size = new System.Drawing.Size(91, 31);
+            btnLogOut.Size = new System.Drawing.Size(80, 23);
             btnLogOut.TabIndex = 79;
             btnLogOut.Text = "&LogOut";
             btnLogOut.UseVisualStyleBackColor = true;
@@ -361,9 +355,9 @@
             // 
             // frmViewCar
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(846, 611);
+            ClientSize = new System.Drawing.Size(740, 458);
             Controls.Add(btnLogOut);
             Controls.Add(btnViewOrder);
             Controls.Add(btnViewCart);
@@ -385,8 +379,9 @@
             Controls.Add(txtCarBrand);
             Controls.Add(txtCarPrice);
             Controls.Add(txtCarName);
+            Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             Name = "frmViewCar";
-            Text = "Form1";
+            Text = "Booking Car Page";
             Load += frmViewCar_Load;
             ((System.ComponentModel.ISupportInitialize)dgvViewCar).EndInit();
             grSearch.ResumeLayout(false);

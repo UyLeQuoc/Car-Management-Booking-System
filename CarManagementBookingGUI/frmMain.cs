@@ -36,32 +36,9 @@ namespace CarManagementBookingGUI
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            LoadProfile(loginUser.UserId.ToString());
         }
 
-        private void btnViewProfile_Click(object sender, EventArgs e)
-        {
-            TblUser tblUser = userRepository.GetAUser(loginUser.UserId);
 
-            frmUserDetail frmUserDetail = new frmUserDetail
-            {
-                UserRepository = userRepository,
-                InsertOrUpdate = false,
-                tblUser = tblUser,
-                Text = "View profile",
-                loginUser = loginUser
-            };
-            if (frmUserDetail.ShowDialog() == DialogResult.OK)
-            {
-                LoadProfile(tblUser.UserId.ToString());
-            }
-        }
-
-        private void LoadProfile(string id)
-        {
-            txtWelcomeName.Text = userRepository?.GetAUser(id)?.FullName?.ToString();
-
-        }
 
         private void btnBrandModel_Click(object sender, EventArgs e)
         {

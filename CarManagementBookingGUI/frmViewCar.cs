@@ -133,7 +133,7 @@ namespace CarManagementBookingGUI
         {
             string value = txtSearchValue.Text;
             IEnumerable<TblCar> searchCar = carRepo.SearchCarByName(value.Trim());
-            if(value.Trim().Length == 0)
+            if (value.Trim().Length == 0)
             {
                 MessageBox.Show("Do not allow Empty!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -149,7 +149,7 @@ namespace CarManagementBookingGUI
                 {
                     MessageBox.Show("Car is not found!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }           
+            }
         }
 
         public void LoadData()
