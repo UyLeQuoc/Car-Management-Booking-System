@@ -33,8 +33,14 @@ In the system, there are some specific rules for members to make a car reservati
 
 # 2. Database Design
 ## Conceptual Diagram
+![image](https://github.com/UyLeQuoc/Car-Management-Booking-System/assets/91858657/b4916737-5eb4-44ad-9a3d-7f7ffed756be)
+
 ## Logical Diagram
+![image](https://github.com/UyLeQuoc/Car-Management-Booking-System/assets/91858657/644c4bdc-52b7-415a-9590-e12503cb459d)
+
 ## Database Diagram
+![image](https://github.com/UyLeQuoc/Car-Management-Booking-System/assets/91858657/3147bc1f-acca-45e2-ab55-df972f8f7ee9)
+
 
 # 3. System Architecture 
 The car booking management system follows a 3-layer architecture that ensures efficient data flow, separation of entities and business logic, and is easy to maintain. The technologies are used in this project including .NET 5, Entity Framework Core (version 5), and Microsoft SQL Server. The architecture delivers a robust and user-friendly interface to different actors, comprising guests, members, staff and admins.
@@ -60,8 +66,18 @@ Successful deployment hinges on comprehensive training resources for both users 
 In conclusion, deploying the Car Booking Management Project necessitates meticulous planning and execution for a seamless shift to operational use. User access must cater to distribution and time zone variations. Infrastructure adaptations should optimize network performance and data storage. Thorough training materials and business process integration will facilitate user adoption and align operational workflows with the new system's features. Addressing these aspects will ensure a successful deployment that elevates car booking and management processes.
 
 # Screenshot
-
-
+![image](https://github.com/UyLeQuoc/Car-Management-Booking-System/assets/91858657/512d32eb-9fee-450e-8293-a1f9d1b46fa1)
+![image](https://github.com/UyLeQuoc/Car-Management-Booking-System/assets/91858657/061c7f40-ce4a-4bb0-a25d-d013eb8ee542)
+![image](https://github.com/UyLeQuoc/Car-Management-Booking-System/assets/91858657/ab0627e2-10fe-434e-9a55-acbfcbad37f3)
+![image](https://github.com/UyLeQuoc/Car-Management-Booking-System/assets/91858657/6cb6fd38-660c-4499-bfac-f58f1d6286dd)
+![image](https://github.com/UyLeQuoc/Car-Management-Booking-System/assets/91858657/70edae9f-d859-49d0-b624-d8636761b07c)
+![image](https://github.com/UyLeQuoc/Car-Management-Booking-System/assets/91858657/c7ac30dd-2fa2-4ef7-8c4d-4191c89933a6)
+![image](https://github.com/UyLeQuoc/Car-Management-Booking-System/assets/91858657/a3bf4cd1-dede-4e10-9346-080ecb6914c0)
+![image](https://github.com/UyLeQuoc/Car-Management-Booking-System/assets/91858657/8a30e247-b026-48ff-bfb4-5a7ece18cd69)
+![image](https://github.com/UyLeQuoc/Car-Management-Booking-System/assets/91858657/63b606e2-9fc1-4dd8-bac8-7a187083a425)
+![image](https://github.com/UyLeQuoc/Car-Management-Booking-System/assets/91858657/2f552312-2958-453d-9927-63650e444162)
+![image](https://github.com/UyLeQuoc/Car-Management-Booking-System/assets/91858657/456f80f8-083c-429c-81c1-4ca7b93eba2a)
+![image](https://github.com/UyLeQuoc/Car-Management-Booking-System/assets/91858657/aa0bf149-2d3c-4d00-9619-8aec0c1195a1)
 
 # Starting the project
 - `git clone "this repo"`
@@ -76,8 +92,5 @@ If you encounter a bug or have a feature request, [send us an email](mailto:lequ
 ## License
 
 The MIT License.
-
-## Libraries Used
-
 
 <p align="right"><a href="#top">⬆️ Back to top️</a></p>
