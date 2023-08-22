@@ -88,9 +88,9 @@ In conclusion, deploying the Car Booking Management Project necessitates meticul
 # Contact
 ## Member:
 - Nguyễn Tiến Dũng - nguyentiendung2003@gmail.com - [Github](https://github.com/NTDung93)
-- Nguyễn Đức Sơn -  - [Github](https://github.com/Son-2003)
-- Vũ Long - nguyenducson2915@gmail.com - [Github](https://github.com/longvu2211)
-- Lê Quốc Uy - lequocuyit@gmail.com - [Github](mailto:lequocuyit@gmai.com)
+- Nguyễn Đức Sơn - nguyenducson2915@gmail.com - [Github](https://github.com/Son-2003)
+- Vũ Long - vulongbinhduong@gmail.com - [Github](https://github.com/longvu2211)
+- Lê Quốc Uy - lequocuyit@gmail.com - [Github](https://github.com/UyLeQuoc)
   
 ## Bug report or Feature request
 
