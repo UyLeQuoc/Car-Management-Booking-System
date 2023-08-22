@@ -203,7 +203,10 @@ namespace CarManagementBookingGUI
                 carRepository.UpdateCar(newCar);
                 MessageBox.Show("Update car successfully!", "Update car", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Hide();
-                frmCarManagement frmCarManagement = new frmCarManagement();
+                frmCarManagement frmCarManagement = new frmCarManagement()
+                {
+                    curUser = curUser
+                };
                 frmCarManagement.ShowDialog();
                 this.Close();
             }

@@ -79,7 +79,7 @@ namespace DataAccessObjects
             try
             {
                 var context = new CarBookingManagementContext();
-                IEnumerable<TblCar> carList = context.TblCars.Include(x => x.Brand).Include(x => x.Model).Where(x => x.CarName.ToLower().Contains(carName.Trim().ToLower()) && x.IsDeleted == 0);
+                IEnumerable<TblCar> carList = context.TblCars.Include(x => x.Brand).Include(x => x.Model).Where(x => x.CarName.ToLower().Contains(carName.Trim().ToLower()));
                 return carList;
             }
             catch (Exception ex)
