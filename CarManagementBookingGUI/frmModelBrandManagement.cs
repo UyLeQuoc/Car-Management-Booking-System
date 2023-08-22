@@ -236,7 +236,7 @@ namespace CarManagementBookingGUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Delete Model", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Delete Model");
             }
         }
     }
