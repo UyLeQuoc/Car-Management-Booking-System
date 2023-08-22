@@ -23,7 +23,10 @@ namespace CarManagementBookingGUI
         private void btnCars_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmCarManagement frm = new frmCarManagement();
+            frmCarManagement frm = new frmCarManagement()
+            {
+                curUser = curUser,
+            };
             frm.ShowDialog();
             this.Close();
         }
@@ -31,19 +34,21 @@ namespace CarManagementBookingGUI
         private void btnBookings_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmBookingManagement frm = new frmBookingManagement();
+            frmBookingManagement frm = new frmBookingManagement()
+            {
+                curUser = curUser
+            };
             frm.ShowDialog();
             this.Close();
         }
 
         private void frmStaff_Load(object sender, EventArgs e)
         {
-
+            txtUserName.Text = curUser.FullName;
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
-            txtUserName.Text = curUser.FullName;
         }
 
         private void button4_Click(object sender, EventArgs e)

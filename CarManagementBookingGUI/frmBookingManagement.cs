@@ -14,6 +14,7 @@ namespace CarManagementBookingGUI
 {
     public partial class frmBookingManagement : Form
     {
+        public TblUser curUser { get; set; }
         BindingSource source;
         IBookingRepository bookingRepository = new BookingRepository();
         bool isSearch = false, isFilter = false, isSearchById = false, isSearchByName = false;
@@ -73,7 +74,10 @@ namespace CarManagementBookingGUI
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmStaff frmStaff = new frmStaff();
+            frmStaff frmStaff = new frmStaff()
+            {
+                curUser = curUser
+            };
             frmStaff.ShowDialog();
             this.Close();
         }
@@ -84,6 +88,10 @@ namespace CarManagementBookingGUI
             {
                 isSearch = true;
 
+                if (txtSearchValue.Text.Trim().Length == 0)
+                {
+                    throw new Exception("Please fill out the field, enter only blank character is not allowed!");
+                }
                 if (isSearch)
                 {
                     IEnumerable<TblBooking> listResult = null;
@@ -127,7 +135,7 @@ namespace CarManagementBookingGUI
         {
             try
             {
-                if (txtFrom.Text.Length == 0 && txtTo.Text.Length == 0)
+                if (txtFrom.Text.Trim().Length == 0 && txtTo.Text.Trim().Length == 0)
                 {
                     throw new Exception("Please fill out at least one field!");
                 }
