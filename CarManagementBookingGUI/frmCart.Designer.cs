@@ -264,6 +264,7 @@
             // 
             // txtExpried
             // 
+            txtExpried.Enabled = false;
             txtExpried.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             txtExpried.Location = new System.Drawing.Point(457, 232);
             txtExpried.Name = "txtExpried";
@@ -272,6 +273,7 @@
             // 
             // txtDate
             // 
+            txtDate.Enabled = false;
             txtDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             txtDate.Location = new System.Drawing.Point(173, 232);
             txtDate.Name = "txtDate";

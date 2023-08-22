@@ -181,7 +181,7 @@ namespace CarManagementBookingGUI
 
         private void btnCheckOut_Click(object sender, EventArgs e)
         {
-            if(GetInfoUserinCart == null)
+            if (GetInfoUserinCart == null)
             {
                 Hide();
                 frmLogin frmLogin = new frmLogin()

@@ -56,6 +56,7 @@
             btnAddCart = new System.Windows.Forms.Button();
             btnViewCart = new System.Windows.Forms.Button();
             btnViewOrder = new System.Windows.Forms.Button();
+            btnLogOut = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)dgvViewCar).BeginInit();
             grSearch.SuspendLayout();
             grFilter.SuspendLayout();
@@ -221,8 +222,8 @@
             // txtTo
             // 
             txtTo.Increment = new decimal(new int[] { 5, 0, 0, 0 });
-            txtTo.Location = new System.Drawing.Point(239, 25);
-            txtTo.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            txtTo.Location = new System.Drawing.Point(239, 26);
+            txtTo.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             txtTo.Minimum = new decimal(new int[] { 10, 0, 0, 0 });
             txtTo.Name = "txtTo";
             txtTo.Size = new System.Drawing.Size(137, 27);
@@ -347,11 +348,23 @@
             btnViewOrder.UseVisualStyleBackColor = true;
             btnViewOrder.Click += btnViewOrder_Click;
             // 
+            // btnLogOut
+            // 
+            btnLogOut.Location = new System.Drawing.Point(664, 185);
+            btnLogOut.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            btnLogOut.Name = "btnLogOut";
+            btnLogOut.Size = new System.Drawing.Size(91, 31);
+            btnLogOut.TabIndex = 79;
+            btnLogOut.Text = "&LogOut";
+            btnLogOut.UseVisualStyleBackColor = true;
+            btnLogOut.Click += btnLogOut_Click;
+            // 
             // frmViewCar
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(846, 611);
+            Controls.Add(btnLogOut);
             Controls.Add(btnViewOrder);
             Controls.Add(btnViewCart);
             Controls.Add(btnAddCart);
@@ -412,9 +425,10 @@
         private System.Windows.Forms.Label Login;
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.NumericUpDown txtFrom;
-        private System.Windows.Forms.NumericUpDown txtTo;
         private System.Windows.Forms.Button btnAddCart;
         private System.Windows.Forms.Button btnViewCart;
         private System.Windows.Forms.Button btnViewOrder;
+        private System.Windows.Forms.Button btnLogOut;
+        private System.Windows.Forms.NumericUpDown txtTo;
     }
 }
