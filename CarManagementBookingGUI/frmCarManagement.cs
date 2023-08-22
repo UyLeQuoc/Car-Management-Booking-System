@@ -16,6 +16,7 @@ namespace CarManagementBookingGUI
 {
     public partial class frmCarManagement : Form
     {
+        public TblUser curUser { get; set; }
         BindingSource source;
         public static bool isUpdate = false;
         bool isSearch = false, isFilter = false, isSearchById = false, isSearchByName = false, isRdPrice = false, isRdStock = false;
@@ -184,6 +185,7 @@ namespace CarManagementBookingGUI
             {
                 isUpdate = false,
                 curCar = GetCurrentCar(),
+                curUser = curUser
             };
             frmCarDetail.ShowDialog();
             this.Close();
@@ -196,20 +198,38 @@ namespace CarManagementBookingGUI
 
         private void dgvCarsList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            this.Hide();
-            frmCarDetail frm = new frmCarDetail()
+            try
             {
-                isUpdate = true,
-                curCar = GetCurrentCar(),
-            };
-            frm.ShowDialog();
-            this.Close();
+                if (int.Parse(txtIsDeleted.Text) == 1)
+                {
+                    throw new Exception("This car can not be updated because it was deleted!");
+                }
+                else
+                {
+                    this.Hide();
+                    frmCarDetail frm = new frmCarDetail()
+                    {
+                        isUpdate = true,
+                        curCar = GetCurrentCar(),
+                        curUser = curUser
+                    };
+                    frm.ShowDialog();
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Update Car", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmStaff frmStaff = new frmStaff();
+            frmStaff frmStaff = new frmStaff()
+            {
+                curUser = curUser
+            };
             frmStaff.ShowDialog();
             this.Close();
         }
@@ -299,6 +319,10 @@ namespace CarManagementBookingGUI
             try
             {
                 isSearch = true;
+                if (txtSearchValue.Text.Trim().Length == 0)
+                {
+                    throw new Exception("Please fill out the field, enter only blank character is not allowed!");
+                }
 
                 if (isSearch)
                 {
@@ -339,7 +363,7 @@ namespace CarManagementBookingGUI
         {
             try
             {
-                if (txtFrom.Text.Length == 0 && txtTo.Text.Length == 0)
+                if (txtFrom.Text.Trim().Length == 0 && txtTo.Text.Trim().Length == 0)
                 {
                     throw new Exception("Please fill out at least one field!");
                 }

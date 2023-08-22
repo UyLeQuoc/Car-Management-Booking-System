@@ -52,7 +52,7 @@ namespace CarManagementBookingGUI
                 DateTime bookDate = bookingDate;
                 DateTime expiredDate = txtBookingExpired.Value;
                 int returnStatusChanged = int.Parse(txtReturnStatus.Text);
-                if (expiredDate.CompareTo(bookDate) < 0)
+                if (expiredDate.CompareTo(bookDate) <= 0)
                 {
                     throw new Exception("Expired date must be after booking date!");
                 }

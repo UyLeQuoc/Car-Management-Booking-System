@@ -22,24 +22,35 @@ namespace CarManagementBookingGUI
 
         private void btnCars_Click(object sender, EventArgs e)
         {
-            frmCarManagement frm = new frmCarManagement();
+
+            this.Hide();
+            frmCarManagement frm = new frmCarManagement()
+            {
+                curUser = curUser,
+            };
+
             frm.ShowDialog();
         }
 
         private void btnBookings_Click(object sender, EventArgs e)
         {
-            frmBookingManagement frm = new frmBookingManagement();
+
+            this.Hide();
+            frmBookingManagement frm = new frmBookingManagement()
+            {
+                curUser = curUser
+            };
+
             frm.ShowDialog();
         }
 
         private void frmStaff_Load(object sender, EventArgs e)
         {
-
+            txtUserName.Text = curUser.FullName;
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
-            txtUserName.Text = curUser.FullName;
         }
 
         private void button4_Click(object sender, EventArgs e)
