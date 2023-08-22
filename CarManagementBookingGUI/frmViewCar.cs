@@ -45,7 +45,7 @@ namespace CarManagementBookingGUI
                     btnLogin.Visible = false;
                     btnSignUp.Visible = false;
                     Login.Text = "Welcome " + GetInfoUser.FullName;
-                    listCar = carRepo.ViewListCar();    
+                    listCar = carRepo.ViewListCar();
                     var cars = from car in listCar
                                select new { car.CarName, car.CarPlate, car.PricePerHour, car.Brand.BrandName, car.Model.ModelName };
                     source = new BindingSource();
@@ -76,6 +76,7 @@ namespace CarManagementBookingGUI
                 {
                     Login.Visible = false;
                     btnViewOrder.Visible = false;
+                    btnLogOut.Visible = false;
                     listCar = carRepo.ViewListCar();
                     var cars = from car in listCar
                                select new { car.CarName, car.CarPlate, car.PricePerHour, car.Brand.BrandName, car.Model.ModelName };
@@ -126,15 +127,29 @@ namespace CarManagementBookingGUI
             Hide();
             frmSignUp frmSignUp = new frmSignUp();
             frmSignUp.ShowDialog();
-            Close();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string value = txtSearchValue.Text;
-            IEnumerable<TblCar> searchCar = carRepo.SearchCarByName(value);
-            listCar = searchCar;
-            LoadData();
+            IEnumerable<TblCar> searchCar = carRepo.SearchCarByName(value.Trim());
+            if(value.Trim().Length == 0)
+            {
+                MessageBox.Show("Do not allow Empty!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            else
+            {
+                if (searchCar.Any())
+                {
+                    listCar = searchCar;
+                    LoadData();
+                }
+                else
+                {
+                    MessageBox.Show("Car is not found!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }           
         }
 
         public void LoadData()
@@ -271,47 +286,70 @@ namespace CarManagementBookingGUI
             decimal from = txtFrom.Value;
             decimal to = txtTo.Value;
             IEnumerable<TblCar> filterCar = carRepo.FilterCars(from, to);
-            listCar = filterCar;
-            LoadData();
+            if (filterCar.Any())
+            {
+                listCar = filterCar;
+                LoadData();
+            }
+            else
+            {
+                MessageBox.Show("Car is not found!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
-        private void btnAddCart_Click(object sender, EventArgs e)
+        private void btnChooseTime_Click(object sender, EventArgs e)
         {
-
-
             if (GetCountinView != 0)
             {
-                foreach (var tmp in GetListOrderinCreate)
+                if (!GetListOrderinCreate.Any())
                 {
-                    int i = GetListOrderinCreate.Count;
-                    if (txtCarPlate.Text.Equals(tmp.Value.CarPlate))
+                    GetCarPlate = txtCarPlate.Text;
+                    Hide();
+                    frmChooseTime frmChooseTime = new frmChooseTime()
                     {
-                        MessageBox.Show("This Car is already in Cart", "Notifi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        break;
-                    }
-                    if (i == GetListOrderinCreate.Count)
+                        GetCarPlateinDetail = GetCarPlate,
+                        GetCountinBookingTime = GetCountinView,
+                        checkEmptyinBookingTime = checkEmptyinView,
+                        GetInfoUserinDetail = GetInfoUser,
+                        GetListOrderinBookingTime = GetListOrderinCreate,
+                    };
+                    frmChooseTime.ShowDialog();
+                    Close();
+                }
+                else
+                {
+                    foreach (var tmp in GetListOrderinCreate)
                     {
-                        GetCarPlate = txtCarPlate.Text;
-                        Hide();
-                        frmChooseTime frmDetail = new frmChooseTime()
+                        int i = GetListOrderinCreate.Count;
+                        if (txtCarPlate.Text.Equals(tmp.Value.CarPlate))
                         {
-                            GetCarPlateinDetail = GetCarPlate,
-                            GetCountinBookingTime = GetCountinView,
-                            checkEmptyinBookingTime = checkEmptyinView,
-                            GetInfoUserinDetail = GetInfoUser,
-                            GetListOrderinBookingTime = GetListOrderinCreate,
-                        };
-                        frmDetail.ShowDialog();
-                        Close();
+                            MessageBox.Show("This Car is already in Cart", "Notifi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            break;
+                        }
+                        if (i == GetListOrderinCreate.Count)
+                        {
+                            GetCarPlate = txtCarPlate.Text;
+                            Hide();
+                            frmChooseTime frmChooseTime = new frmChooseTime()
+                            {
+                                GetCarPlateinDetail = GetCarPlate,
+                                GetCountinBookingTime = GetCountinView,
+                                checkEmptyinBookingTime = checkEmptyinView,
+                                GetInfoUserinDetail = GetInfoUser,
+                                GetListOrderinBookingTime = GetListOrderinCreate,
+                            };
+                            frmChooseTime.ShowDialog();
+                            Close();
+                        }
                     }
                 }
             }
             else
             {
                 GetCarPlate = txtCarPlate.Text;
-
                 Hide();
-                frmChooseTime frmDetail = new frmChooseTime()
+                frmChooseTime frmChooseTime = new frmChooseTime()
                 {
                     GetCarPlateinDetail = GetCarPlate,
                     GetCountinBookingTime = GetCountinView,
@@ -319,7 +357,7 @@ namespace CarManagementBookingGUI
                     GetInfoUserinDetail = GetInfoUser,
                     GetListOrderinBookingTime = GetListOrderinCreate,
                 };
-                frmDetail.ShowDialog();
+                frmChooseTime.ShowDialog();
                 Close();
             }
 
@@ -327,9 +365,9 @@ namespace CarManagementBookingGUI
 
         private void btnViewCart_Click(object sender, EventArgs e)
         {
-            if (checkEmptyinView == 0)
+            if (checkEmptyinView == 0)// Khi View người dùng nhấp vào View Cart
             {
-                if (GetCountinView != 0)
+                if (GetCountinView != 0)//
                 {
                     Hide();
                     checkEmptyinView++;
@@ -385,6 +423,14 @@ namespace CarManagementBookingGUI
                 checkEmptyinOrder = checkEmptyinView,
             };
             frmOrder.ShowDialog();
+            Close();
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Hide();
+            frmViewCar frmViewCar = new frmViewCar() { };
+            frmViewCar.ShowDialog();
             Close();
         }
     }

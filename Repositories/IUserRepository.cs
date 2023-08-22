@@ -15,6 +15,8 @@ namespace Repositories
 
         public List<TblUser> GetAllUsers();
 
+        public List<TblUser> GetAllUsersWithAdmin();
+
         public void UpdateAUser(TblUser user);
 
         public void DeleteAUser(TblUser user);

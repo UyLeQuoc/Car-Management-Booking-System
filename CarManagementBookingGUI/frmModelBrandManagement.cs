@@ -61,6 +61,7 @@ namespace CarManagementBookingGUI
 
                 dgvBrand.DataSource = null;
                 dgvBrand.DataSource = sourceBrand;
+                dgvBrand.Columns["TblCars"].Visible = false;
 
             }
             catch (Exception msg)
@@ -158,6 +159,7 @@ namespace CarManagementBookingGUI
 
                 dgvModel.DataSource = null;
                 dgvModel.DataSource = sourceModel;
+                dgvModel.Columns["TblCars"].Visible = false;
 
             }
             catch (Exception msg)

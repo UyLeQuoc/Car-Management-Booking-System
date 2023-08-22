@@ -34,7 +34,7 @@
             label1 = new System.Windows.Forms.Label();
             btnViewProfile = new System.Windows.Forms.Button();
             txtWelcomeName = new System.Windows.Forms.Label();
-            button4 = new System.Windows.Forms.Button();
+            btnLogout = new System.Windows.Forms.Button();
             SuspendLayout();
             // 
             // btnUserMangement
@@ -55,6 +55,7 @@
             button1.TabIndex = 1;
             button1.Text = "Car Management";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // btnBrandModel
             // 
@@ -96,21 +97,22 @@
             txtWelcomeName.TabIndex = 6;
             txtWelcomeName.Text = "&full name";
             // 
-            // button4
+            // btnLogout
             // 
-            button4.Location = new System.Drawing.Point(314, 78);
-            button4.Name = "button4";
-            button4.Size = new System.Drawing.Size(75, 23);
-            button4.TabIndex = 7;
-            button4.Text = "Logout";
-            button4.UseVisualStyleBackColor = true;
+            btnLogout.Location = new System.Drawing.Point(314, 78);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new System.Drawing.Size(75, 23);
+            btnLogout.TabIndex = 7;
+            btnLogout.Text = "Logout";
+            btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
             // 
             // frmMain
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(629, 270);
-            Controls.Add(button4);
+            Controls.Add(btnLogout);
             Controls.Add(txtWelcomeName);
             Controls.Add(btnViewProfile);
             Controls.Add(label1);
@@ -134,5 +136,6 @@
 
         private System.Windows.Forms.Label txtWelcomeName;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnLogout;
     }
 }

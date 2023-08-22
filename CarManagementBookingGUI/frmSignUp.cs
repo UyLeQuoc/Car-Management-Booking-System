@@ -87,7 +87,7 @@ namespace CarManagementBookingGUI
                         RoleId = "Member",
                         IsDeleted = 0
                     };
-                    if (MessageBox.Show("Confirm to sign up?", "Sign up", MessageBoxButtons.YesNo, 
+                    if (MessageBox.Show("Confirm to sign up?", "Sign up", MessageBoxButtons.YesNo,
                         MessageBoxIcon.Warning) == DialogResult.Yes)
                     {
                         // sign up a user
@@ -95,9 +95,12 @@ namespace CarManagementBookingGUI
                         MessageBox.Show("Sign up success!", "Sign up", MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
                         this.Close();
+                        frmLogin frmLogin = new frmLogin();
+                        frmLogin.Show();
                     }
                 }
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Sign up error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -110,6 +113,13 @@ namespace CarManagementBookingGUI
             txtAddress.Text = string.Empty;
             txtPassword.Text = string.Empty;
             txtConfirm.Text = string.Empty;
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            frmViewCar frmViewCar = new frmViewCar();
+            frmViewCar.Show();
+            this.Close();
         }
     }
 }
