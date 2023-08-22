@@ -142,6 +142,7 @@
             // 
             txtConfirm.Location = new System.Drawing.Point(94, 145);
             txtConfirm.Name = "txtConfirm";
+            txtConfirm.PasswordChar = '*';
             txtConfirm.Size = new System.Drawing.Size(184, 23);
             txtConfirm.TabIndex = 59;
             // 

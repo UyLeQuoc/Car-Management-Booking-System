@@ -120,7 +120,7 @@ namespace DataAccessObjects
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw new Exception("There are a car with this model in store! Cannot Delete!");
             }
         }
 
