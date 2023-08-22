@@ -35,6 +35,12 @@ namespace CarManagementBookingGUI
 
         private void frmUserManagement_Load(object sender, EventArgs e)
         {
+            txtUserID.Enabled = false;
+            txtFullname.Enabled = false;
+            txtAddress.Enabled = false;
+            txtEmail.Enabled = false;
+            txtPassword.Enabled = false;
+            cbRole.Enabled = false;
             LoadList();
         }
 
@@ -80,11 +86,8 @@ namespace CarManagementBookingGUI
                 loginUser = this.loginUser,
             };
 
-            if (frmUserDetail.ShowDialog() == DialogResult.OK)
-            {
-                LoadList();
-                source.Position = source.Count - 1;
-            }
+            frmUserDetail.ShowDialog();
+            LoadList();
         }
 
         private void dgvMemberList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -203,19 +206,16 @@ namespace CarManagementBookingGUI
         {
             try
             {
-                string searchValue = txtSearchValue.Text;
+                var searchValue = txtSearchValue.Text;
                 if (radioByID.Checked)
                 {
                     int searchID = int.Parse(searchValue);
                     List<TblUser> searchResult = userRepository.SearchUserById(searchID);
-                    if (searchResult.Count != 0)
+
+                    if (searchResult != null)
                     {
-                        this.dataSource = searchResult;
-                        this.searchResult = searchResult;
-                        this.filterResult = searchResult;
-                        filter = false;
-                        search = true;
-                        LoadUserList();
+                        dgvMemberList.DataSource = null;
+                        dgvMemberList.DataSource = searchResult;
                     }
                     else
                     {

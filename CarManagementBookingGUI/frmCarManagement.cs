@@ -21,7 +21,7 @@ namespace CarManagementBookingGUI
         bool isSearch = false, isFilter = false, isSearchById = false, isSearchByName = false, isRdPrice = false, isRdStock = false;
         SqlConnection conn = new SqlConnection(CarBookingManagementContext.GetConnectionString());
         ICarRepository carRepository = new CarRepository();
-        IBookingDetailRepository bookingDetailRepository = new BookingDetailRepository();   
+        IBookingDetailRepository bookingDetailRepository = new BookingDetailRepository();
         public frmCarManagement()
         {
             InitializeComponent();

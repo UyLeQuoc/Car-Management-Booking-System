@@ -101,11 +101,12 @@ namespace CarManagementBookingGUI
                         "Sign up", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     checkValidation = false;
                 }
-
-                if (InsertOrUpdate)
+                if (checkValidation)
                 {
-                    if (checkValidation)
+
+                    if (InsertOrUpdate)
                     {
+
                         TblUser user = new TblUser()
                         {
                             FullName = fullName,
@@ -122,14 +123,12 @@ namespace CarManagementBookingGUI
                             UserRepository.AddAUser(user);
                             MessageBox.Show("Create user success!", "Create user", MessageBoxButtons.OK,
                                 MessageBoxIcon.Information);
-                            Close();
+                            this.Close();
                         }
                     }
-                }
-                else
-                {
-                    if (checkValidation)
+                    else
                     {
+
                         TblUser user = new TblUser()
                         {
                             UserId = tblUser.UserId,
@@ -147,11 +146,10 @@ namespace CarManagementBookingGUI
                             UserRepository.UpdateAUser(user);
                             MessageBox.Show("Update user success!", "Update user", MessageBoxButtons.OK,
                                 MessageBoxIcon.Information);
-                            Close();
+                            this.Close();
                         }
                     }
                 }
-
             }
             catch (Exception ex)
             {

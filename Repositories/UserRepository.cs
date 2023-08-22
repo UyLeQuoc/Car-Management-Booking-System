@@ -19,6 +19,8 @@ namespace Repositories
 
         public List<TblUser> GetAllUsers() => UserDAO.Instance.GetAllUsers();
 
+        public List<TblUser> GetAllUsersWithAdmin() => UserDAO.Instance.GetAllUsersWithAdmin();
+
         public TblUser GetAUser(string id) => UserDAO.Instance.GetUser(int.Parse(id));
 
         public TblUser GetAUser(int id) => UserDAO.Instance.GetUser(id);

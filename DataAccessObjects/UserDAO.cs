@@ -65,8 +65,23 @@ namespace DataAccessObjects
             {
                 var context = new CarBookingManagementContext();
                 users = context.TblUsers.Where(x => x.IsDeleted == 0).ToList();
-                users = users.Prepend(GetAdminAccount()).ToList();
             } catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return users;
+        }
+
+        public List<TblUser> GetAllUsersWithAdmin()
+        {
+            List<TblUser> users = null;
+            try
+            {
+                var context = new CarBookingManagementContext();
+                users = context.TblUsers.Where(x => x.IsDeleted == 0).ToList();
+                users = users.Prepend(GetAdminAccount()).ToList();
+            }
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
@@ -85,10 +100,17 @@ namespace DataAccessObjects
         public List<TblUser> SearchUserById(int id)
         {
             List<TblUser> users = GetAllUsers();
-
-            users = users.Where(user => user.UserId == id).ToList();
-
-            return users;
+            List<TblUser> result = new List<TblUser>();
+            TblUser u = users.SingleOrDefault(user => user.UserId == id);
+            if (u != null)
+            {
+                result.Add(u);
+            }
+            else
+            {
+                throw new Exception("Not Found!");
+            }
+            return result;
         }
 
 
@@ -97,7 +119,7 @@ namespace DataAccessObjects
             TblUser user = null;
             try
             {
-                var context = GetAllUsers();
+                var context = GetAllUsersWithAdmin();
                 user = context.SingleOrDefault(us => us.Email.Equals(email) && us.Password.Equals(password));
             } catch (Exception ex)
             {
