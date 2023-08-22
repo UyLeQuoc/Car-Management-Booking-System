@@ -96,7 +96,7 @@ namespace CarManagementBookingGUI
 
             if (check)
             {
-                if (MessageBox.Show("Are you sure to Update?", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Question) == DialogResult.OK)
+                if (MessageBox.Show("Are you sure to Update?", "Notification", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
                     foreach (var tmp in GetListOrderinUpdateCart)
                     {

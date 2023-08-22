@@ -65,7 +65,7 @@ namespace DataAccessObjects
             try
             {
                 var context = new CarBookingManagementContext();
-                IEnumerable<TblCar> carList = context.TblCars.Include(x => x.Brand).Include(x => x.Model).Where(x => x.CarId == carID && x.IsDeleted == 0);
+                IEnumerable<TblCar> carList = context.TblCars.Include(x => x.Brand).Include(x => x.Model).Where(x => x.CarId == carID);
                 return carList;
             }
             catch (Exception ex)
@@ -79,7 +79,33 @@ namespace DataAccessObjects
             try
             {
                 var context = new CarBookingManagementContext();
+                IEnumerable<TblCar> carList = context.TblCars.Include(x => x.Brand).Include(x => x.Model).Where(x => x.CarName.ToLower().Contains(carName.Trim().ToLower()));
+                return carList;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        public IEnumerable<TblCar> SearchCarByNameMember(string carName)
+        {
+            try
+            {
+                var context = new CarBookingManagementContext();
                 IEnumerable<TblCar> carList = context.TblCars.Include(x => x.Brand).Include(x => x.Model).Where(x => x.CarName.ToLower().Contains(carName.Trim().ToLower()) && x.IsDeleted == 0);
+                return carList;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        public IEnumerable<TblCar> SearchCarByIDMember(int carID)
+        {
+            try
+            {
+                var context = new CarBookingManagementContext();
+                IEnumerable<TblCar> carList = context.TblCars.Include(x => x.Brand).Include(x => x.Model).Where(x => x.CarId == carID && x.IsDeleted == 0);
                 return carList;
             }
             catch (Exception ex)

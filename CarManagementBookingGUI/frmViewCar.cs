@@ -118,21 +118,33 @@ namespace CarManagementBookingGUI
         private void btnLogin_Click(object sender, EventArgs e)
         {
             Hide();
-            frmLogin frmLogin = new frmLogin();
+            frmLogin frmLogin = new frmLogin() 
+            {
+                GetListOrderinLogin = GetListOrderinCreate,
+                GetCountinLogin = GetCountinView,
+                checkEmptyinLogin = checkEmptyinView,
+            };
             frmLogin.ShowDialog();
+            Close();
         }
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
             Hide();
-            frmSignUp frmSignUp = new frmSignUp();
-            frmSignUp.ShowDialog();
+            frmSignUp frmSignUpp = new frmSignUp() 
+            {
+                GetListOrderinSignUp = GetListOrderinCreate,
+                GetCountinSignUp = GetCountinView,
+                checkEmptyinSignUp = checkEmptyinView
+            };
+            frmSignUpp.ShowDialog();
+            Close();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string value = txtSearchValue.Text;
-            IEnumerable<TblCar> searchCar = carRepo.SearchCarByName(value.Trim());
+            IEnumerable<TblCar> searchCar = carRepo.SearchCarByNameMember(value.Trim());
             if (value.Trim().Length == 0)
             {
                 MessageBox.Show("Do not allow Empty!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Error);
