@@ -39,5 +39,7 @@ namespace Repositories
 
 
         public void UpdateCar(TblCar car) => CarDAO.Instance.UpdateCar(car);
+
+        public IEnumerable<TblCar> FilterCarsMember(decimal from, decimal to) => CarDAO.Instance.FilterCarsMember(from, to);
     }
 }

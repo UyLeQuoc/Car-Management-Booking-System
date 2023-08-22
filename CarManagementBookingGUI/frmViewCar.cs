@@ -285,7 +285,7 @@ namespace CarManagementBookingGUI
         {
             decimal from = txtFrom.Value;
             decimal to = txtTo.Value;
-            IEnumerable<TblCar> filterCar = carRepo.FilterCars(from, to);
+            IEnumerable<TblCar> filterCar = carRepo.FilterCarsMember(from, to);
             if (filterCar.Any())
             {
                 listCar = filterCar;

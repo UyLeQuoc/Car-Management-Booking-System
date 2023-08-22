@@ -20,7 +20,9 @@ namespace CarManagementBookingGUI
         {
             InitializeComponent();
         }
-
+        public Dictionary<TblBookingDetail, TblCar> GetListOrderinSignUp { get; set; }
+        public int checkEmptyinSignUp { get; set; }
+        public int GetCountinSignUp { get; set; }
         private void frmSignUp_Load(object sender, EventArgs e)
         {
 
@@ -28,6 +30,7 @@ namespace CarManagementBookingGUI
 
         private void btSignup_Click(object sender, EventArgs e)
         {
+            IEnumerable<TblUser> listUser = _userRepo.GetAllUsers();
             bool checkValidation = true;
             var emailValidation = new EmailAddressAttribute();
 
@@ -40,6 +43,7 @@ namespace CarManagementBookingGUI
             // email validation
             try
             {
+               
                 bool checkEmail = emailValidation.IsValid(email);
                 if (checkEmail == false)
                 {
@@ -75,6 +79,19 @@ namespace CarManagementBookingGUI
                         "Sign up", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     checkValidation = false;
                 }
+                else
+                {
+                    foreach (var tmp in listUser)
+                    {
+                        if (tmp.Email.Equals(txtEmail.Text))
+                        {
+                            MessageBox.Show("Email is already exist!",
+                                "Sign up", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            checkValidation = false;
+                            break;
+                        }
+                    }
+                }
 
                 if (checkValidation)
                 {
@@ -94,9 +111,11 @@ namespace CarManagementBookingGUI
                         _userRepo.AddAUser(user);
                         MessageBox.Show("Sign up success!", "Sign up", MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
-                        this.Close();
+                        this.Hide();
                         frmLogin frmLogin = new frmLogin();
-                        frmLogin.Show();
+                        frmLogin.ShowDialog();
+                        this.Close();
+
                     }
                 }
             }
@@ -117,9 +136,15 @@ namespace CarManagementBookingGUI
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            frmViewCar frmViewCar = new frmViewCar();
+            Hide();
+            frmViewCar frmViewCar = new frmViewCar() 
+            {
+                GetListOrderinCreate = GetListOrderinSignUp,
+                GetCountinView = GetCountinSignUp,
+                checkEmptyinView = checkEmptyinSignUp,
+            };
             frmViewCar.Show();
-            this.Close();
+            Close();
         }
     }
 }

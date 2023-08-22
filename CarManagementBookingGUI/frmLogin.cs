@@ -20,7 +20,7 @@ namespace CarManagementBookingGUI
         IUserRepository _userRepo = new UserRepository();
         private static readonly string ADMIN_ROLE = "Admin";
         private static readonly string STAFF_ROLE = "Staff";
-        private static readonly string MEMBER_ROLE = "user";
+        private static readonly string MEMBER_ROLE = "Member";
 
         public frmLogin()
         {
@@ -99,16 +99,26 @@ namespace CarManagementBookingGUI
 
         private void btSignup_Click(object sender, EventArgs e)
         {
-            this.Close();
-            frmSignUp frmSignUp = new frmSignUp();
-            frmSignUp.Show();
+            frmSignUp frmSignUp = new frmSignUp()
+            {
+                GetListOrderinSignUp = GetListOrderinLogin,
+                GetCountinSignUp = GetCountinLogin,
+                checkEmptyinSignUp = checkEmptyinLogin,
+            };
+            frmSignUp.ShowDialog();
         }
 
         private void btBack_Click(object sender, EventArgs e)
         {
-            this.Close();
-            frmViewCar frmViewCar = new frmViewCar();
-            frmViewCar.Show();
+            Hide();
+            frmViewCar frmViewCar = new frmViewCar() 
+            {
+                GetListOrderinCreate = GetListOrderinLogin,
+                GetCountinView = GetCountinLogin,
+                checkEmptyinView= checkEmptyinLogin,
+            };
+            frmViewCar.ShowDialog();
+            Close();
         }
     }
 }

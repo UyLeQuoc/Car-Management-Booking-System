@@ -65,7 +65,7 @@ namespace DataAccessObjects
             try
             {
                 var context = new CarBookingManagementContext();
-                IEnumerable<TblCar> carList = context.TblCars.Include(x => x.Brand).Include(x => x.Model).Where(x => x.CarId == carID);
+                IEnumerable<TblCar> carList = context.TblCars.Include(x => x.Brand).Include(x => x.Model).Where(x => x.CarId == carID && x.IsDeleted == 0);
                 return carList;
             }
             catch (Exception ex)
@@ -79,7 +79,32 @@ namespace DataAccessObjects
             try
             {
                 var context = new CarBookingManagementContext();
-                IEnumerable<TblCar> carList = context.TblCars.Include(x => x.Brand).Include(x => x.Model).Where(x => x.CarName.ToLower().Contains(carName.Trim().ToLower()));
+                IEnumerable<TblCar> carList = context.TblCars.Include(x => x.Brand).Include(x => x.Model).Where(x => x.CarName.ToLower().Contains(carName.Trim().ToLower()) && x.IsDeleted == 0);
+                return carList;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        public IEnumerable<TblCar> FilterCarsMember(decimal from, decimal to)
+        {
+            try
+            {
+                var context = new CarBookingManagementContext();
+                IEnumerable<TblCar> carList = null;
+                if (to == -100)
+                {
+                    carList = context.TblCars.Include(x => x.Brand).Include(x => x.Model).Where(x => x.PricePerHour >= from && x.IsDeleted == 0);
+                }
+                else if (from == -100)
+                {
+                    carList = context.TblCars.Include(x => x.Brand).Include(x => x.Model).Where(x => x.PricePerHour <= to && x.IsDeleted == 0);
+                }
+                else
+                {
+                    carList = context.TblCars.Include(x => x.Brand).Include(x => x.Model).Where(x => x.PricePerHour >= from && x.PricePerHour <= to && x.IsDeleted == 0);
+                }
                 return carList;
             }
             catch (Exception ex)
