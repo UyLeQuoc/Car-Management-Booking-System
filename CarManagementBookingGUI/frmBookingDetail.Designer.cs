@@ -43,7 +43,7 @@
             // 
             // btnBack
             // 
-            btnBack.Location = new System.Drawing.Point(276, 529);
+            btnBack.Location = new System.Drawing.Point(248, 519);
             btnBack.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             btnBack.Name = "btnBack";
             btnBack.Size = new System.Drawing.Size(139, 48);
@@ -55,20 +55,20 @@
             // dgvOrderList
             // 
             dgvOrderList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvOrderList.Location = new System.Drawing.Point(76, 152);
+            dgvOrderList.Location = new System.Drawing.Point(72, 134);
             dgvOrderList.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             dgvOrderList.Name = "dgvOrderList";
             dgvOrderList.ReadOnly = true;
             dgvOrderList.RowHeadersWidth = 51;
             dgvOrderList.RowTemplate.Height = 25;
             dgvOrderList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            dgvOrderList.Size = new System.Drawing.Size(488, 359);
+            dgvOrderList.Size = new System.Drawing.Size(488, 377);
             dgvOrderList.TabIndex = 46;
             // 
             // txtPrice
             // 
             txtPrice.Enabled = false;
-            txtPrice.Location = new System.Drawing.Point(117, 74);
+            txtPrice.Location = new System.Drawing.Point(121, 75);
             txtPrice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             txtPrice.Name = "txtPrice";
             txtPrice.Size = new System.Drawing.Size(154, 27);
@@ -77,7 +77,7 @@
             // lbMember
             // 
             lbMember.AutoSize = true;
-            lbMember.Location = new System.Drawing.Point(32, 77);
+            lbMember.Location = new System.Drawing.Point(44, 80);
             lbMember.Name = "lbMember";
             lbMember.Size = new System.Drawing.Size(41, 20);
             lbMember.TabIndex = 42;
@@ -86,7 +86,7 @@
             // txtCarName
             // 
             txtCarName.Enabled = false;
-            txtCarName.Location = new System.Drawing.Point(117, 39);
+            txtCarName.Location = new System.Drawing.Point(121, 35);
             txtCarName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             txtCarName.Name = "txtCarName";
             txtCarName.Size = new System.Drawing.Size(154, 27);
@@ -95,7 +95,7 @@
             // lbCarName
             // 
             lbCarName.AutoSize = true;
-            lbCarName.Location = new System.Drawing.Point(32, 42);
+            lbCarName.Location = new System.Drawing.Point(44, 38);
             lbCarName.Name = "lbCarName";
             lbCarName.Size = new System.Drawing.Size(71, 20);
             lbCarName.TabIndex = 40;
@@ -104,7 +104,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(310, 74);
+            label3.Location = new System.Drawing.Point(302, 78);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(114, 20);
             label3.TabIndex = 51;
@@ -113,7 +113,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(310, 39);
+            label2.Location = new System.Drawing.Point(302, 40);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(96, 20);
             label2.TabIndex = 50;
@@ -123,7 +123,7 @@
             // 
             txtDate.Enabled = false;
             txtDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            txtDate.Location = new System.Drawing.Point(439, 36);
+            txtDate.Location = new System.Drawing.Point(422, 35);
             txtDate.Name = "txtDate";
             txtDate.Size = new System.Drawing.Size(166, 27);
             txtDate.TabIndex = 49;
@@ -132,7 +132,7 @@
             // 
             txtExpired.Enabled = false;
             txtExpired.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            txtExpired.Location = new System.Drawing.Point(439, 74);
+            txtExpired.Location = new System.Drawing.Point(422, 73);
             txtExpired.Name = "txtExpired";
             txtExpired.Size = new System.Drawing.Size(166, 27);
             txtExpired.TabIndex = 48;
@@ -141,7 +141,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(636, 590);
+            ClientSize = new System.Drawing.Size(636, 582);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(txtDate);

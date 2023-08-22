@@ -77,16 +77,20 @@ namespace CarManagementBookingGUI
                     };
 
                 }
-                else
+                else if(bookingDate.CompareTo(bookingExpired) >= 0)
                 {
-                    if (bookingDate.CompareTo(bookingExpired) >= 0)
+                    if (MessageBox.Show("The BookingDate required greater than BookingExpired", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                     {
-                        if (MessageBox.Show("The BookingDate required greater than BookingExpired", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
-                        {
-                            check = false;
-                            break;
-                        };
-                    }
+                        check = false;
+                        break;
+                    };
+                }else if(bookingDate.CompareTo(DateTime.Now.ToString("MM-dd-yyyy")) <= 0)
+                {
+                    if (MessageBox.Show("The BookingDate required greater than DateNow", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                    {
+                        check = false;
+                        break;
+                    };
                 }
             }
 
