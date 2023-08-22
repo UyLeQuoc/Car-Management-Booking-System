@@ -85,6 +85,13 @@ In conclusion, deploying the Car Booking Management Project necessitates meticul
 - Open Solution In Visual Studio 2019/2022: `GroupProject_PRN211_3W_CarManagementBookingSystem.sln`
 - `dotnet run`
 
+# Contact
+## Member:
+- Nguyễn Tiến Dũng - nguyentiendung2003@gmail.com - [Github](https://github.com/NTDung93)
+- Nguyễn Đức Sơn -  - [Github](https://github.com/Son-2003)
+- Vũ Long - nguyenducson2915@gmail.com - [Github](https://github.com/longvu2211)
+- Lê Quốc Uy - lequocuyit@gmail.com - [Github](mailto:lequocuyit@gmai.com)
+  
 ## Bug report or Feature request
 
 If you encounter a bug or have a feature request, [send us an email](mailto:lequocuyit@gmai.com), [create an issue](https://github.com/UyLeQuoc/dsc-force-graph/issues).
