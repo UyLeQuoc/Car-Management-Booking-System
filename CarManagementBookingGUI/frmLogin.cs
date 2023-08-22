@@ -99,6 +99,7 @@ namespace CarManagementBookingGUI
 
         private void btSignup_Click(object sender, EventArgs e)
         {
+            Hide();
             frmSignUp frmSignUp = new frmSignUp()
             {
                 GetListOrderinSignUp = GetListOrderinLogin,
@@ -106,6 +107,7 @@ namespace CarManagementBookingGUI
                 checkEmptyinSignUp = checkEmptyinLogin,
             };
             frmSignUp.ShowDialog();
+            Close();
         }
 
         private void btBack_Click(object sender, EventArgs e)
