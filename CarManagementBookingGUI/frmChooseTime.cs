@@ -1,4 +1,5 @@
 ﻿using BusinessObjects;
+using DataAccessObjects;
 using Repositories;
 using System;
 using System.Collections.Generic;
@@ -38,40 +39,46 @@ namespace CarManagementBookingGUI
 
             TblCar car = carRepo.GetCarByCarPlate(GetCarPlateinDetail);
             IEnumerable<TblBookingDetail> listcarorder = ordetail.GetListOrderDetail(car.CarId);
+            string bookingDate = txtDate.Value.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture);
+            string bookingExpired = txtExpried.Value.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture);
 
-            foreach (var item in listcarorder)
+
+
+            if (bookingDate.CompareTo(bookingExpired) >= 0)
             {
-                DateTime a = (DateTime)item.BookingDate;
-                DateTime ex = (DateTime)item.BookingExpired;
-                string bookingDateinData = a.ToString("MM-dd-yyyy", CultureInfo.InvariantCulture);
-                string bookingDate = txtDate.Value.ToString("MM-dd-yyyy", CultureInfo.InvariantCulture);
-                string bookingExpiredinData = ex.ToString("MM-dd-yyyy", CultureInfo.InvariantCulture);
-                string bookingExpired = txtExpried.Value.ToString("MM-dd-yyyy", CultureInfo.InvariantCulture);
-
-                if ((bookingDate.ToString().CompareTo(bookingDateinData) >= 0 && bookingDate.CompareTo(bookingExpiredinData) <= 0)
-                    || (bookingExpired.CompareTo(bookingDateinData) >= 0 && bookingExpired.CompareTo(bookingExpiredinData) <= 0))
+                if (MessageBox.Show("The BookingExpired required greater than BookingDate", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                 {
-                    if (MessageBox.Show($"This Car is already Booking from {bookingDateinData} to {bookingExpiredinData}" +
-                        $"Please Book car after {bookingExpiredinData}", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
-                    {
-                        check = false;
-                        break;
-                    };
-
-                }
-                else
+                    check = false;
+                };
+            }
+            else if(bookingDate.CompareTo(DateTime.Now.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture)) < 0)
+            {
+                if (MessageBox.Show("The BookingDate required greater than Now", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                 {
-                    if (bookingDate.CompareTo(bookingExpired) >= 0)
+                    check = false;
+                };
+            }
+            else
+            {
+                foreach (var item in listcarorder)
+                {
+
+                    string bookingDateinData = item.BookingDate.Value.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture);
+                    string bookingExpiredinData = item.BookingExpired.Value.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture);
+
+                    if ((bookingDate.ToString().CompareTo(bookingDateinData) >= 0 && bookingDate.CompareTo(bookingExpiredinData) <= 0)
+                        || (bookingExpired.CompareTo(bookingDateinData) >= 0 && bookingExpired.CompareTo(bookingExpiredinData) <= 0))
                     {
-                        if (MessageBox.Show("The BookingDate required greater than BookingExpired", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                        if (MessageBox.Show($"This Car is already Booking from {bookingDateinData} to {bookingExpiredinData}\n" +
+                            $"Please Book car after {bookingExpiredinData}", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                         {
                             check = false;
                             break;
                         };
+
                     }
                 }
-            }
-
+            }            
             if (check)
             {
                 if (GetCountinBookingTime == 0)

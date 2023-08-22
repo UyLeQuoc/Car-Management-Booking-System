@@ -273,43 +273,58 @@ namespace CarManagementBookingGUI
             LoadData();
         }
 
-        private void btnAddCart_Click(object sender, EventArgs e)
+        private void btnChooseTime_Click(object sender, EventArgs e)
         {
-
-
             if (GetCountinView != 0)
             {
-                foreach (var tmp in GetListOrderinCreate)
+                if (!GetListOrderinCreate.Any())
                 {
-                    int i = GetListOrderinCreate.Count;
-                    if (txtCarPlate.Text.Equals(tmp.Value.CarPlate))
+                    GetCarPlate = txtCarPlate.Text;
+                    Hide();
+                    frmChooseTime frmChooseTime = new frmChooseTime()
                     {
-                        MessageBox.Show("This Car is already in Cart", "Notifi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        break;
-                    }
-                    if (i == GetListOrderinCreate.Count)
-                    {
-                        GetCarPlate = txtCarPlate.Text;
-                        Hide();
-                        frmChooseTime frmDetail = new frmChooseTime()
-                        {
-                            GetCarPlateinDetail = GetCarPlate,
-                            GetCountinBookingTime = GetCountinView,
-                            checkEmptyinBookingTime = checkEmptyinView,
-                            GetInfoUserinDetail = GetInfoUser,
-                            GetListOrderinBookingTime = GetListOrderinCreate,
-                        };
-                        frmDetail.ShowDialog();
-                        Close();
-                    }
+                        GetCarPlateinDetail = GetCarPlate,
+                        GetCountinBookingTime = GetCountinView,
+                        checkEmptyinBookingTime = checkEmptyinView,
+                        GetInfoUserinDetail = GetInfoUser,
+                        GetListOrderinBookingTime = GetListOrderinCreate,
+                    };
+                    frmChooseTime.ShowDialog();
+                    Close();
                 }
+                else
+                {
+                    foreach (var tmp in GetListOrderinCreate)
+                    {
+                        int i = GetListOrderinCreate.Count;
+                        if (txtCarPlate.Text.Equals(tmp.Value.CarPlate))
+                        {
+                            MessageBox.Show("This Car is already in Cart", "Notifi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            break;
+                        }
+                        if (i == GetListOrderinCreate.Count)
+                        {
+                            GetCarPlate = txtCarPlate.Text;
+                            Hide();
+                            frmChooseTime frmChooseTime = new frmChooseTime()
+                            {
+                                GetCarPlateinDetail = GetCarPlate,
+                                GetCountinBookingTime = GetCountinView,
+                                checkEmptyinBookingTime = checkEmptyinView,
+                                GetInfoUserinDetail = GetInfoUser,
+                                GetListOrderinBookingTime = GetListOrderinCreate,
+                            };
+                            frmChooseTime.ShowDialog();
+                            Close();
+                        }
+                    }
+                }               
             }
             else
             {
                 GetCarPlate = txtCarPlate.Text;
-
                 Hide();
-                frmChooseTime frmDetail = new frmChooseTime()
+                frmChooseTime frmChooseTime = new frmChooseTime()
                 {
                     GetCarPlateinDetail = GetCarPlate,
                     GetCountinBookingTime = GetCountinView,
@@ -317,7 +332,7 @@ namespace CarManagementBookingGUI
                     GetInfoUserinDetail = GetInfoUser,
                     GetListOrderinBookingTime = GetListOrderinCreate,
                 };
-                frmDetail.ShowDialog();
+                frmChooseTime.ShowDialog();
                 Close();
             }
 
@@ -325,9 +340,9 @@ namespace CarManagementBookingGUI
 
         private void btnViewCart_Click(object sender, EventArgs e)
         {
-            if (checkEmptyinView == 0)
+            if (checkEmptyinView == 0)// Khi View người dùng nhấp vào View Cart
             {
-                if (GetCountinView != 0)
+                if (GetCountinView != 0)//
                 {
                     Hide();
                     checkEmptyinView++;
