@@ -220,7 +220,12 @@ namespace CarManagementBookingGUI
                     MessageBox.Show("Sign up success!", "Sign up", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
                     Hide();
-                    frmLogin frmLogin = new frmLogin();
+                    frmLogin frmLogin = new frmLogin() 
+                    {
+                        GetListOrderinLogin = GetListOrderinSignUp,
+                        GetCountinLogin = GetCountinSignUp,
+                        checkEmptyinLogin = checkEmptyinSignUp,
+                    };
                     frmLogin.ShowDialog();
                     Close();
 

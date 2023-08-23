@@ -39,19 +39,20 @@ namespace CarManagementBookingGUI
 
             TblCar car = carRepo.GetCarByCarPlate(GetCarPlateinDetail);
             IEnumerable<TblBookingDetail> listcarorder = ordetail.GetListOrderDetail(car.CarId);
-            string bookingDate = txtDate.Value.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture);
-            string bookingExpired = txtExpried.Value.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture);
+            DateTime date = txtDate.Value;
+            DateTime expired = txtExpried.Value;
+            
 
 
 
-            if (bookingDate.CompareTo(bookingExpired) >= 0)
+            if (date.CompareTo(expired) >= 0)
             {
                 if (MessageBox.Show("The BookingExpired required greater than BookingDate", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                 {
                     check = false;
                 };
             }
-            else if(bookingDate.CompareTo(DateTime.Now.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture)) < 0)
+            else if(date.CompareTo(DateTime.Now) < 0)
             {
                 if (MessageBox.Show("The BookingDate required greater than Now", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                 {
@@ -63,14 +64,16 @@ namespace CarManagementBookingGUI
                 foreach (var item in listcarorder)
                 {
 
-                    string bookingDateinData = item.BookingDate.Value.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture);
-                    string bookingExpiredinData = item.BookingExpired.Value.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture);
+                    DateTime bookingDateinData = item.BookingDate.Value;
+                    DateTime bookingExpiredinData = item.BookingExpired.Value;
+                    string bookingDate = txtDate.Value.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture);
+                    string bookingExpired = txtExpried.Value.ToString("dd-MM-yyyy", CultureInfo.InvariantCulture);
 
-                    if ((bookingDate.ToString().CompareTo(bookingDateinData) >= 0 && bookingDate.CompareTo(bookingExpiredinData) <= 0)
-                        || (bookingExpired.CompareTo(bookingDateinData) >= 0 && bookingExpired.CompareTo(bookingExpiredinData) <= 0))
+                    if ((date.CompareTo(bookingDateinData) >= 0 && date.CompareTo(bookingExpiredinData) <= 0)
+                        || (expired.CompareTo(bookingDateinData) >= 0 && expired.CompareTo(bookingExpiredinData) <= 0))
                     {
-                        if (MessageBox.Show($"This Car is already Booking from {bookingDateinData} to {bookingExpiredinData}\n" +
-                            $"Please Book car after {bookingExpiredinData}", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                        if (MessageBox.Show($"This Car is already Booking from {bookingDate} to {bookingExpired}\n" +
+                            $"Please Book car after {bookingExpired}", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                         {
                             check = false;
                             break;
