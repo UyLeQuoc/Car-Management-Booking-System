@@ -90,20 +90,20 @@ namespace CarManagementBookingGUI
                     "Sign up", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 checkValidation = false;
             }
-            //else
-            //{
-            //    foreach (var tmp in listUser)
-            //    {
-            //        checkValidation = false;
+            else
+            {
+                foreach (var tmp in listUser)
+                {
+                    checkValidation = false;
 
-            //        if (tmp.Email.Equals(txtEmail.Text))
-            //        {
-            //            MessageBox.Show("Email is already exist!",
-            //                "Sign up", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //            break;
-            //        }
-            //    }
-            //}
+                    if (tmp.Email.Equals(txtEmail.Text))
+                    {
+                        MessageBox.Show("Email is already exist!",
+                            "Sign up", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        break;
+                    }
+                }
+            }
 
             if (checkValidation)
             {
@@ -201,7 +201,6 @@ namespace CarManagementBookingGUI
                     }
                 }
             }
-            //
             if (checkValidation)
             {
                 TblUser user = new TblUser()
@@ -227,12 +226,10 @@ namespace CarManagementBookingGUI
                         GetCountinLogin = GetCountinSignUp,
                         checkEmptyinLogin = checkEmptyinSignUp,
                     };
+                    frmLogin frmLogin = new frmLogin();
                     frmLogin.ShowDialog();
                     Close();
-
                 }
-
-
             }
         }
     }
