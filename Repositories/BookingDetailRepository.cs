@@ -25,7 +25,7 @@ namespace Repositories
         public void UpdateBookingDetail(int bookingID, int carID, DateTime bookingExpired, int returnStatus) => BookingDetailDAO.UpdateBookingDetail(bookingID, carID, bookingExpired, returnStatus);
         public void InsertNewBookingDetail(int carid, int bookingid, double subprice, DateTime bookingDate, DateTime bookingExpired)
         {
-            BookingDetailDAO.Instance.InsertNewBookingDetail(carid, bookingid, subprice, bookingDate, bookingExpired);
+            BookingDetailDAO.Instane.InsertNewBookingDetail(carid, bookingid, subprice, bookingDate, bookingExpired);
         }
 
         public TblBookingDetail checkCarIsBooked(int carId) => BookingDetailDAO.checkCarIsBooked(carId);
