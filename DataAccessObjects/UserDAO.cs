@@ -21,7 +21,7 @@ namespace DataAccessObjects
             {
                 lock (instanceLock)
                 {
-                    if (instance == null)
+                    if (instance ======= null)
                     {
                         instance = new UserDAO();
                     }
